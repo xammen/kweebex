@@ -33,20 +33,31 @@ export const BRAND = {
     twitter: "https://twitter.com/kweebex",
   },
 
-  // Colors (Hytale-inspired palette)
+  // Colors (Hytale official palette)
   colors: {
-    primary: "#00A8E8",      // Hytale blue
-    primaryDark: "#0077B6",
-    secondary: "#FF6B35",    // Accent orange
-    success: "#10B981",
-    warning: "#F59E0B", 
-    error: "#EF4444",
+    primary: "#15243a",      // Hytale dark blue (main brand color)
+    primaryLight: "#1e3a5f", // Lighter variant
+    primaryDark: "#0d1829",  // Darker variant
+    accent: "#e8b923",       // Hytale gold/yellow accent
+    accentHover: "#f5c842",
+    secondary: "#3d7ea6",    // Hytale teal/cyan
+    success: "#4ade80",
+    warning: "#fbbf24", 
+    error: "#f87171",
     
-    // Background shades
+    // Text colors
+    text: {
+      primary: "#ffffff",
+      secondary: "#94a3b8",
+      muted: "#64748b",
+    },
+    
+    // Background shades (Hytale dark theme)
     background: {
-      dark: "#0F172A",
-      medium: "#1E293B",
-      light: "#334155",
+      dark: "#0d1829",       // Darkest
+      medium: "#15243a",     // Main Hytale blue
+      light: "#1e3a5f",      // Lighter panels
+      card: "#1a3050",       // Card backgrounds
     }
   },
 
