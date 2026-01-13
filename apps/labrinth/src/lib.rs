@@ -433,19 +433,17 @@ pub fn check_env_vars() -> bool {
         }
     }
 
-    // Required JSON arrays
+    // Optional JSON arrays (default to empty if not set or invalid)
     if parse_strings_from_var("WHITELISTED_MODPACK_DOMAINS").is_none() {
-        warn!(
-            "Variable `WHITELISTED_MODPACK_DOMAINS` missing in dotenv or not a json array of strings"
+        debug!(
+            "Variable `WHITELISTED_MODPACK_DOMAINS` not set or invalid - defaulting to empty array"
         );
-        failed |= true;
     }
 
     if parse_strings_from_var("ALLOWED_CALLBACK_URLS").is_none() {
-        warn!(
-            "Variable `ALLOWED_CALLBACK_URLS` missing in dotenv or not a json array of strings"
+        debug!(
+            "Variable `ALLOWED_CALLBACK_URLS` not set or invalid - defaulting to empty array"
         );
-        failed |= true;
     }
 
     // ========== OPTIONAL VARIABLES ==========
