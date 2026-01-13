@@ -356,11 +356,12 @@ pub fn utoipa_app_config(
 pub fn check_env_vars() -> bool {
     let mut failed = false;
 
-    fn check_var<T: std::str::FromStr>(var: &str) -> bool {
+    // Check a REQUIRED variable - missing = startup failure
+    fn check_required<T: std::str::FromStr>(var: &str) -> bool {
         let check = parse_var::<T>(var).is_none();
         if check {
             warn!(
-                "Variable `{}` missing in dotenv or not of type `{}`",
+                "REQUIRED variable `{}` missing in dotenv or not of type `{}`",
                 var,
                 std::any::type_name::<T>()
             );
@@ -368,45 +369,57 @@ pub fn check_env_vars() -> bool {
         check
     }
 
-    failed |= check_var::<String>("SITE_URL");
-    failed |= check_var::<String>("CDN_URL");
-    failed |= check_var::<String>("LABRINTH_ADMIN_KEY");
-    failed |= check_var::<String>("LABRINTH_EXTERNAL_NOTIFICATION_KEY");
-    failed |= check_var::<String>("RATE_LIMIT_IGNORE_KEY");
-    failed |= check_var::<String>("DATABASE_URL");
-    failed |= check_var::<String>("MEILISEARCH_ADDR");
-    failed |= check_var::<String>("MEILISEARCH_KEY");
-    failed |= check_var::<String>("REDIS_URL");
-    failed |= check_var::<String>("BIND_ADDR");
-    failed |= check_var::<String>("SELF_ADDR");
+    // Check an OPTIONAL variable - missing = warning only
+    fn check_optional<T: std::str::FromStr>(var: &str) {
+        if parse_var::<T>(var).is_none() {
+            debug!(
+                "Optional variable `{}` not set (type: `{}`)",
+                var,
+                std::any::type_name::<T>()
+            );
+        }
+    }
 
-    failed |= check_var::<String>("STORAGE_BACKEND");
+    // ========== CORE REQUIRED VARIABLES ==========
+    // These are essential for the API to start
+    failed |= check_required::<String>("SITE_URL");
+    failed |= check_required::<String>("CDN_URL");
+    failed |= check_required::<String>("LABRINTH_ADMIN_KEY");
+    failed |= check_required::<String>("RATE_LIMIT_IGNORE_KEY");
+    failed |= check_required::<String>("DATABASE_URL");
+    failed |= check_required::<String>("MEILISEARCH_ADDR");
+    failed |= check_required::<String>("MEILISEARCH_KEY");
+    failed |= check_required::<String>("REDIS_URL");
+    failed |= check_required::<String>("BIND_ADDR");
+    failed |= check_required::<String>("SELF_ADDR");
+    failed |= check_required::<String>("STORAGE_BACKEND");
 
+    // Storage backend specific requirements
     let storage_backend = dotenvy::var("STORAGE_BACKEND").ok();
     match storage_backend.as_deref() {
         Some("s3") => {
             let mut check_var_set = |var_prefix| {
-                failed |= check_var::<String>(&format!(
+                failed |= check_required::<String>(&format!(
                     "S3_{var_prefix}_BUCKET_NAME"
                 ));
-                failed |= check_var::<bool>(&format!(
+                failed |= check_required::<bool>(&format!(
                     "S3_{var_prefix}_USES_PATH_STYLE_BUCKET"
                 ));
                 failed |=
-                    check_var::<String>(&format!("S3_{var_prefix}_REGION"));
-                failed |= check_var::<String>(&format!("S3_{var_prefix}_URL"));
-                failed |= check_var::<String>(&format!(
+                    check_required::<String>(&format!("S3_{var_prefix}_REGION"));
+                failed |= check_required::<String>(&format!("S3_{var_prefix}_URL"));
+                failed |= check_required::<String>(&format!(
                     "S3_{var_prefix}_ACCESS_TOKEN"
                 ));
                 failed |=
-                    check_var::<String>(&format!("S3_{var_prefix}_SECRET"));
+                    check_required::<String>(&format!("S3_{var_prefix}_SECRET"));
             };
 
             check_var_set("PUBLIC");
             check_var_set("PRIVATE");
         }
         Some("local") => {
-            failed |= check_var::<String>("MOCK_FILE_PATH");
+            failed |= check_required::<String>("MOCK_FILE_PATH");
         }
         Some(backend) => {
             warn!(
@@ -420,9 +433,7 @@ pub fn check_env_vars() -> bool {
         }
     }
 
-    failed |= check_var::<usize>("LOCAL_INDEX_INTERVAL");
-    failed |= check_var::<usize>("VERSION_INDEX_INTERVAL");
-
+    // Required JSON arrays
     if parse_strings_from_var("WHITELISTED_MODPACK_DOMAINS").is_none() {
         warn!(
             "Variable `WHITELISTED_MODPACK_DOMAINS` missing in dotenv or not a json array of strings"
@@ -437,99 +448,125 @@ pub fn check_env_vars() -> bool {
         failed |= true;
     }
 
-    failed |= check_var::<String>("GITHUB_CLIENT_ID");
-    failed |= check_var::<String>("GITHUB_CLIENT_SECRET");
-    failed |= check_var::<String>("GITLAB_CLIENT_ID");
-    failed |= check_var::<String>("GITLAB_CLIENT_SECRET");
-    failed |= check_var::<String>("DISCORD_CLIENT_ID");
-    failed |= check_var::<String>("DISCORD_CLIENT_SECRET");
-    failed |= check_var::<String>("MICROSOFT_CLIENT_ID");
-    failed |= check_var::<String>("MICROSOFT_CLIENT_SECRET");
-    failed |= check_var::<String>("GOOGLE_CLIENT_ID");
-    failed |= check_var::<String>("GOOGLE_CLIENT_SECRET");
-    failed |= check_var::<String>("STEAM_API_KEY");
+    // ========== OPTIONAL VARIABLES ==========
+    // These are for features that can be disabled
 
-    failed |= check_var::<String>("TREMENDOUS_API_URL");
-    failed |= check_var::<String>("TREMENDOUS_API_KEY");
-    failed |= check_var::<String>("TREMENDOUS_PRIVATE_KEY");
+    // External notification (optional)
+    check_optional::<String>("LABRINTH_EXTERNAL_NOTIFICATION_KEY");
 
-    failed |= check_var::<String>("PAYPAL_API_URL");
-    failed |= check_var::<String>("PAYPAL_WEBHOOK_ID");
-    failed |= check_var::<String>("PAYPAL_CLIENT_ID");
-    failed |= check_var::<String>("PAYPAL_CLIENT_SECRET");
-    failed |= check_var::<String>("PAYPAL_NVP_USERNAME");
-    failed |= check_var::<String>("PAYPAL_NVP_PASSWORD");
-    failed |= check_var::<String>("PAYPAL_NVP_SIGNATURE");
+    // Indexing intervals (have defaults in code)
+    check_optional::<usize>("LOCAL_INDEX_INTERVAL");
+    check_optional::<usize>("VERSION_INDEX_INTERVAL");
 
-    failed |= check_var::<String>("HCAPTCHA_SECRET");
+    // OAuth providers (optional - auth features disabled if not set)
+    check_optional::<String>("GITHUB_CLIENT_ID");
+    check_optional::<String>("GITHUB_CLIENT_SECRET");
+    check_optional::<String>("GITLAB_CLIENT_ID");
+    check_optional::<String>("GITLAB_CLIENT_SECRET");
+    check_optional::<String>("DISCORD_CLIENT_ID");
+    check_optional::<String>("DISCORD_CLIENT_SECRET");
+    check_optional::<String>("MICROSOFT_CLIENT_ID");
+    check_optional::<String>("MICROSOFT_CLIENT_SECRET");
+    check_optional::<String>("GOOGLE_CLIENT_ID");
+    check_optional::<String>("GOOGLE_CLIENT_SECRET");
+    check_optional::<String>("STEAM_API_KEY");
 
-    failed |= check_var::<String>("SMTP_USERNAME");
-    failed |= check_var::<String>("SMTP_PASSWORD");
-    failed |= check_var::<String>("SMTP_HOST");
-    failed |= check_var::<u16>("SMTP_PORT");
-    failed |= check_var::<String>("SMTP_TLS");
-    failed |= check_var::<String>("SMTP_FROM_NAME");
-    failed |= check_var::<String>("SMTP_FROM_ADDRESS");
+    // Payouts (optional - payout features disabled if not set)
+    check_optional::<String>("TREMENDOUS_API_URL");
+    check_optional::<String>("TREMENDOUS_API_KEY");
+    check_optional::<String>("TREMENDOUS_PRIVATE_KEY");
 
-    failed |= check_var::<String>("SITE_VERIFY_EMAIL_PATH");
-    failed |= check_var::<String>("SITE_RESET_PASSWORD_PATH");
-    failed |= check_var::<String>("SITE_BILLING_PATH");
+    // PayPal (optional)
+    check_optional::<String>("PAYPAL_API_URL");
+    check_optional::<String>("PAYPAL_WEBHOOK_ID");
+    check_optional::<String>("PAYPAL_CLIENT_ID");
+    check_optional::<String>("PAYPAL_CLIENT_SECRET");
+    check_optional::<String>("PAYPAL_NVP_USERNAME");
+    check_optional::<String>("PAYPAL_NVP_PASSWORD");
+    check_optional::<String>("PAYPAL_NVP_SIGNATURE");
 
-    failed |= check_var::<String>("SENDY_URL");
-    failed |= check_var::<String>("SENDY_LIST_ID");
-    failed |= check_var::<String>("SENDY_API_KEY");
+    // Captcha (optional)
+    check_optional::<String>("HCAPTCHA_SECRET");
 
+    // Email (optional - email features disabled if not set)
+    check_optional::<String>("SMTP_USERNAME");
+    check_optional::<String>("SMTP_PASSWORD");
+    check_optional::<String>("SMTP_HOST");
+    check_optional::<u16>("SMTP_PORT");
+    check_optional::<String>("SMTP_TLS");
+    check_optional::<String>("SMTP_FROM_NAME");
+    check_optional::<String>("SMTP_FROM_ADDRESS");
+
+    // Site paths (optional)
+    check_optional::<String>("SITE_VERIFY_EMAIL_PATH");
+    check_optional::<String>("SITE_RESET_PASSWORD_PATH");
+    check_optional::<String>("SITE_BILLING_PATH");
+
+    // Newsletter (optional)
+    check_optional::<String>("SENDY_URL");
+    check_optional::<String>("SENDY_LIST_ID");
+    check_optional::<String>("SENDY_API_KEY");
+
+    // Analytics origins (optional)
     if parse_strings_from_var("ANALYTICS_ALLOWED_ORIGINS").is_none() {
-        warn!(
-            "Variable `ANALYTICS_ALLOWED_ORIGINS` missing in dotenv or not a json array of strings"
+        debug!(
+            "Optional variable `ANALYTICS_ALLOWED_ORIGINS` not set"
         );
-        failed |= true;
     }
 
-    failed |= check_var::<bool>("CLICKHOUSE_REPLICATED");
-    failed |= check_var::<String>("CLICKHOUSE_URL");
-    failed |= check_var::<String>("CLICKHOUSE_USER");
-    failed |= check_var::<String>("CLICKHOUSE_PASSWORD");
-    failed |= check_var::<String>("CLICKHOUSE_DATABASE");
+    // ClickHouse analytics (optional)
+    check_optional::<bool>("CLICKHOUSE_REPLICATED");
+    check_optional::<String>("CLICKHOUSE_URL");
+    check_optional::<String>("CLICKHOUSE_USER");
+    check_optional::<String>("CLICKHOUSE_PASSWORD");
+    check_optional::<String>("CLICKHOUSE_DATABASE");
 
-    failed |= check_var::<String>("FLAME_ANVIL_URL");
+    // External services (optional)
+    check_optional::<String>("FLAME_ANVIL_URL");
+    check_optional::<String>("GOTENBERG_URL");
+    check_optional::<String>("GOTENBERG_CALLBACK_BASE");
+    check_optional::<String>("GOTENBERG_TIMEOUT");
 
-    failed |= check_var::<String>("GOTENBERG_URL");
-    failed |= check_var::<String>("GOTENBERG_CALLBACK_BASE");
-    failed |= check_var::<String>("GOTENBERG_TIMEOUT");
+    // Stripe (optional)
+    check_optional::<String>("STRIPE_API_KEY");
+    check_optional::<String>("STRIPE_WEBHOOK_SECRET");
 
-    failed |= check_var::<String>("STRIPE_API_KEY");
-    failed |= check_var::<String>("STRIPE_WEBHOOK_SECRET");
+    // Ads (optional)
+    check_optional::<String>("ADITUDE_API_KEY");
 
-    failed |= check_var::<String>("ADITUDE_API_KEY");
+    // Pyro (optional)
+    check_optional::<String>("PYRO_API_KEY");
 
-    failed |= check_var::<String>("PYRO_API_KEY");
+    // Brex (optional)
+    check_optional::<String>("BREX_API_URL");
+    check_optional::<String>("BREX_API_KEY");
 
-    failed |= check_var::<String>("BREX_API_URL");
-    failed |= check_var::<String>("BREX_API_KEY");
+    // Delphi (optional)
+    check_optional::<String>("DELPHI_URL");
 
-    failed |= check_var::<String>("DELPHI_URL");
+    // Tax compliance (optional)
+    check_optional::<String>("AVALARA_1099_API_URL");
+    check_optional::<String>("AVALARA_1099_API_KEY");
+    check_optional::<String>("AVALARA_1099_API_TEAM_ID");
+    check_optional::<String>("AVALARA_1099_COMPANY_ID");
+    check_optional::<String>("ANROK_API_URL");
+    check_optional::<String>("ANROK_API_KEY");
+    check_optional::<String>("COMPLIANCE_PAYOUT_THRESHOLD");
 
-    failed |= check_var::<String>("AVALARA_1099_API_URL");
-    failed |= check_var::<String>("AVALARA_1099_API_KEY");
-    failed |= check_var::<String>("AVALARA_1099_API_TEAM_ID");
-    failed |= check_var::<String>("AVALARA_1099_COMPANY_ID");
+    // Slack alerts (optional)
+    check_optional::<String>("PAYOUT_ALERT_SLACK_WEBHOOK");
 
-    failed |= check_var::<String>("ANROK_API_URL");
-    failed |= check_var::<String>("ANROK_API_KEY");
+    // Archon (optional)
+    check_optional::<String>("ARCHON_URL");
 
-    failed |= check_var::<String>("COMPLIANCE_PAYOUT_THRESHOLD");
+    // MuralPay (optional)
+    check_optional::<String>("MURALPAY_API_URL");
+    check_optional::<String>("MURALPAY_API_KEY");
+    check_optional::<String>("MURALPAY_TRANSFER_API_KEY");
+    check_optional::<String>("MURALPAY_SOURCE_ACCOUNT_ID");
 
-    failed |= check_var::<String>("PAYOUT_ALERT_SLACK_WEBHOOK");
-
-    failed |= check_var::<String>("ARCHON_URL");
-
-    failed |= check_var::<String>("MURALPAY_API_URL");
-    failed |= check_var::<String>("MURALPAY_API_KEY");
-    failed |= check_var::<String>("MURALPAY_TRANSFER_API_KEY");
-    failed |= check_var::<String>("MURALPAY_SOURCE_ACCOUNT_ID");
-
-    failed |= check_var::<String>("DEFAULT_AFFILIATE_REVENUE_SPLIT");
+    // Affiliate (optional)
+    check_optional::<String>("DEFAULT_AFFILIATE_REVENUE_SPLIT");
 
     failed
 }
