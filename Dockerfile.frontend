@@ -6,6 +6,7 @@ WORKDIR /app
 
 FROM base AS deps
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY patches/ ./patches/
 COPY apps/frontend/package.json ./apps/frontend/
 COPY packages/ ./packages/
 RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
