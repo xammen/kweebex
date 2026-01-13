@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  labrinth:
+    build:
+      context: .
+      dockerfile: Dockerfile.labrinth
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgres://postgres:${POSTGRES_PASSWORD}@postgres:5432/kweebex
+      - REDIS_URL=redis://redis:6379/0
+      - MEILISEARCH_ADDR=http://meilisearch:7700
+      - MEILISEARCH_KEY=${MEILISEARCH_MASTER_KEY:-masterKey}
+      - BIND_ADDR=0.0.0.0:8000
+      - SITE_URL=${SITE_URL:-https://kweebex.com}
+      - SITE_NAME=Kweebex
+      - CDN_URL=${CDN_URL:-http://localhost:8000}
+      - SELF_ADDR=${SELF_ADDR:-http://localhost:8000}
+      - LABRINTH_ADMIN_KEY=${LABRINTH_ADMIN_KEY:-change-me-admin-key}
+      - RATE_LIMIT_IGNORE_KEY=${RATE_LIMIT_IGNORE_KEY:-change-me-rate-key}
+      - STORAGE_BACKEND=local
+      - MOCK_FILE_PATH=/data/files
+      - LOCAL_STORAGE_PATH=/data/files
+      - WHITELISTED_MODPACK_DOMAINS=["kweebex.com"]
+      - ALLOWED_CALLBACK_URLS=["https://kweebex.com"]
+      - RUST_LOG=info
+    volumes:
+      - labrinth_data:/data/files
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      meilisearch:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/v3"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-kweebex-secret-password}
+      - POSTGRES_DB=kweebex
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.6
+    environment:
+      - MEILI_MASTER_KEY=${MEILISEARCH_MASTER_KEY:-masterKey}
+      - MEILI_NO_ANALYTICS=true
+      - MEILI_ENV=production
+    volumes:
+      - meilisearch_data:/meili_data
+
+volumes:
+  labrinth_data:
+  postgres_data:
+  redis_data:
+  meilisearch_data:
