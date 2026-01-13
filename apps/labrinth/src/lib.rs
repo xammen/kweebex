@@ -171,7 +171,7 @@ pub fn app_setup(
             });
         }
 
-        if let (Some(ref stripe), Some(ref anrok)) = (&stripe_client, &anrok_client) {
+        if let (Some(stripe), Some(anrok)) = (&stripe_client, &anrok_client) {
             let pool_ref = pool.clone();
             let redis_ref = redis_pool.clone();
             let stripe_client_ref = stripe.clone();
