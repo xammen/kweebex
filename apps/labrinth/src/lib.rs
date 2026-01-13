@@ -53,7 +53,7 @@ pub struct LabrinthConfig {
     pub pool: sqlx::Pool<Postgres>,
     pub ro_pool: ReadOnlyPgPool,
     pub redis_pool: RedisPool,
-    pub clickhouse: Client,
+    pub clickhouse: Option<Client>,
     pub file_host: Arc<dyn file_hosting::FileHost + Send + Sync>,
     pub scheduler: Arc<scheduler::Scheduler>,
     pub ip_salt: Pepper,
@@ -64,11 +64,11 @@ pub struct LabrinthConfig {
     pub active_sockets: web::Data<ActiveSockets>,
     pub automated_moderation_queue: web::Data<AutomatedModerationQueue>,
     pub rate_limiter: web::Data<AsyncRateLimiter>,
-    pub stripe_client: stripe::Client,
-    pub anrok_client: anrok::Client,
+    pub stripe_client: Option<stripe::Client>,
+    pub anrok_client: Option<anrok::Client>,
     pub email_queue: web::Data<EmailQueue>,
-    pub archon_client: web::Data<ArchonClient>,
-    pub gotenberg_client: GotenbergClient,
+    pub archon_client: Option<web::Data<ArchonClient>>,
+    pub gotenberg_client: Option<GotenbergClient>,
 }
 
 #[allow(clippy::too_many_arguments)]
@@ -77,12 +77,12 @@ pub fn app_setup(
     ro_pool: ReadOnlyPgPool,
     redis_pool: RedisPool,
     search_config: search::SearchConfig,
-    clickhouse: &mut Client,
+    clickhouse: Option<Client>,
     file_host: Arc<dyn file_hosting::FileHost + Send + Sync>,
-    stripe_client: stripe::Client,
-    anrok_client: anrok::Client,
+    stripe_client: Option<stripe::Client>,
+    anrok_client: Option<anrok::Client>,
     email_queue: EmailQueue,
-    gotenberg_client: GotenbergClient,
+    gotenberg_client: Option<GotenbergClient>,
     enable_background_tasks: bool,
 ) -> LabrinthConfig {
     info!(
@@ -157,52 +157,56 @@ pub fn app_setup(
             }
         });
 
-        let pool_ref = pool.clone();
-        let client_ref = clickhouse.clone();
-        let redis_pool_ref = redis_pool.clone();
-        scheduler.run(Duration::from_secs(60 * 60 * 6), move || {
-            let pool_ref = pool_ref.clone();
-            let client_ref = client_ref.clone();
-            let redis_ref = redis_pool_ref.clone();
-            async move {
-                background_task::payouts(pool_ref, client_ref, redis_ref).await;
-            }
-        });
+        if let Some(ref clickhouse_client) = clickhouse {
+            let pool_ref = pool.clone();
+            let client_ref = clickhouse_client.clone();
+            let redis_pool_ref = redis_pool.clone();
+            scheduler.run(Duration::from_secs(60 * 60 * 6), move || {
+                let pool_ref = pool_ref.clone();
+                let client_ref = client_ref.clone();
+                let redis_ref = redis_pool_ref.clone();
+                async move {
+                    background_task::payouts(pool_ref, client_ref, redis_ref).await;
+                }
+            });
+        }
 
-        let pool_ref = pool.clone();
-        let redis_ref = redis_pool.clone();
-        let stripe_client_ref = stripe_client.clone();
-        let anrok_client_ref = anrok_client.clone();
-        actix_rt::spawn(async move {
-            loop {
-                index_billing(
-                    stripe_client_ref.clone(),
-                    anrok_client_ref.clone(),
-                    pool_ref.clone(),
-                    redis_ref.clone(),
-                )
-                .await;
-                tokio::time::sleep(Duration::from_secs(60 * 5)).await;
-            }
-        });
+        if let (Some(ref stripe), Some(ref anrok)) = (&stripe_client, &anrok_client) {
+            let pool_ref = pool.clone();
+            let redis_ref = redis_pool.clone();
+            let stripe_client_ref = stripe.clone();
+            let anrok_client_ref = anrok.clone();
+            actix_rt::spawn(async move {
+                loop {
+                    index_billing(
+                        stripe_client_ref.clone(),
+                        anrok_client_ref.clone(),
+                        pool_ref.clone(),
+                        redis_ref.clone(),
+                    )
+                    .await;
+                    tokio::time::sleep(Duration::from_secs(60 * 5)).await;
+                }
+            });
 
-        let pool_ref = pool.clone();
-        let redis_ref = redis_pool.clone();
-        let stripe_client_ref = stripe_client.clone();
-        let anrok_client_ref = anrok_client.clone();
+            let pool_ref = pool.clone();
+            let redis_ref = redis_pool.clone();
+            let stripe_client_ref = stripe.clone();
+            let anrok_client_ref = anrok.clone();
 
-        actix_rt::spawn(async move {
-            loop {
-                index_subscriptions(
-                    pool_ref.clone(),
-                    redis_ref.clone(),
-                    stripe_client_ref.clone(),
-                    anrok_client_ref.clone(),
-                )
-                .await;
-                tokio::time::sleep(Duration::from_secs(60 * 5)).await;
-            }
-        });
+            actix_rt::spawn(async move {
+                loop {
+                    index_subscriptions(
+                        pool_ref.clone(),
+                        redis_ref.clone(),
+                        stripe_client_ref.clone(),
+                        anrok_client_ref.clone(),
+                    )
+                    .await;
+                    tokio::time::sleep(Duration::from_secs(60 * 5)).await;
+                }
+            });
+        }
     }
 
     let session_queue = web::Data::new(AuthQueue::new());
@@ -226,8 +230,8 @@ pub fn app_setup(
     });
 
     let analytics_queue = Arc::new(AnalyticsQueue::new());
-    {
-        let client_ref = clickhouse.clone();
+    if let Some(ref clickhouse_client) = clickhouse {
+        let client_ref = clickhouse_client.clone();
         let analytics_queue_ref = analytics_queue.clone();
         let pool_ref = pool.clone();
         let redis_ref = redis_pool.clone();
@@ -271,7 +275,7 @@ pub fn app_setup(
         pool,
         ro_pool,
         redis_pool,
-        clickhouse: clickhouse.clone(),
+        clickhouse,
         file_host,
         scheduler: Arc::new(scheduler),
         ip_salt,
@@ -285,10 +289,7 @@ pub fn app_setup(
         stripe_client,
         anrok_client,
         gotenberg_client,
-        archon_client: web::Data::new(
-            ArchonClient::from_env()
-                .expect("ARCHON_URL and PYRO_API_KEY must be set"),
-        ),
+        archon_client: ArchonClient::from_env().ok().map(web::Data::new),
         email_queue: web::Data::new(email_queue),
     }
 }
@@ -323,7 +324,7 @@ pub fn app_config(
     .app_data(web::Data::new(labrinth_config.clickhouse.clone()))
     .app_data(labrinth_config.active_sockets.clone())
     .app_data(labrinth_config.automated_moderation_queue.clone())
-    .app_data(labrinth_config.archon_client.clone())
+    .app_data(web::Data::new(labrinth_config.archon_client.clone()))
     .app_data(web::Data::new(labrinth_config.stripe_client.clone()))
     .app_data(web::Data::new(labrinth_config.anrok_client.clone()))
     .app_data(labrinth_config.rate_limiter.clone())

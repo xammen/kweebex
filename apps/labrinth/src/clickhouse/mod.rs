@@ -5,14 +5,21 @@ mod fetch;
 
 pub use fetch::*;
 
-pub async fn init_client() -> clickhouse::error::Result<clickhouse::Client> {
-    init_client_with_database(&dotenvy::var("CLICKHOUSE_DATABASE").unwrap())
-        .await
+pub async fn init_client() -> Option<clickhouse::Client> {
+    let database = dotenvy::var("CLICKHOUSE_DATABASE").ok()?;
+    init_client_with_database(&database).await.ok()
 }
 
 pub async fn init_client_with_database(
     database: &str,
 ) -> clickhouse::error::Result<clickhouse::Client> {
+    let url = dotenvy::var("CLICKHOUSE_URL")
+        .map_err(|_| clickhouse::error::Error::Custom("CLICKHOUSE_URL not set".into()))?;
+    let user = dotenvy::var("CLICKHOUSE_USER")
+        .map_err(|_| clickhouse::error::Error::Custom("CLICKHOUSE_USER not set".into()))?;
+    let password = dotenvy::var("CLICKHOUSE_PASSWORD")
+        .map_err(|_| clickhouse::error::Error::Custom("CLICKHOUSE_PASSWORD not set".into()))?;
+
     let client = {
         let https_connector = HttpsConnectorBuilder::new()
             .with_native_roots()?
@@ -24,9 +31,9 @@ pub async fn init_client_with_database(
                 .build(https_connector);
 
         clickhouse::Client::with_http_client(hyper_client)
-            .with_url(dotenvy::var("CLICKHOUSE_URL").unwrap())
-            .with_user(dotenvy::var("CLICKHOUSE_USER").unwrap())
-            .with_password(dotenvy::var("CLICKHOUSE_PASSWORD").unwrap())
+            .with_url(url)
+            .with_user(user)
+            .with_password(password)
             .with_validation(false)
     };
 
@@ -36,7 +43,7 @@ pub async fn init_client_with_database(
         .await?;
 
     let clickhouse_replicated =
-        dotenvy::var("CLICKHOUSE_REPLICATED").unwrap() == "true";
+        dotenvy::var("CLICKHOUSE_REPLICATED").unwrap_or_default() == "true";
     let cluster_line = if clickhouse_replicated {
         "ON cluster '{cluster}'"
     } else {

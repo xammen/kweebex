@@ -34,11 +34,11 @@ impl BackgroundTask {
         pool: sqlx::Pool<Postgres>,
         redis_pool: RedisPool,
         search_config: search::SearchConfig,
-        clickhouse: clickhouse::Client,
-        stripe_client: stripe::Client,
-        anrok_client: anrok::Client,
+        clickhouse: Option<clickhouse::Client>,
+        stripe_client: Option<stripe::Client>,
+        anrok_client: Option<anrok::Client>,
         email_queue: EmailQueue,
-        mural_client: muralpay::Client,
+        mural_client: Option<muralpay::Client>,
     ) {
         use BackgroundTask::*;
         match self {
@@ -46,29 +46,47 @@ impl BackgroundTask {
             IndexSearch => index_search(pool, redis_pool, search_config).await,
             ReleaseScheduled => release_scheduled(pool).await,
             UpdateVersions => update_versions(pool, redis_pool).await,
-            Payouts => payouts(pool, clickhouse, redis_pool).await,
+            Payouts => {
+                if let Some(ch) = clickhouse {
+                    payouts(pool, ch, redis_pool).await;
+                } else {
+                    error!("Cannot run Payouts task: ClickHouse not configured");
+                }
+            }
             SyncPayoutStatuses => {
-                sync_payout_statuses(pool, mural_client).await
+                if let Some(mural) = mural_client {
+                    sync_payout_statuses(pool, mural).await;
+                } else {
+                    error!("Cannot run SyncPayoutStatuses task: MuralPay not configured");
+                }
             }
             IndexBilling => {
-                index_billing(
-                    stripe_client,
-                    anrok_client,
-                    pool.clone(),
-                    redis_pool,
-                )
-                .await;
+                if let (Some(stripe), Some(anrok)) = (stripe_client, anrok_client) {
+                    index_billing(
+                        stripe,
+                        anrok,
+                        pool.clone(),
+                        redis_pool,
+                    )
+                    .await;
 
-                update_bank_balances(pool).await;
+                    update_bank_balances(pool).await;
+                } else {
+                    error!("Cannot run IndexBilling task: Stripe or Anrok not configured");
+                }
             }
             IndexSubscriptions => {
-                index_subscriptions(
-                    pool,
-                    redis_pool,
-                    stripe_client,
-                    anrok_client,
-                )
-                .await
+                if let (Some(stripe), Some(anrok)) = (stripe_client, anrok_client) {
+                    index_subscriptions(
+                        pool,
+                        redis_pool,
+                        stripe,
+                        anrok,
+                    )
+                    .await;
+                } else {
+                    error!("Cannot run IndexSubscriptions task: Stripe or Anrok not configured");
+                }
             }
             Mail => {
                 run_email(email_queue).await;

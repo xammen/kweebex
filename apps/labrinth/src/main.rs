@@ -143,21 +143,37 @@ async fn main() -> std::io::Result<()> {
         };
 
     info!("Initializing clickhouse connection");
-    let mut clickhouse = clickhouse::init_client().await.unwrap();
+    let clickhouse = clickhouse::init_client().await;
+    if clickhouse.is_none() {
+        info!("ClickHouse not configured - analytics features disabled");
+    }
 
     let search_config = search::SearchConfig::new(None);
 
-    let stripe_client =
-        stripe::Client::new(dotenvy::var("STRIPE_API_KEY").unwrap());
+    let stripe_client = dotenvy::var("STRIPE_API_KEY")
+        .ok()
+        .map(|key| stripe::Client::new(key));
+    if stripe_client.is_none() {
+        info!("Stripe not configured - billing features disabled");
+    }
 
-    let anrok_client = anrok::Client::from_env().unwrap();
+    let anrok_client = anrok::Client::from_env().ok();
+    if anrok_client.is_none() {
+        info!("Anrok not configured - tax features disabled");
+    }
+
     let email_queue =
         EmailQueue::init(pool.clone(), redis_pool.clone()).unwrap();
 
-    let gotenberg_client = GotenbergClient::from_env(redis_pool.clone())
-        .expect("Failed to create Gotenberg client");
-    let muralpay = labrinth::queue::payouts::create_muralpay_client()
-        .expect("Failed to create MuralPay client");
+    let gotenberg_client = GotenbergClient::from_env(redis_pool.clone()).ok();
+    if gotenberg_client.is_none() {
+        info!("Gotenberg not configured - PDF features disabled");
+    }
+
+    let muralpay = labrinth::queue::payouts::create_muralpay_client().ok();
+    if muralpay.is_none() {
+        info!("MuralPay not configured - payout features disabled");
+    }
 
     if let Some(task) = args.run_background_task {
         info!("Running task {task:?} and exiting");
@@ -167,7 +183,7 @@ async fn main() -> std::io::Result<()> {
             search_config,
             clickhouse,
             stripe_client,
-            anrok_client.clone(),
+            anrok_client,
             email_queue,
             muralpay,
         )
@@ -201,10 +217,10 @@ async fn main() -> std::io::Result<()> {
         ro_pool.clone(),
         redis_pool.clone(),
         search_config.clone(),
-        &mut clickhouse,
+        clickhouse,
         file_host.clone(),
         stripe_client,
-        anrok_client.clone(),
+        anrok_client,
         email_queue,
         gotenberg_client,
         !args.no_background_tasks,
