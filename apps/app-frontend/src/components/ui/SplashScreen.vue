@@ -86,7 +86,7 @@
 </template>
 
 <script setup>
-import { MaximizeIcon, MinimizeIcon, XIcon } from '@modrinth/assets'
+import { MaximizeIcon, MinimizeIcon, XIcon } from '@kweebex/assets'
 import { getCurrentWindow } from '@tauri-apps/api/window'
 import { ref, watch } from 'vue'
 

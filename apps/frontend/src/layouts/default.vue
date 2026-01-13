@@ -31,7 +31,7 @@
 		class="layout"
 		:class="{
 			'expanded-mobile-nav': isBrowseMenuOpen,
-			'modrinth-parent__no-modal-blurs': !cosmetics.advancedRendering,
+			'kweebex-parent__no-modal-blurs': !cosmetics.advancedRendering,
 		}"
 	>
 		<RussiaBanner v-if="isRussia" />
@@ -52,13 +52,16 @@
 			:errors="generatedStateErrors"
 			:api-url="config.public.apiBaseUrl"
 		/>
-		<header
-			class="experimental-styles-within desktop-only relative z-[5] mx-auto grid max-w-[1280px] grid-cols-[1fr_auto] items-center gap-2 px-6 py-4 lg:grid-cols-[auto_1fr_auto]"
-		>
+		<div class="header-wrapper" :class="{ 'header-wrapper--landing': route.path === '/' }">
+			<header
+				class="kweebex-header experimental-styles-within desktop-only relative z-[5] mx-auto grid max-w-[1280px] grid-cols-[1fr_auto] items-center gap-2 px-6 py-2 lg:grid-cols-[auto_1fr_auto]"
+			>
+			<div class="kweebex-header-ornaments"></div>
+			<div class="kweebex-header-ornament-br"></div>
 			<div>
 				<NuxtLink
 					to="/"
-					:aria-label="formatMessage(messages.modrinthHomePage)"
+					:aria-label="formatMessage(messages.kweebexHomePage)"
 					class="group hover:brightness-[--hover-brightness] focus-visible:brightness-[--hover-brightness]"
 				>
 					<TextLogo
@@ -72,6 +75,7 @@
 			>
 				<template v-if="flags.projectTypesPrimaryNav">
 					<ButtonStyled
+						v-if="FEATURES.mods"
 						type="transparent"
 						:highlighted="route.name === 'discover-mods' || route.path.startsWith('/mod/')"
 						:highlighted-style="
@@ -84,6 +88,20 @@
 						</nuxt-link>
 					</ButtonStyled>
 					<ButtonStyled
+						v-if="FEATURES.modpacks"
+						type="transparent"
+						:highlighted="route.name === 'discover-modpacks' || route.path.startsWith('/modpack/')"
+						:highlighted-style="
+							route.name === 'discover-modpacks' ? 'main-nav-primary' : 'main-nav-secondary'
+						"
+					>
+						<nuxt-link to="/discover/modpacks">
+							<PackageOpenIcon aria-hidden="true" />
+							{{ formatMessage(commonProjectTypeCategoryMessages.modpack) }}
+						</nuxt-link>
+					</ButtonStyled>
+					<ButtonStyled
+						v-if="FEATURES.resourcepacks"
 						type="transparent"
 						:highlighted="
 							route.name === 'discover-resourcepacks' || route.path.startsWith('/resourcepack/')
@@ -98,6 +116,7 @@
 						</nuxt-link>
 					</ButtonStyled>
 					<ButtonStyled
+						v-if="FEATURES.datapacks"
 						type="transparent"
 						:highlighted="
 							route.name === 'discover-datapacks' || route.path.startsWith('/datapack/')
@@ -112,18 +131,7 @@
 						</nuxt-link>
 					</ButtonStyled>
 					<ButtonStyled
-						type="transparent"
-						:highlighted="route.name === 'discover-modpacks' || route.path.startsWith('/modpack/')"
-						:highlighted-style="
-							route.name === 'discover-modpacks' ? 'main-nav-primary' : 'main-nav-secondary'
-						"
-					>
-						<nuxt-link to="/discover/modpacks">
-							<PackageOpenIcon aria-hidden="true" />
-							{{ formatMessage(commonProjectTypeCategoryMessages.modpack) }}
-						</nuxt-link>
-					</ButtonStyled>
-					<ButtonStyled
+						v-if="FEATURES.shaders"
 						type="transparent"
 						:highlighted="route.name === 'discover-shaders' || route.path.startsWith('/shader/')"
 						:highlighted-style="
@@ -136,6 +144,7 @@
 						</nuxt-link>
 					</ButtonStyled>
 					<ButtonStyled
+						v-if="FEATURES.plugins"
 						type="transparent"
 						:highlighted="route.name === 'discover-plugins' || route.path.startsWith('/plugin/')"
 						:highlighted-style="
@@ -159,26 +168,32 @@
 								{
 									id: 'mods',
 									action: '/discover/mods',
-								},
-								{
-									id: 'resourcepacks',
-									action: '/discover/resourcepacks',
-								},
-								{
-									id: 'datapacks',
-									action: '/discover/datapacks',
-								},
-								{
-									id: 'shaders',
-									action: '/discover/shaders',
+									shown: FEATURES.mods,
 								},
 								{
 									id: 'modpacks',
 									action: '/discover/modpacks',
+									shown: FEATURES.modpacks,
+								},
+								{
+									id: 'resourcepacks',
+									action: '/discover/resourcepacks',
+									shown: FEATURES.resourcepacks,
+								},
+								{
+									id: 'datapacks',
+									action: '/discover/datapacks',
+									shown: FEATURES.datapacks,
+								},
+								{
+									id: 'shaders',
+									action: '/discover/shaders',
+									shown: FEATURES.shaders,
 								},
 								{
 									id: 'plugins',
 									action: '/discover/plugins',
+									shown: FEATURES.plugins,
 								},
 								{
 									id: 'servers',
@@ -258,6 +273,7 @@
 						</TeleportOverflowMenu>
 					</ButtonStyled>
 					<ButtonStyled
+						v-if="FEATURES.serverHosting"
 						type="transparent"
 						:highlighted="
 							route.name?.startsWith('hosting') ||
@@ -438,7 +454,7 @@
 					</template>
 					<template #plus>
 						<ArrowBigUpDashIcon aria-hidden="true" />
-						{{ formatMessage(messages.upgradeToModrinthPlus) }}
+						{{ formatMessage(messages.upgradeToKweebexPlus) }}
 					</template>
 					<template #settings>
 						<SettingsIcon aria-hidden="true" /> {{ formatMessage(commonMessages.settingsLabel) }}
@@ -483,7 +499,8 @@
 					</ButtonStyled>
 				</template>
 			</div>
-		</header>
+			</header>
+		</div>
 		<header class="mobile-navigation mobile-only">
 			<div
 				class="nav-menu nav-menu-browse"
@@ -544,7 +561,7 @@
 							<LibraryIcon class="icon" />
 							{{ formatMessage(commonMessages.collectionsLabel) }}
 						</NuxtLink>
-						<NuxtLink class="iconified-button" to="/hosting/manage">
+						<NuxtLink v-if="FEATURES.serverHosting" class="iconified-button" to="/hosting/manage">
 							<ServerIcon class="icon" />
 							{{ formatMessage(commonMessages.serversLabel) }}
 						</NuxtLink>
@@ -657,7 +674,7 @@
 			<BatchCreditModal v-if="auth.user && isAdmin(auth.user)" ref="modal_batch_credit" />
 			<slot id="main" />
 		</main>
-		<ModrinthFooter />
+		<KweebexFooter />
 	</div>
 </template>
 <script setup>
@@ -698,7 +715,7 @@ import {
 	UserIcon,
 	UserSearchIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	ButtonStyled,
@@ -707,8 +724,9 @@ import {
 	defineMessages,
 	OverflowMenu,
 	useVIntl,
-} from '@modrinth/ui'
-import { isAdmin, isStaff, UserBadge } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { isAdmin, isStaff, UserBadge } from '@kweebex/utils'
+import { FEATURES } from '../../../../config'
 
 import TextLogo from '~/components/brand/TextLogo.vue'
 import BatchCreditModal from '~/components/ui/admin/BatchCreditModal.vue'
@@ -722,7 +740,7 @@ import VerifyEmailBanner from '~/components/ui/banner/VerifyEmailBanner.vue'
 import CollectionCreateModal from '~/components/ui/create/CollectionCreateModal.vue'
 import OrganizationCreateModal from '~/components/ui/create/OrganizationCreateModal.vue'
 import ProjectCreateModal from '~/components/ui/create/ProjectCreateModal.vue'
-import ModrinthFooter from '~/components/ui/ModrinthFooter.vue'
+import KweebexFooter from '~/components/ui/KweebexFooter.vue'
 import TeleportOverflowMenu from '~/components/ui/servers/TeleportOverflowMenu.vue'
 import { errors as generatedStateErrors } from '~/generated/state.json'
 import { getProjectTypeMessage } from '~/utils/i18n-project-type.ts'
@@ -788,12 +806,12 @@ const navMenuMessages = defineMessages({
 		defaultMessage: 'Host a server',
 	},
 	getModrinthApp: {
-		id: 'layout.nav.get-modrinth-app',
-		defaultMessage: 'Get Modrinth App',
+		id: 'layout.nav.get-kweebex-app',
+		defaultMessage: 'Get Kweebex App',
 	},
 	modrinthApp: {
-		id: 'layout.nav.modrinth-app',
-		defaultMessage: 'Modrinth App',
+		id: 'layout.nav.kweebex-app',
+		defaultMessage: 'Kweebex App',
 	},
 })
 
@@ -810,9 +828,9 @@ const messages = defineMessages({
 		id: 'layout.action.change-theme',
 		defaultMessage: 'Change theme',
 	},
-	modrinthHomePage: {
-		id: 'layout.nav.modrinth-home-page',
-		defaultMessage: 'Modrinth home page',
+	kweebexHomePage: {
+		id: 'layout.nav.kweebex-home-page',
+		defaultMessage: 'Kweebex home page',
 	},
 	createNew: {
 		id: 'layout.action.create-new',
@@ -866,9 +884,9 @@ const messages = defineMessages({
 		id: 'layout.nav.saved-projects',
 		defaultMessage: 'Saved projects',
 	},
-	upgradeToModrinthPlus: {
-		id: 'layout.nav.upgrade-to-modrinth-plus',
-		defaultMessage: 'Upgrade to Modrinth+',
+	upgradeToKweebexPlus: {
+		id: 'layout.nav.upgrade-to-kweebex-plus',
+		defaultMessage: 'Upgrade to Kweebex+',
 	},
 	featureFlags: {
 		id: 'layout.nav.feature-flags',
@@ -917,64 +935,64 @@ useHead({
 	],
 })
 useSeoMeta({
-	title: 'Modrinth',
+	title: 'Kweebex',
 	description: () =>
 		formatMessage({
 			id: 'layout.meta.description',
 			defaultMessage:
-				'Download Minecraft mods, plugins, datapacks, shaders, resourcepacks, and modpacks on Modrinth. ' +
-				'Discover and publish projects on Modrinth with a modern, easy to use interface and API.',
+				'Download Hytale mods and modpacks on Kweebex. ' +
+				'Discover and publish projects on Kweebex with a modern, easy to use interface and API.',
 		}),
-	publisher: 'Modrinth',
-	themeColor: '#1bd96a',
+	publisher: 'Kweebex',
+	themeColor: '#3d7ea6',
 	colorScheme: 'dark light',
 
 	// OpenGraph
-	ogTitle: 'Modrinth',
-	ogSiteName: 'Modrinth',
+	ogTitle: 'Kweebex',
+	ogSiteName: 'Kweebex',
 	ogDescription: () =>
 		formatMessage({
 			id: 'layout.meta.og-description',
-			defaultMessage: 'Discover and publish Minecraft content!',
+			defaultMessage: 'Discover and publish Hytale content!',
 		}),
 	ogType: 'website',
-	ogImage: 'https://cdn.modrinth.com/modrinth-new.png',
+	ogImage: '/branding/logo-square.png',
 	ogUrl: link,
 
 	// Twitter
 	twitterCard: 'summary',
-	twitterSite: '@modrinth',
+	twitterSite: '@kweebex',
 })
 
 const isMobileMenuOpen = ref(false)
 const isBrowseMenuOpen = ref(false)
 const navRoutes = computed(() => [
-	{
+	FEATURES.mods && {
 		id: 'mods',
 		label: formatMessage(getProjectTypeMessage('mod', true)),
 		href: '/discover/mods',
 	},
-	{
-		label: formatMessage(getProjectTypeMessage('plugin', true)),
-		href: '/discover/plugins',
-	},
-	{
-		label: formatMessage(getProjectTypeMessage('datapack', true)),
-		href: '/discover/datapacks',
-	},
-	{
-		label: formatMessage(getProjectTypeMessage('shader', true)),
-		href: '/discover/shaders',
-	},
-	{
-		label: formatMessage(getProjectTypeMessage('resourcepack', true)),
-		href: '/discover/resourcepacks',
-	},
-	{
+	FEATURES.modpacks && {
 		label: formatMessage(getProjectTypeMessage('modpack', true)),
 		href: '/discover/modpacks',
 	},
-])
+	FEATURES.plugins && {
+		label: formatMessage(getProjectTypeMessage('plugin', true)),
+		href: '/discover/plugins',
+	},
+	FEATURES.datapacks && {
+		label: formatMessage(getProjectTypeMessage('datapack', true)),
+		href: '/discover/datapacks',
+	},
+	FEATURES.shaders && {
+		label: formatMessage(getProjectTypeMessage('shader', true)),
+		href: '/discover/shaders',
+	},
+	FEATURES.resourcepacks && {
+		label: formatMessage(getProjectTypeMessage('resourcepack', true)),
+		href: '/discover/resourcepacks',
+	},
+].filter(Boolean))
 
 const userMenuOptions = computed(() => {
 	let options = [
@@ -991,6 +1009,7 @@ const userMenuOptions = computed(() => {
 		{
 			id: 'servers',
 			link: '/hosting/manage',
+			shown: FEATURES.serverHosting,
 		},
 		{
 			id: 'flags',
@@ -1186,7 +1205,93 @@ const { cycle: changeTheme } = useTheme()
 
 <style lang="scss">
 @import '~/assets/styles/global.scss';
-// @import '@modrinth/assets';
+// @import '@kweebex/assets';
+
+// Header wrapper - full width background that matches the page
+.header-wrapper {
+	width: 100%;
+	background: var(--color-bg);
+	
+	// Landing page - match hero gradient
+	&.header-wrapper--landing {
+		background: linear-gradient(135deg, #0d1829 0%, #15243a 40%, #1e3a5f 100%);
+	}
+}
+
+// Kweebex Header Styling - Hytale inspired fantasy UI panel
+// Double border effect with inner golden corner brackets
+.kweebex-header {
+	position: relative;
+	// Navy gradient background - slightly lighter in middle
+	background: linear-gradient(180deg, 
+		#15243a 0%, 
+		#1a2f4a 30%,
+		#1a2f4a 70%,
+		#15243a 100%);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	// Dark outer border
+	border: 2px solid #0a1525;
+	border-top: none;
+	border-radius: 0 0 12px 12px;
+	// Double border effect + shadows
+	box-shadow: 
+		// Outer shadow for depth
+		0 4px 20px rgba(0, 0, 0, 0.5),
+		0 8px 32px rgba(0, 0, 0, 0.3),
+		// Inner teal border (the "light inner" of double border)
+		inset 0 0 0 2px rgba(61, 126, 166, 0.4),
+		// Subtle bottom highlight (adjusted for flush top)
+		inset 0 -1px 0 rgba(91, 163, 204, 0.2),
+		// Inner ambient glow
+		inset 0 0 20px rgba(61, 126, 166, 0.08);
+	transition: all var(--transition-normal);
+	overflow: visible;
+	
+	// Bottom edge glow highlight (moved from top since header is now flush)
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: 2px;
+		left: 20px;
+		right: 20px;
+		height: 1px;
+		background: linear-gradient(90deg,
+			transparent 0%,
+			rgba(91, 163, 204, 0.4) 20%,
+			rgba(91, 163, 204, 0.5) 50%,
+			rgba(91, 163, 204, 0.4) 80%,
+			transparent 100%);
+		pointer-events: none;
+		z-index: 5;
+	}
+
+	// This pseudo is reserved for header content overlay if needed
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		pointer-events: none;
+		z-index: 0;
+	}
+}
+
+// Hidden corner elements (not used)
+.kweebex-header-ornaments,
+.kweebex-header-ornament-br {
+	display: none;
+}
+
+// Dark mode - same styling (already dark themed)
+.dark-mode .kweebex-header,
+.dark .kweebex-header {
+	background: linear-gradient(180deg, 
+		#0d1829 0%, 
+		#15243a 30%,
+		#15243a 70%,
+		#0d1829 100%);
+}
 
 .layout {
 	min-height: 100vh;
@@ -1198,6 +1303,7 @@ const { cycle: changeTheme } = useTheme()
 
 	main {
 		grid-area: main;
+		padding-top: 1.5rem;
 	}
 }
 
@@ -1230,12 +1336,15 @@ const { cycle: changeTheme } = useTheme()
 		bottom: calc(var(--size-mobile-navbar-height) - var(--size-rounded-card));
 		padding-bottom: var(--size-rounded-card);
 		left: 0;
-		background-color: var(--color-raised-bg);
+		background: var(--glass-bg);
+		backdrop-filter: blur(var(--glass-blur));
+		-webkit-backdrop-filter: blur(var(--glass-blur));
 		z-index: 11; // 20 = modals, 10 = svg icons
 		transform: translateY(100%);
-		transition: transform 0.4s cubic-bezier(0.54, 0.84, 0.42, 1);
+		transition: transform 0.4s cubic-bezier(0.54, 0.84, 0.42, 1), box-shadow var(--transition-normal);
 		border-radius: var(--size-rounded-card) var(--size-rounded-card) 0 0;
 		box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0);
+		border-top: 1px solid var(--glass-border);
 
 		.links,
 		.account-container {
@@ -1310,14 +1419,16 @@ const { cycle: changeTheme } = useTheme()
 		position: fixed;
 		left: 0;
 		bottom: 0;
-		background-color: var(--color-raised-bg);
+		background: var(--glass-bg);
+		backdrop-filter: blur(var(--glass-blur));
+		-webkit-backdrop-filter: blur(var(--glass-blur));
 		box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.3);
 		z-index: 11; // 20 = modals, 10 = svg icons
 		width: 100%;
 		align-items: center;
 		justify-content: space-between;
-		transition: border-radius 0.3s ease-out;
-		border-top: 2px solid rgba(0, 0, 0, 0);
+		transition: border-radius 0.3s ease-out, background var(--transition-normal);
+		border-top: 1px solid var(--glass-border);
 		box-sizing: border-box;
 
 		&.expanded {

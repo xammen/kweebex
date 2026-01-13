@@ -254,10 +254,10 @@ import {
 	TriangleAlertIcon,
 	UploadIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { MIN_SUMMARY_CHARS } from '@modrinth/moderation'
-import { Avatar, ConfirmModal, injectNotificationManager } from '@modrinth/ui'
-import { formatProjectStatus, formatProjectType } from '@modrinth/utils'
+} from '@kweebex/assets'
+import { MIN_SUMMARY_CHARS } from '@kweebex/moderation'
+import { Avatar, ConfirmModal, injectNotificationManager } from '@kweebex/ui'
+import { formatProjectStatus, formatProjectType } from '@kweebex/utils'
 import { Multiselect } from 'vue-multiselect'
 
 import FileInput from '~/components/ui/FileInput.vue'

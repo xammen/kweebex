@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MailIcon, SendIcon, UserIcon, UserPlusIcon, XIcon } from '@modrinth/assets'
+import { MailIcon, SendIcon, UserIcon, UserPlusIcon, XIcon } from '@kweebex/assets'
 import {
 	Avatar,
 	ButtonStyled,
@@ -9,7 +9,7 @@ import {
 	IntlFormatted,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { computed, onUnmounted, ref, watch } from 'vue'
 
 import FriendsSection from '@/components/ui/friends/FriendsSection.vue'

@@ -28,8 +28,8 @@ import {
 	USDCColorIcon,
 	XCircleIcon,
 	XIcon,
-} from '@modrinth/assets'
-import type { ProjectStatus, ProjectType } from '@modrinth/utils'
+} from '@kweebex/assets'
+import type { ProjectStatus, ProjectType } from '@kweebex/utils'
 import type { Component } from 'vue'
 
 export const PROJECT_TYPE_ICONS: Record<ProjectType, Component> = {

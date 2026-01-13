@@ -329,7 +329,7 @@
 </template>
 
 <script setup lang="ts">
-import { SearchIcon } from '@modrinth/assets'
+import { SearchIcon } from '@kweebex/assets'
 import {
 	Admonition,
 	Checkbox,
@@ -344,8 +344,8 @@ import {
 	paymentMethodMessages,
 	useDebugLogger,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatMoney } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { formatMoney } from '@kweebex/utils'
 import { useDebounceFn } from '@vueuse/core'
 import { computed, onMounted, ref, watch } from 'vue'
 

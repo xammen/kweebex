@@ -1,5 +1,5 @@
-import { GenericModrinthClient, type Labrinth } from '@modrinth/api-client'
-import { LOCALES } from '@modrinth/ui/src/composables/i18n.ts'
+import { GenericModrinthClient, type Labrinth } from '@kweebex/api-client'
+import { LOCALES } from '@kweebex/ui/src/composables/i18n.ts'
 import serverSidedVue from '@vitejs/plugin-vue'
 import fs from 'fs/promises'
 import { defineNuxtConfig } from 'nuxt/config'
@@ -15,9 +15,9 @@ const preloadedFonts = [
 ]
 
 const favicons = {
-	'(prefers-color-scheme:no-preference)': '/favicon-light.ico',
-	'(prefers-color-scheme:light)': '/favicon-light.ico',
-	'(prefers-color-scheme:dark)': '/favicon.ico',
+	'(prefers-color-scheme:no-preference)': '/favicon.png',
+	'(prefers-color-scheme:light)': '/favicon.png',
+	'(prefers-color-scheme:dark)': '/favicon.png',
 }
 
 const PROD_MODRINTH_URL = 'https://modrinth.com'
@@ -30,7 +30,7 @@ export default defineNuxtConfig({
 			htmlAttrs: {
 				lang: 'en',
 			},
-			title: 'Modrinth',
+			title: 'Kweebex',
 			link: [
 				// The type is necessary because the linter can't always compare this very nested/complex type on itself
 				...preloadedFonts.map((font): object => {
@@ -42,18 +42,18 @@ export default defineNuxtConfig({
 						crossorigin: 'anonymous',
 					}
 				}),
-				...Object.entries(favicons).map(([media, href]): object => {
-					return { rel: 'icon', type: 'image/x-icon', href, media }
-				}),
-				...Object.entries(favicons).map(([media, href]): object => {
-					return { rel: 'apple-touch-icon', type: 'image/x-icon', href, media, sizes: '64x64' }
-				}),
-				{
-					rel: 'search',
-					type: 'application/opensearchdescription+xml',
-					href: '/opensearch.xml',
-					title: 'Modrinth mods',
-				},
+			...Object.entries(favicons).map(([media, href]): object => {
+				return { rel: 'icon', type: 'image/png', href, media }
+			}),
+			...Object.entries(favicons).map(([media, href]): object => {
+				return { rel: 'apple-touch-icon', type: 'image/png', href, media, sizes: '64x64' }
+			}),
+			{
+				rel: 'search',
+				type: 'application/opensearchdescription+xml',
+				href: '/opensearch.xml',
+				title: 'Kweebex mods',
+			},
 			],
 		},
 	},

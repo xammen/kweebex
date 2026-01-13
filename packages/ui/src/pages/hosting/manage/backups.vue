@@ -196,8 +196,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Archon } from '@modrinth/api-client'
-import { CalendarIcon, DownloadIcon, IssuesIcon, PlusIcon, SpinnerIcon } from '@modrinth/assets'
+import type { Archon } from '@kweebex/api-client'
+import { CalendarIcon, DownloadIcon, IssuesIcon, PlusIcon, SpinnerIcon } from '@kweebex/assets'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import dayjs from 'dayjs'
 import type { Component } from 'vue'

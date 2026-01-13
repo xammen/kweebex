@@ -92,8 +92,8 @@ import {
 	ServerIcon,
 	ShieldIcon,
 	UserIcon,
-} from '@modrinth/assets'
-import { commonMessages, commonSettingsMessages, useVIntl } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { commonMessages, commonSettingsMessages, useVIntl } from '@kweebex/ui'
 
 import NavStack from '~/components/ui/NavStack.vue'
 

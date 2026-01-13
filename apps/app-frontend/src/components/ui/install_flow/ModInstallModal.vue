@@ -6,8 +6,8 @@ import {
 	RightArrowIcon,
 	UploadIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { Avatar, Button, Card, injectNotificationManager } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { Avatar, Button, Card, injectNotificationManager } from '@kweebex/ui'
 import { convertFileSrc } from '@tauri-apps/api/core'
 import { open } from '@tauri-apps/plugin-dialog'
 import { computed, ref } from 'vue'

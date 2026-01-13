@@ -1,5 +1,5 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { BookOpenIcon } from '@modrinth/assets'
+import type { Labrinth } from '@kweebex/api-client'
+import { BookOpenIcon } from '@kweebex/assets'
 
 import type { Stage } from '../../types/stage'
 

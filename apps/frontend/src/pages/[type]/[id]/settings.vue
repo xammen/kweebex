@@ -10,14 +10,14 @@ import {
 	TagsIcon,
 	UsersIcon,
 	VersionIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	commonMessages,
 	commonProjectSettingsMessages,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
-import { isStaff, type Project, type ProjectV3Partial } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { isStaff, type Project, type ProjectV3Partial } from '@kweebex/utils'
 import { useLocalStorage, useScroll } from '@vueuse/core'
 import { computed } from 'vue'
 

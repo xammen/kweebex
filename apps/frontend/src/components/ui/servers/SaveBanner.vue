@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonStyled } from '@modrinth/ui'
+import { ButtonStyled } from '@kweebex/ui'
 
 import type { ModrinthServer } from '~/composables/servers/modrinth-servers.ts'
 

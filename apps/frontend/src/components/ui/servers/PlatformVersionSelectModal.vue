@@ -205,7 +205,7 @@
 </template>
 
 <script setup lang="ts">
-import { DropdownIcon, RightArrowIcon, ServerIcon, XIcon } from '@modrinth/assets'
+import { DropdownIcon, RightArrowIcon, ServerIcon, XIcon } from '@kweebex/assets'
 import {
 	BackupWarning,
 	ButtonStyled,
@@ -214,8 +214,8 @@ import {
 	NewModal,
 	Toggle,
 	useVIntl,
-} from '@modrinth/ui'
-import { type Loaders, ModrinthServersFetchError } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { type Loaders, ModrinthServersFetchError } from '@kweebex/utils'
 import { $fetch } from 'ofetch'
 
 import type { ModrinthServer } from '~/composables/servers/modrinth-servers.ts'

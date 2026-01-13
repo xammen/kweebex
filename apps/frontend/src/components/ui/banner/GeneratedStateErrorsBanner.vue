@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineMessages, PagewideBanner, useVIntl } from '@modrinth/ui'
+import { defineMessages, PagewideBanner, useVIntl } from '@kweebex/ui'
 
 const { formatMessage } = useVIntl()
 

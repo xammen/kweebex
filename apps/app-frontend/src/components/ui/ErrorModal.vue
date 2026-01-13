@@ -7,8 +7,8 @@ import {
 	LogInIcon,
 	UpdatedIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { ButtonStyled, Collapsible, injectNotificationManager } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { ButtonStyled, Collapsible, injectNotificationManager } from '@kweebex/ui'
 import { computed, ref } from 'vue'
 
 import { ChatIcon } from '@/assets/icons'

@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { TimerIcon } from '@modrinth/assets'
+import { TimerIcon } from '@kweebex/assets'
 import { computed } from 'vue'
 
 const props = defineProps<{

@@ -20,7 +20,7 @@ use chrono::{DateTime, Datelike, Duration, NaiveTime, TimeZone, Utc};
 use dashmap::DashMap;
 use eyre::{Result, eyre};
 use futures::TryStreamExt;
-use modrinth_util::decimal::Decimal2dp;
+use kweebex_util::decimal::Decimal2dp;
 use reqwest::Method;
 use rust_decimal::prelude::ToPrimitive;
 use rust_decimal::{Decimal, RoundingStrategy, dec};

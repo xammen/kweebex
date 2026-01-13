@@ -433,7 +433,7 @@ import {
 	ToggleLeftIcon,
 	ToggleRightIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	type Action,
 	type ButtonAction,
@@ -459,7 +459,7 @@ import {
 	serializeActionStates,
 	type Stage,
 	type ToggleAction,
-} from '@modrinth/moderation'
+} from '@kweebex/moderation'
 import {
 	Avatar,
 	ButtonStyled,
@@ -472,13 +472,13 @@ import {
 	OverflowMenu,
 	type OverflowMenuOption,
 	useDebugLogger,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import {
 	type ModerationJudgements,
 	type ModerationModpackItem,
 	type ProjectStatus,
 	renderHighlightedString,
-} from '@modrinth/utils'
+} from '@kweebex/utils'
 import { computedAsync, useDebounceFn, useLocalStorage } from '@vueuse/core'
 
 import { useGeneratedState } from '~/composables/generated'

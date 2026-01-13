@@ -420,8 +420,8 @@ import {
 	TrashIcon,
 	UpdatedIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { ConfirmModal, injectNotificationManager } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { ConfirmModal, injectNotificationManager } from '@kweebex/ui'
 import KeyIcon from 'assets/icons/auth/key.svg'
 import DiscordIcon from 'assets/icons/auth/sso-discord.svg'
 import GithubIcon from 'assets/icons/auth/sso-github.svg'

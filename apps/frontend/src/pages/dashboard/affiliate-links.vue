@@ -63,7 +63,7 @@
 	</div>
 </template>
 <script setup lang="ts">
-import { PlusIcon, SearchIcon, XCircleIcon, XIcon } from '@modrinth/assets'
+import { PlusIcon, SearchIcon, XCircleIcon, XIcon } from '@kweebex/assets'
 import {
 	Admonition,
 	AffiliateLinkCard,
@@ -74,8 +74,8 @@ import {
 	defineMessages,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
-import type { AffiliateLink } from '@modrinth/utils'
+} from '@kweebex/ui'
+import type { AffiliateLink } from '@kweebex/utils'
 
 const createModal = useTemplateRef<typeof AffiliateLinkCreateModal>('createModal')
 const revokeModal = useTemplateRef<typeof ConfirmModal>('revokeModal')

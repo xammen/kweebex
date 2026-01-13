@@ -1,4 +1,4 @@
-import cssText from '@modrinth/assets/styles/ace.css?raw'
+import cssText from '@kweebex/assets/styles/ace.css?raw'
 import ace from 'ace-builds'
 
 ace['define'](

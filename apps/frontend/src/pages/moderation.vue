@@ -17,8 +17,8 @@
 </template>
 
 <script setup lang="ts">
-import { FolderIcon, ReportIcon, ShieldCheckIcon } from '@modrinth/assets'
-import { Chips, defineMessages, useVIntl } from '@modrinth/ui'
+import { FolderIcon, ReportIcon, ShieldCheckIcon } from '@kweebex/assets'
+import { Chips, defineMessages, useVIntl } from '@kweebex/ui'
 
 import NavTabs from '@/components/ui/NavTabs.vue'
 

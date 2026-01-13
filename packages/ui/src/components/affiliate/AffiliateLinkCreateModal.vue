@@ -63,7 +63,7 @@
 </template>
 <script lang="ts"></script>
 <script setup lang="ts">
-import { AffiliateIcon, PlusIcon, SpinnerIcon, UserIcon, XIcon } from '@modrinth/assets'
+import { AffiliateIcon, PlusIcon, SpinnerIcon, UserIcon, XIcon } from '@kweebex/assets'
 import { computed, ref, useTemplateRef } from 'vue'
 
 import { defineMessages, useVIntl } from '../../composables/i18n'

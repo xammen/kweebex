@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { NewModal as Modal } from '@modrinth/ui'
+import { NewModal as Modal } from '@kweebex/ui'
 import { useTemplateRef } from 'vue'
 
 import { hide_ads_window, show_ads_window } from '@/helpers/ads.js'

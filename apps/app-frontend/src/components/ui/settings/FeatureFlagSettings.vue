@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Toggle } from '@modrinth/ui'
+import { Toggle } from '@kweebex/ui'
 import { ref, watch } from 'vue'
 
 import { get as getSettings, set as setSettings } from '@/helpers/settings.ts'

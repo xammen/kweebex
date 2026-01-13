@@ -610,7 +610,7 @@ import {
 	TrashIcon,
 	UpdatedIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	AddPaymentMethodModal,
 	ButtonStyled,
@@ -624,8 +624,8 @@ import {
 	PurchaseModal,
 	ServerListing,
 	useVIntl,
-} from '@modrinth/ui'
-import { calculateSavings, formatPrice, getCurrency } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { calculateSavings, formatPrice, getCurrency } from '@kweebex/utils'
 import { computed, ref } from 'vue'
 
 import { useBaseFetch } from '@/composables/fetch.js'

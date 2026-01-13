@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { DownloadIcon, ExternalIcon, RefreshCwIcon, SpinnerIcon, XIcon } from '@modrinth/assets'
-import { ButtonStyled, commonMessages, defineMessages, ProgressBar, useVIntl } from '@modrinth/ui'
-import { formatBytes } from '@modrinth/utils'
+import { DownloadIcon, ExternalIcon, RefreshCwIcon, SpinnerIcon, XIcon } from '@kweebex/assets'
+import { ButtonStyled, commonMessages, defineMessages, ProgressBar, useVIntl } from '@kweebex/ui'
+import { formatBytes } from '@kweebex/utils'
 import { ref } from 'vue'
 
 import { injectAppUpdateDownloadProgress } from '@/providers/download-progress.ts'

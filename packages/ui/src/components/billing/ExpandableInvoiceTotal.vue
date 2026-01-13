@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { SpinnerIcon } from '@modrinth/assets'
-import { formatPrice } from '@modrinth/utils'
+import { SpinnerIcon } from '@kweebex/assets'
+import { formatPrice } from '@kweebex/utils'
 import { computed } from 'vue'
 
 import { useVIntl } from '../../composables/i18n'

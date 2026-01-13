@@ -1,4 +1,4 @@
-import type { Archon } from '@modrinth/api-client'
+import type { Archon } from '@kweebex/api-client'
 import type { ComputedRef, Reactive, Ref } from 'vue'
 
 import { createContext } from '.'

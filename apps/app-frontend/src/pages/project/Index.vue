@@ -139,7 +139,7 @@ import {
 	HeartIcon,
 	MoreVerticalIcon,
 	ReportIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	ButtonStyled,
 	injectNotificationManager,
@@ -150,7 +150,7 @@ import {
 	ProjectSidebarCreators,
 	ProjectSidebarDetails,
 	ProjectSidebarLinks,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { openUrl } from '@tauri-apps/plugin-opener'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'

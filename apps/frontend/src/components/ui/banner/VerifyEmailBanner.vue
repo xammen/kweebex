@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { SettingsIcon } from '@modrinth/assets'
-import { defineMessages, injectNotificationManager, PagewideBanner, useVIntl } from '@modrinth/ui'
+import { SettingsIcon } from '@kweebex/assets'
+import { defineMessages, injectNotificationManager, PagewideBanner, useVIntl } from '@kweebex/ui'
 import { FetchError } from 'ofetch'
 
 const { addNotification } = injectNotificationManager()

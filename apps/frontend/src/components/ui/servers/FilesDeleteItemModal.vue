@@ -42,8 +42,8 @@
 </template>
 
 <script setup lang="ts">
-import { FileIcon, FolderOpenIcon, TrashIcon, XIcon } from '@modrinth/assets'
-import { ButtonStyled, NewModal } from '@modrinth/ui'
+import { FileIcon, FolderOpenIcon, TrashIcon, XIcon } from '@kweebex/assets'
+import { ButtonStyled, NewModal } from '@kweebex/ui'
 
 defineProps<{
 	item: {

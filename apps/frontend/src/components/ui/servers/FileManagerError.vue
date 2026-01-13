@@ -25,8 +25,8 @@
 </template>
 
 <script setup lang="ts">
-import { FileIcon, HomeIcon } from '@modrinth/assets'
-import { ButtonStyled } from '@modrinth/ui'
+import { FileIcon, HomeIcon } from '@kweebex/assets'
+import { ButtonStyled } from '@kweebex/ui'
 
 import LoadingIcon from './icons/LoadingIcon.vue'
 

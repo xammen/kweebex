@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { BanIcon, LockIcon, XCircleIcon, XIcon } from '@modrinth/assets'
+import { BanIcon, LockIcon, XCircleIcon, XIcon } from '@kweebex/assets'
 import { computed, type ComputedRef } from 'vue'
 
 import { defineMessage, type MessageDescriptor, useVIntl } from '../../composables/i18n'

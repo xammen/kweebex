@@ -141,14 +141,14 @@ import {
 	MicrosoftColorIcon,
 	RightArrowIcon,
 	SteamColorIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	commonMessages,
 	defineMessages,
 	injectNotificationManager,
 	IntlFormatted,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 import HCaptcha from '@/components/ui/HCaptcha.vue'
 import { getAuthUrl, getLauncherRedirectUrl } from '@/composables/auth.js'

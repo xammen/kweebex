@@ -68,9 +68,9 @@
 </template>
 
 <script setup lang="ts">
-import { DownloadIcon, XIcon } from '@modrinth/assets'
-import { ButtonStyled, Combobox, injectNotificationManager, NewModal } from '@modrinth/ui'
-import { ModrinthServersFetchError } from '@modrinth/utils'
+import { DownloadIcon, XIcon } from '@kweebex/assets'
+import { ButtonStyled, Combobox, injectNotificationManager, NewModal } from '@kweebex/ui'
+import { ModrinthServersFetchError } from '@kweebex/utils'
 
 import type { ModrinthServer } from '~/composables/servers/modrinth-servers.ts'
 

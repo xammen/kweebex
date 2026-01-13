@@ -1,45 +1,76 @@
 <template>
 	<div>
-		<div class="landing-hero">
-			<ModrinthIcon class="modrinth-icon text-brand" />
-			<h1 class="main-header">
-				<IntlFormatted :message-id="messages.thePlaceForMinecraft">
-					<template #~content>
-						<div class="animate-strong">
-							<span>
-								<strong
-									v-for="[key, message] in Object.entries(contentTypeMessages)"
-									:key="`landing-content-type-${key}`"
-									class="main-header-strong"
-								>
-									{{ formatMessage(message) }} <br />
-								</strong>
-								<strong class="main-header-strong">
-									{{ formatMessage(contentTypeMessages.mods) }}
-								</strong>
-							</span>
-						</div>
-					</template>
-				</IntlFormatted>
+		<!-- Social Proof Toast -->
+		<Transition name="toast-slide">
+			<NuxtLink 
+				v-if="showToast" 
+				:to="currentToast.link || '/discover/mods'" 
+				class="social-proof-toast"
+			>
+				<div class="toast-icon">
+					<span v-if="currentToast.type === 'creator'">&#128100;</span>
+					<span v-else-if="currentToast.type === 'upload'">&#128230;</span>
+					<span v-else>&#128065;</span>
+				</div>
+				<span class="toast-message">{{ currentToast.message }}</span>
+			</NuxtLink>
+		</Transition>
+
+		<div class="landing-hero kweebex-hero" ref="heroRef">
+			<!-- Ambient Background Effects -->
+			<div class="ambient-bg">
+				<div class="ambient-orb ambient-orb-1"></div>
+				<div class="ambient-orb ambient-orb-2"></div>
+				<div class="ambient-orb ambient-orb-3"></div>
+			</div>
+			<div class="star-field">
+				<div v-for="n in 30" :key="n" class="star" :style="{ '--delay': `${Math.random() * 5}s`, '--x': `${Math.random() * 100}%`, '--y': `${Math.random() * 100}%`, '--size': `${1 + Math.random() * 2}px` }"></div>
+			</div>
+
+			<div class="hero-glow"></div>
+			<div class="hero-glow-secondary"></div>
+
+		<!-- Epic Launch Message -->
+		<div class="launch-banner">
+			<span class="launch-text">Hytale is finally here. We're at the beginning of something great.</span>
+		</div>
+
+		<!-- Falling Leaves -->
+		<div class="falling-leaves">
+			<div v-for="n in 10" :key="n" class="leaf" :style="{ '--delay': `${Math.random() * 15}s`, '--x': `${5 + Math.random() * 90}%`, '--duration': `${18 + Math.random() * 12}s`, '--size': `${8 + Math.random() * 8}px`, '--opacity': `${0.15 + Math.random() * 0.15}` }"></div>
+		</div>
+
+		<h1 class="main-header">
+				<span class="hero-title-prefix">The place for</span>
+				<span class="hero-title-game">Hytale</span>
+				<div class="animate-strong">
+					<span>
+						<strong class="main-header-strong">mods <br /></strong>
+						<strong class="main-header-strong">modpacks <br /></strong>
+						<strong class="main-header-strong">resource packs <br /></strong>
+						<strong class="main-header-strong">plugins <br /></strong>
+						<strong class="main-header-strong">mods</strong>
+					</span>
+				</div>
 			</h1>
-			<h2>
-				{{ formatMessage(messages.discoverHeading) }}
+			<h2 class="hero-subtitle">
+				Discover, play, and share Hytale content through our open-source platform built for the community.
 			</h2>
 			<div class="button-group">
-				<ButtonStyled color="brand" size="large">
+				<ButtonStyled color="brand" size="large" class="hero-btn-primary">
 					<nuxt-link to="/discover/mods">
 						<CompassIcon aria-hidden="true" />
-						{{ formatMessage(messages.discoverMods) }}
+						Discover mods
 					</nuxt-link>
 				</ButtonStyled>
-				<ButtonStyled size="large" type="outlined">
+				<ButtonStyled size="large" type="outlined" class="hero-btn-secondary">
 					<nuxt-link v-if="!auth.user" to="/auth/sign-up" rel="noopener nofollow">
 						<LogInIcon aria-hidden="true" />
 						{{ formatMessage(commonMessages.signUpButton) }}
 					</nuxt-link>
 					<nuxt-link v-else to="/dashboard/projects">
 						<DashboardIcon aria-hidden="true" />
-						{{ formatMessage(messages.goToDashboard) }}
+						Go to dashboard
 					</nuxt-link>
 				</ButtonStyled>
 			</div>
@@ -73,9 +104,9 @@
 			<div class="projects-transition" />
 			<div class="users-section">
 				<div class="section-header">
-					<div class="section-label green">{{ formatMessage(messages.forPlayersLabel) }}</div>
+					<div class="section-label teal">{{ formatMessage(messages.forPlayersLabel) }}</div>
 					<h2 class="section-tagline">
-						{{ formatMessage(messages.discoverCreationsTagline, { count: formattedProjectCount }) }}
+						Discover over <span class="animated-counter" ref="counterRef">{{ displayCount }}</span>+ creations
 					</h2>
 					<p class="section-description">
 						{{ formatMessage(messages.playersDescription) }}
@@ -214,44 +245,22 @@
 					</div>
 					<div class="blob-demonstration gradient-border">
 						<div class="launcher-view">
-							<img
-								v-if="$theme.active === 'light'"
-								src="https://cdn.modrinth.com/landing-new/launcher-light.webp"
-								:alt="formatMessage(messages.launcherGraphicAlt)"
-								class="minecraft-screen"
-							/>
-							<img
-								v-else
-								src="https://cdn.modrinth.com/landing-new/launcher.webp"
-								:alt="formatMessage(messages.launcherGraphicAlt)"
-								class="minecraft-screen"
-							/>
+							<div class="launcher-placeholder">
+								<div class="launcher-placeholder-content">
+									<ModrinthIcon class="launcher-logo-icon" aria-hidden="true" />
+									<span class="launcher-text">{{ formatMessage(messages.kweebexAppLabel) }}</span>
+									<span class="launcher-subtext">Coming Soon</span>
+								</div>
+							</div>
 							<div class="launcher-graphics">
-								<a
-									rel="noopener"
-									href="https://prismlauncher.org/"
-									class="graphic gradient-border"
-									:title="formatMessage(messages.prismLauncherLabel)"
-									:aria-label="formatMessage(messages.prismLauncherLabel)"
-								>
-									<PrismLauncherLogo aria-hidden="true" />
-								</a>
 								<nuxt-link
 									to="/app"
-									class="graphic gradient-border text-brand"
-									:aria-label="formatMessage(messages.modrinthAppLabel)"
+									class="graphic gradient-border primary-graphic"
+									:aria-label="formatMessage(messages.kweebexAppLabel)"
 								>
 									<ModrinthIcon aria-hidden="true" />
+									<span class="graphic-label">Kweebex App</span>
 								</nuxt-link>
-								<a
-									rel="noopener"
-									href="https://atlauncher.com/"
-									class="graphic gradient-border"
-									:title="formatMessage(messages.atlauncherLabel)"
-									:aria-label="formatMessage(messages.atlauncherLabel)"
-								>
-									<ATLauncherLogo aria-hidden="true" />
-								</a>
 							</div>
 						</div>
 					</div>
@@ -260,7 +269,7 @@
 		</div>
 		<div class="creator-section">
 			<div class="section-header">
-				<div class="section-label blue">{{ formatMessage(messages.forCreatorsLabel) }}</div>
+				<div class="section-label gold">{{ formatMessage(messages.forCreatorsLabel) }}</div>
 				<h2 class="section-tagline">{{ formatMessage(messages.shareContentTagline) }}</h2>
 				<p class="section-description">
 					{{ formatMessage(messages.creatorsDescription) }}
@@ -283,8 +292,8 @@
 									y2="37"
 									gradientUnits="userSpaceOnUse"
 								>
-									<stop stop-color="#C1E1B1" />
-									<stop offset="1" stop-color="#A7BDE6" />
+								<stop stop-color="#5ba3cc" />
+								<stop offset="1" stop-color="#e8b923" />
 								</linearGradient>
 							</defs>
 						</svg>
@@ -310,8 +319,8 @@
 									y2="23.5"
 									gradientUnits="userSpaceOnUse"
 								>
-									<stop stop-color="#C1E1B1" />
-									<stop offset="1" stop-color="#A7BDE6" />
+								<stop stop-color="#5ba3cc" />
+								<stop offset="1" stop-color="#e8b923" />
 								</linearGradient>
 							</defs>
 						</svg>
@@ -335,8 +344,8 @@
 									y2="29.375"
 									gradientUnits="userSpaceOnUse"
 								>
-									<stop stop-color="#C1E1B1" />
-									<stop offset="1" stop-color="#A7BDE6" />
+								<stop stop-color="#5ba3cc" />
+								<stop offset="1" stop-color="#e8b923" />
 								</linearGradient>
 							</defs>
 						</svg>
@@ -360,8 +369,8 @@
 									y2="38.25"
 									gradientUnits="userSpaceOnUse"
 								>
-									<stop stop-color="#C1E1B1" />
-									<stop offset="1" stop-color="#A7BDE6" />
+								<stop stop-color="#5ba3cc" />
+								<stop offset="1" stop-color="#e8b923" />
 								</linearGradient>
 							</defs>
 						</svg>
@@ -387,8 +396,8 @@
 									y2="38.25"
 									gradientUnits="userSpaceOnUse"
 								>
-									<stop stop-color="#C1E1B1" />
-									<stop offset="1" stop-color="#A7BDE6" />
+								<stop stop-color="#5ba3cc" />
+								<stop offset="1" stop-color="#e8b923" />
 								</linearGradient>
 							</defs>
 						</svg>
@@ -412,8 +421,8 @@
 									y2="31.5"
 									gradientUnits="userSpaceOnUse"
 								>
-									<stop stop-color="#C1E1B1" />
-									<stop offset="1" stop-color="#A7BDE6" />
+								<stop stop-color="#5ba3cc" />
+								<stop offset="1" stop-color="#e8b923" />
 								</linearGradient>
 							</defs>
 						</svg>
@@ -438,7 +447,7 @@ import {
 	LogInIcon,
 	ModrinthIcon,
 	SearchIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	ButtonStyled,
@@ -447,12 +456,11 @@ import {
 	IntlFormatted,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
-import { ref } from 'vue'
+} from '@kweebex/ui'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { Multiselect } from 'vue-multiselect'
 
-import ATLauncherLogo from '~/assets/images/external/atlauncher.svg?component'
-import PrismLauncherLogo from '~/assets/images/external/prism.svg?component'
+
 import LatestNewsRow from '~/components/ui/news/LatestNewsRow.vue'
 import ProjectCard from '~/components/ui/ProjectCard.vue'
 import { homePageNotifs, homePageProjects, homePageSearch } from '~/generated/state.json'
@@ -464,9 +472,153 @@ const { formatMessage } = useVIntl()
 const searchQuery = ref('leave')
 const sortType = ref('relevance')
 
-const PROJECT_COUNT = 75000
+const PROJECT_COUNT = 1247
 const formatNumber = new Intl.NumberFormat().format
 const formattedProjectCount = computed(() => formatNumber(PROJECT_COUNT))
+
+// Hero ref for animations
+const heroRef = ref(null)
+
+// ============================================
+// FEATURE 2: Animated Mod Counter
+// ============================================
+const counterRef = ref(null)
+const displayCount = ref('0')
+const targetCount = PROJECT_COUNT
+let counterAnimationStarted = false
+
+function animateCounter() {
+	if (counterAnimationStarted) return
+	counterAnimationStarted = true
+
+	const duration = 2000
+	const startTime = performance.now()
+	const startValue = 0
+
+	function updateCounter(currentTime) {
+		const elapsed = currentTime - startTime
+		const progress = Math.min(elapsed / duration, 1)
+		
+		// Ease-out cubic
+		const easeOut = 1 - Math.pow(1 - progress, 3)
+		const currentValue = Math.floor(startValue + (targetCount - startValue) * easeOut)
+		
+		displayCount.value = formatNumber(currentValue)
+
+		if (progress < 1) {
+			requestAnimationFrame(updateCounter)
+		}
+	}
+
+	requestAnimationFrame(updateCounter)
+}
+
+// ============================================
+// FEATURE 4: Dynamic Social Proof Toast (Real Data)
+// ============================================
+const showToast = ref(false)
+const currentToast = ref({ message: '', type: 'creator' })
+let toastInterval = null
+
+// Store real data from API
+const recentProjects = ref([])
+const toastQueue = ref([])
+let toastIndex = 0
+
+// Fetch recent projects from API
+async function fetchRecentProjects() {
+	try {
+		const res = await useBaseFetch('search?limit=10&index=newest')
+		if (res?.hits) {
+			recentProjects.value = res.hits
+			buildToastQueue()
+		}
+	} catch (e) {
+		console.error('Failed to fetch recent projects for toasts:', e)
+		// Fallback to static messages if API fails
+		toastQueue.value = [
+			{ message: 'New content is being uploaded!', type: 'upload' },
+			{ message: 'Creators are joining every day', type: 'creator' },
+			{ message: 'Browse the latest mods', type: 'browsing' },
+		]
+	}
+}
+
+// Build toast messages from real data
+function buildToastQueue() {
+	const queue = []
+	
+	recentProjects.value.forEach((project, index) => {
+		// Alternate between different message types
+		if (index % 3 === 0) {
+			queue.push({
+				message: `"${project.title}" was just uploaded`,
+				type: 'upload',
+				link: `/${project.project_type}/${project.slug}`
+			})
+		} else if (index % 3 === 1) {
+			queue.push({
+				message: `${project.title} by ${project.author}`,
+				type: 'creator',
+				link: `/${project.project_type}/${project.slug}`
+			})
+		} else {
+			const downloads = project.downloads > 1000 
+				? `${(project.downloads / 1000).toFixed(1)}k` 
+				: project.downloads
+			queue.push({
+				message: `${project.title} has ${downloads} downloads`,
+				type: 'browsing',
+				link: `/${project.project_type}/${project.slug}`
+			})
+		}
+	})
+	
+	// Shuffle the queue for variety
+	toastQueue.value = queue.sort(() => Math.random() - 0.5)
+}
+
+function showNextToast() {
+	if (toastQueue.value.length === 0) return
+	
+	currentToast.value = toastQueue.value[toastIndex]
+	showToast.value = true
+
+	setTimeout(() => {
+		showToast.value = false
+	}, 4500)
+
+	toastIndex = (toastIndex + 1) % toastQueue.value.length
+}
+
+async function startToastCycle() {
+	// Fetch real data first
+	await fetchRecentProjects()
+	
+	// Show first toast after 5 seconds
+	setTimeout(() => {
+		showNextToast()
+		// Then every 18 seconds
+		toastInterval = setInterval(showNextToast, 18000)
+	}, 5000)
+}
+
+// ============================================
+// Lifecycle Hooks
+// ============================================
+onMounted(() => {
+	// Start counter animation after a short delay
+	setTimeout(animateCounter, 500)
+
+	// Start toast cycle
+	startToastCycle()
+})
+
+onUnmounted(() => {
+	if (toastInterval) {
+		clearInterval(toastInterval)
+	}
+})
 
 const auth = await useAuth()
 
@@ -494,14 +646,14 @@ async function updateSearchProjects() {
 }
 
 const messages = defineMessages({
-	thePlaceForMinecraft: {
-		id: 'landing.heading.the-place-for-minecraft',
-		defaultMessage: 'The place for Minecraft {content}',
+	thePlaceForHytale: {
+		id: 'landing.heading.the-place-for-hytale',
+		defaultMessage: 'The place for Hytale {content}',
 	},
 	discoverHeading: {
 		id: 'landing.subheading',
 		defaultMessage:
-			'Discover, play, and share Minecraft content through our open-source platform built for the community.',
+			'Discover, play, and share Hytale content through our open-source platform built for the community.',
 	},
 	discoverMods: {
 		id: 'landing.button.discover-mods',
@@ -548,7 +700,7 @@ const messages = defineMessages({
 	findWhatYouWantDescription: {
 		id: 'landing.feature.search.description',
 		defaultMessage:
-			"Modrinth's lightning-fast search and powerful filters let you find what you want as you type.",
+			"Kweebex's lightning-fast search and powerful filters let you find what you want as you type.",
 	},
 	followProjectsHeading: {
 		id: 'landing.feature.follow.heading',
@@ -565,7 +717,7 @@ const messages = defineMessages({
 	playWithLauncherDescription: {
 		id: 'landing.feature.launcher.description',
 		defaultMessage:
-			"Modrinth's open-source API lets launchers add deep integration with Modrinth. You can use Modrinth through <link>our own app</link> and some of the most popular launchers like ATLauncher, MultiMC, and Prism Launcher.",
+			"Experience seamless mod management with the <link>Kweebex App</link>. Install, update, and organize your Hytale content all in one place.",
 	},
 	searchPlaceholder: {
 		id: 'landing.search.placeholder',
@@ -598,49 +750,41 @@ const messages = defineMessages({
 	launcherGraphicAlt: {
 		id: 'landing.launcher.graphic-alt',
 		defaultMessage:
-			'A simplified representation of a Minecraft window, with the Mojang Studios logo in Modrinth green.',
+			'A simplified representation of a Hytale window with the Kweebex brand colors.',
 	},
-	prismLauncherLabel: {
-		id: 'landing.launcher.prism-launcher-label',
-		defaultMessage: 'Prism Launcher',
-	},
-	modrinthAppLabel: {
-		id: 'landing.launcher.modrinth-app-label',
-		defaultMessage: 'Modrinth App',
-	},
-	atlauncherLabel: {
-		id: 'landing.launcher.atlauncher-label',
-		defaultMessage: 'ATLauncher',
+	kweebexAppLabel: {
+		id: 'landing.launcher.kweebex-app-label',
+		defaultMessage: 'Kweebex App',
 	},
 })
 
 const contentTypeMessages = defineMessages({
 	mods: {
-		id: 'landing.heading.the-place-for-minecraft.mods',
+		id: 'landing.heading.the-place-for-hytale.mods',
 		defaultMessage: 'mods',
 	},
 	resourcePacks: {
-		id: 'landing.heading.the-place-for-minecraft.resource-packs',
+		id: 'landing.heading.the-place-for-hytale.resource-packs',
 		defaultMessage: 'resource packs',
 	},
 	dataPacks: {
-		id: 'landing.heading.the-place-for-minecraft.data-packs',
+		id: 'landing.heading.the-place-for-hytale.data-packs',
 		defaultMessage: 'data packs',
 	},
 	shaders: {
-		id: 'landing.heading.the-place-for-minecraft.shaders',
+		id: 'landing.heading.the-place-for-hytale.shaders',
 		defaultMessage: 'shaders',
 	},
 	modpacks: {
-		id: 'landing.heading.the-place-for-minecraft.modpacks',
+		id: 'landing.heading.the-place-for-hytale.modpacks',
 		defaultMessage: 'modpacks',
 	},
 	plugins: {
-		id: 'landing.heading.the-place-for-minecraft.plugins',
+		id: 'landing.heading.the-place-for-hytale.plugins',
 		defaultMessage: 'plugins',
 	},
 	servers: {
-		id: 'landing.heading.the-place-for-minecraft.servers',
+		id: 'landing.heading.the-place-for-hytale.servers',
 		defaultMessage: 'servers',
 	},
 })
@@ -696,28 +840,332 @@ const creatorFeatureMessages = defineMessages({
 	constantlyEvolvingDescription: {
 		id: 'landing.creator.feature.constantly-evolving.description',
 		defaultMessage:
-			'Get the best modding experience possible with constant updates from the Modrinth team',
+			'Get the best modding experience possible with constant updates from the Kweebex team',
 	},
 })
 </script>
 
 <style lang="scss" scoped>
 .landing-hero {
-	background-image: var(--landing-maze-bg);
+	position: relative;
+	background: var(--hero-gradient);
 	background-size: cover;
 	object-fit: contain;
-	padding: 6rem 1rem 12rem 1rem;
+	padding: 4rem 1rem 10rem 1rem;
+	overflow: hidden;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	flex-direction: column;
+	gap: 0;
+
+	&.kweebex-hero {
+		min-height: 80vh;
+	}
+
+	// Ambient background orbs
+	.ambient-bg {
+		position: absolute;
+		inset: 0;
+		overflow: hidden;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.ambient-orb {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(80px);
+		opacity: 0.4;
+		animation: orb-float 20s ease-in-out infinite;
+
+		&.ambient-orb-1 {
+			width: 600px;
+			height: 600px;
+			background: radial-gradient(circle, rgba(232, 185, 35, 0.3) 0%, transparent 70%);
+			top: -10%;
+			left: 20%;
+			animation-delay: 0s;
+		}
+
+		&.ambient-orb-2 {
+			width: 500px;
+			height: 500px;
+			background: radial-gradient(circle, rgba(91, 163, 204, 0.25) 0%, transparent 70%);
+			bottom: 10%;
+			right: 10%;
+			animation-delay: -7s;
+		}
+
+		&.ambient-orb-3 {
+			width: 400px;
+			height: 400px;
+			background: radial-gradient(circle, rgba(232, 185, 35, 0.2) 0%, transparent 70%);
+			top: 50%;
+			left: -5%;
+			animation-delay: -14s;
+		}
+	}
+
+	@keyframes orb-float {
+		0%, 100% {
+			transform: translate(0, 0) scale(1);
+		}
+		25% {
+			transform: translate(30px, -20px) scale(1.05);
+		}
+		50% {
+			transform: translate(-20px, 30px) scale(0.95);
+		}
+		75% {
+			transform: translate(-30px, -10px) scale(1.02);
+		}
+	}
+
+	// Star field background
+	.star-field {
+		position: absolute;
+		inset: 0;
+		overflow: hidden;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.star {
+		position: absolute;
+		width: var(--size);
+		height: var(--size);
+		left: var(--x);
+		top: var(--y);
+		background: white;
+		border-radius: 50%;
+		opacity: 0;
+		animation: twinkle 4s ease-in-out infinite;
+		animation-delay: var(--delay);
+
+		@media (prefers-reduced-motion) {
+			animation: none;
+			opacity: 0.3;
+		}
+	}
+
+	@keyframes twinkle {
+		0%, 100% {
+			opacity: 0.1;
+			transform: scale(0.8);
+		}
+		50% {
+			opacity: 0.6;
+			transform: scale(1);
+		}
+	}
+
+	.hero-glow {
+		position: absolute;
+		top: -20%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 150%;
+		height: 80%;
+		background: var(--hero-glow);
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.hero-glow-secondary {
+		position: absolute;
+		top: 10%;
+		right: -10%;
+		width: 60%;
+		height: 60%;
+		background: var(--hero-glow-secondary);
+		pointer-events: none;
+		z-index: 0;
+		filter: blur(40px);
+	}
+
+	.main-header {
+		position: relative;
+		z-index: 2;
+		margin: 0;
+		cursor: default;
+		user-select: none;
+	}
+
+	.hero-title-prefix {
+		display: block;
+		font-size: 1.25rem;
+		font-weight: 500;
+		color: rgba(255, 255, 255, 0.7);
+		margin-bottom: 0.25rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.hero-title-game {
+		display: block;
+		font-size: 4.5rem;
+		font-weight: 800;
+		margin-bottom: 0.125rem;
+		letter-spacing: -0.02em;
+		background: linear-gradient(135deg, #f5d45a 0%, #e8b923 50%, #d4a017 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		filter: drop-shadow(0 0 30px rgba(232, 185, 35, 0.5));
+		text-shadow: 0 0 60px rgba(232, 185, 35, 0.4);
+
+		@media (max-width: 768px) {
+			font-size: 3.5rem;
+		}
+	}
+
+	.animate-strong {
+		height: 4.5rem;
+		overflow: hidden;
+		position: relative;
+
+		@media (max-width: 768px) {
+			height: 3.5rem;
+		}
+
+		span {
+			display: block;
+			animation: text-cycle 8s ease-in-out infinite;
+		}
+
+		.main-header-strong {
+			display: block;
+			font-size: 4rem;
+			font-weight: 800;
+			line-height: 1.15;
+			background: linear-gradient(135deg, #5ba3cc 0%, #3d7ea6 50%, #2d6a8a 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+
+			@media (max-width: 768px) {
+				font-size: 3rem;
+			}
+		}
+	}
+
+	@keyframes text-cycle {
+		0%, 15% {
+			transform: translateY(0);
+		}
+		20%, 35% {
+			transform: translateY(-20%);
+		}
+		40%, 55% {
+			transform: translateY(-40%);
+		}
+		60%, 75% {
+			transform: translateY(-60%);
+		}
+		80%, 100% {
+			transform: translateY(-80%);
+		}
+	}
+
+	.hero-subtitle {
+		position: relative;
+		z-index: 2;
+		font-size: 1.125rem;
+		line-height: 160%;
+		margin: 0.75rem 0 1.5rem;
+		font-weight: 400;
+		color: rgba(255, 255, 255, 0.7);
+		max-width: 36rem;
+
+		@media (max-width: 768px) {
+			font-size: 1rem;
+			margin: 0.5rem 0 1.25rem;
+		}
+	}
+
+	.button-group {
+		position: relative;
+		z-index: 2;
+		width: fit-content;
+		gap: 0.875rem;
+		margin: 0 auto 3rem;
+		justify-content: center;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.hero-btn-primary {
+		:deep(a), :deep(button) {
+			background: linear-gradient(135deg, #e8b923 0%, #f5d45a 100%);
+			color: #15243a;
+			font-weight: 700;
+			box-shadow: 
+				0 4px 20px rgba(232, 185, 35, 0.4),
+				inset 0 1px 0 rgba(255, 255, 255, 0.3);
+			transition: all 0.3s ease;
+			border: none;
+			position: relative;
+			overflow: hidden;
+
+			&::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+
+			&:hover {
+				transform: translateY(-2px);
+				box-shadow: 
+					0 8px 32px rgba(232, 185, 35, 0.5),
+					inset 0 1px 0 rgba(255, 255, 255, 0.4);
+				
+				&::before {
+					opacity: 1;
+				}
+			}
+
+			&:active {
+				transform: translateY(0);
+				box-shadow: 0 2px 12px rgba(232, 185, 35, 0.4);
+			}
+
+			svg {
+				filter: none;
+			}
+		}
+	}
+
+	.hero-btn-secondary {
+		:deep(a), :deep(button) {
+			border: 1px solid rgba(255, 255, 255, 0.25);
+			color: #fff;
+			backdrop-filter: blur(12px);
+			background: rgba(255, 255, 255, 0.08);
+			transition: all 0.3s ease;
+			box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+
+			&:hover {
+				background: rgba(255, 255, 255, 0.15);
+				border-color: rgba(255, 255, 255, 0.4);
+				transform: translateY(-2px);
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+			}
+
+			&:active {
+				transform: translateY(0);
+				background: rgba(255, 255, 255, 0.12);
+			}
+		}
+	}
 
 	.modrinth-icon {
-		width: 13rem;
-		height: 13rem;
-		margin-bottom: 2.5rem;
+		display: none;
 	}
 
 	h2 {
@@ -728,13 +1176,6 @@ const creatorFeatureMessages = defineMessages({
 		line-break: loose;
 		color: var(--landing-color-subheading);
 		max-width: 50rem;
-	}
-
-	.button-group {
-		width: fit-content;
-		gap: 1.25rem;
-		margin: 0 auto 5rem;
-		justify-content: center;
 	}
 }
 
@@ -787,7 +1228,7 @@ const creatorFeatureMessages = defineMessages({
 
 			&:hover {
 				.row__content {
-					animation-play-state: paused !important;
+					animation-play-state: paused;
 				}
 			}
 
@@ -796,7 +1237,7 @@ const creatorFeatureMessages = defineMessages({
 				display: flex;
 				min-width: 100%;
 				gap: var(--gap);
-				animation: scroll 40s linear infinite;
+				animation: scroll 50s linear infinite;
 
 				@media (prefers-reduced-motion) {
 					animation-play-state: paused !important;
@@ -835,22 +1276,22 @@ const creatorFeatureMessages = defineMessages({
 				gap: 1rem;
 				border-radius: 1rem;
 				border: 1px solid var(--landing-border-color);
-				transition:
-					background 0.5s ease-in-out,
-					transform 0.05s ease-in-out;
-				// Removed due to lag on mobile :(
+				background: var(--landing-card-bg);
+				transition: all 0.2s ease;
 
 				&:hover {
-					z-index: -2;
 					background: var(--landing-hover-card-gradient);
+					border-color: rgba(91, 163, 204, 0.3);
 				}
 
 				img {
 					height: 3rem;
+					border-radius: 0.5rem;
 				}
 
 				.project-info {
 					box-sizing: border-box;
+					min-width: 0;
 				}
 
 				.title {
@@ -861,13 +1302,14 @@ const creatorFeatureMessages = defineMessages({
 					text-overflow: ellipsis;
 					margin: 0;
 					font-weight: 600;
-					font-size: 1.25rem;
-					line-height: 110%;
+					font-size: 1.125rem;
+					line-height: 120%;
 					display: block;
 				}
 
 				.description {
 					width: 13.75rem;
+					color: var(--landing-color-subheading);
 
 					display: -webkit-box;
 					-webkit-line-clamp: 2;
@@ -875,10 +1317,10 @@ const creatorFeatureMessages = defineMessages({
 					-webkit-box-orient: vertical;
 					overflow: hidden;
 
-					font-weight: 500;
-					font-size: 0.875rem;
-					line-height: 125%;
-					margin: 0.25rem 0 0;
+					font-weight: 400;
+					font-size: 0.8125rem;
+					line-height: 140%;
+					margin: 0.375rem 0 0;
 				}
 			}
 		}
@@ -912,18 +1354,34 @@ const creatorFeatureMessages = defineMessages({
 				text-align: center;
 
 				h3 {
-					font-weight: 500;
-					font-size: 2rem;
-					line-height: 110%;
+					font-weight: 700;
+					font-size: 1.75rem;
+					line-height: 120%;
 					color: var(--landing-color-heading);
+					margin: 0 0 1rem;
+					letter-spacing: -0.01em;
 				}
 
 				p {
 					font-weight: 400;
-					font-size: 1.25rem;
-					line-height: 125%;
+					font-size: 1.125rem;
+					line-height: 160%;
 					color: var(--landing-color-subheading);
 					line-break: loose;
+					margin: 0;
+
+					.title-link {
+						color: var(--landing-blue-label);
+						text-decoration: none;
+						font-weight: 500;
+						transition: all 0.2s ease;
+						border-bottom: 1px solid transparent;
+
+						&:hover {
+							color: #e8b923;
+							border-bottom-color: #e8b923;
+						}
+					}
 				}
 			}
 
@@ -942,10 +1400,11 @@ const creatorFeatureMessages = defineMessages({
 				max-width: 35rem;
 				background: var(--landing-blob-gradient);
 				box-shadow: var(--landing-blob-shadow);
-				// backdrop-filter: blur(6px);
-				background-blend-mode: multiply;
-				padding: 1rem;
+				backdrop-filter: blur(8px);
+				-webkit-backdrop-filter: blur(8px);
+				padding: 1.25rem;
 				z-index: 1;
+				border: 1px solid var(--landing-border-color);
 
 				&:after {
 					content: '';
@@ -953,12 +1412,13 @@ const creatorFeatureMessages = defineMessages({
 					z-index: -1;
 					inset: 0 0 -0.75rem -0.75rem;
 
-					background: linear-gradient(0deg, #05ce45 0%, rgba(5, 206, 69, 0) 100%);
-					opacity: 0.2;
+					background: linear-gradient(0deg, rgba(61, 126, 166, 0.3) 0%, rgba(61, 126, 166, 0) 100%);
+					opacity: 0.4;
 					border-radius: 1rem;
 					margin-top: auto;
 					width: calc(100% + 1.5rem);
 					height: 55%;
+					pointer-events: none;
 				}
 
 				.demo-search {
@@ -1034,48 +1494,69 @@ const creatorFeatureMessages = defineMessages({
 
 				.notifs-demo {
 					h3 {
-						font-weight: 600;
-						font-size: 1.5rem;
-						margin: 0 0 0.75rem;
+						font-weight: 700;
+						font-size: 1.25rem;
+						margin: 0 0 1rem;
+						color: var(--landing-color-heading);
 					}
 
 					.notifications {
 						display: flex;
 						flex-direction: column;
-						gap: 1rem;
+						gap: 0.75rem;
 
 						.notification {
 							display: flex;
 							gap: 1rem;
-							padding: 0.75rem;
+							padding: 1rem;
 							background: var(--landing-card-bg);
 							box-shadow: var(--landing-card-shadow);
+							border: 1px solid var(--landing-border-color);
+							transition: all 0.3s ease;
+
+							&:hover {
+								transform: translateX(4px);
+								border-color: rgba(91, 163, 204, 0.4);
+								box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+							}
 
 							img {
-								width: 4rem;
-								height: 4rem;
+								width: 3.5rem;
+								height: 3.5rem;
+								border-radius: 0.5rem;
 							}
 
 							.notif-header {
 								margin: 0;
 								font-weight: 600;
-								font-size: 1.25rem;
+								font-size: 1rem;
+								color: var(--landing-color-heading);
+								line-height: 1.3;
 							}
 
 							.notif-desc {
-								margin: 0.5rem 0;
-								font-weight: 500;
-								font-size: 1rem;
+								margin: 0.375rem 0;
+								font-weight: 400;
+								font-size: 0.875rem;
+								color: var(--landing-color-subheading);
+								line-height: 1.4;
 							}
 
 							.date {
 								display: flex;
 								align-items: center;
-								gap: 0.25rem;
+								gap: 0.375rem;
+								color: var(--landing-color-subheading);
+								opacity: 0.8;
+
+								svg {
+									width: 0.875rem;
+									height: 0.875rem;
+								}
 
 								span {
-									font-size: 12px;
-									font-weight: 700;
+									font-size: 0.75rem;
+									font-weight: 500;
 								}
 							}
 						}
@@ -1083,34 +1564,97 @@ const creatorFeatureMessages = defineMessages({
 				}
 
 				.launcher-view {
-					.minecraft-screen {
+					.launcher-placeholder {
 						width: 100%;
-						border-radius: 0.5rem;
+						border-radius: 0.75rem;
 						aspect-ratio: 530 / 303;
+						background: linear-gradient(135deg, rgba(21, 36, 58, 0.8) 0%, rgba(30, 58, 95, 0.6) 100%);
+						border: 1px solid rgba(91, 163, 204, 0.2);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						position: relative;
+						overflow: hidden;
+
+						&::before {
+							content: '';
+							position: absolute;
+							inset: 0;
+							background: 
+								radial-gradient(ellipse at 30% 20%, rgba(232, 185, 35, 0.1) 0%, transparent 50%),
+								radial-gradient(ellipse at 70% 80%, rgba(61, 126, 166, 0.1) 0%, transparent 50%);
+						}
+
+						.launcher-placeholder-content {
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							gap: 0.75rem;
+							z-index: 1;
+
+							.launcher-logo-icon {
+								width: 4rem;
+								height: 4rem;
+								color: #e8b923;
+								filter: drop-shadow(0 0 20px rgba(232, 185, 35, 0.4));
+							}
+
+							.launcher-text {
+								font-size: 1.5rem;
+								font-weight: 700;
+								color: #fff;
+								letter-spacing: -0.02em;
+							}
+
+							.launcher-subtext {
+								font-size: 0.875rem;
+								color: rgba(255, 255, 255, 0.6);
+								font-weight: 500;
+								padding: 0.375rem 1rem;
+								background: rgba(232, 185, 35, 0.15);
+								border-radius: 2rem;
+								border: 1px solid rgba(232, 185, 35, 0.3);
+							}
+						}
 					}
 
 					.launcher-graphics {
 						display: flex;
 						flex-wrap: wrap;
-						justify-content: space-between;
+						justify-content: center;
 						align-items: center;
 						margin-top: 1rem;
 						gap: 0.5rem;
 
 						.graphic {
-							padding: 1.25rem;
+							padding: 1rem 1.5rem;
 							display: flex;
 							align-items: center;
+							gap: 0.75rem;
 							background: var(--landing-card-bg);
 							box-shadow: var(--landing-card-shadow);
-							//backdrop-filter: blur(4px);
-							margin: 0 auto;
+							transition: all 0.3s ease;
 
-							img,
+							&:hover {
+								transform: translateY(-2px);
+								box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+							}
+
+							&.primary-graphic {
+								background: linear-gradient(135deg, rgba(232, 185, 35, 0.15) 0%, rgba(61, 126, 166, 0.1) 100%);
+								border: 1px solid rgba(232, 185, 35, 0.3);
+							}
+
 							svg {
-								width: 4.25rem;
+								width: 2rem;
 								height: auto;
-								image-rendering: crisp-edges;
+								color: #e8b923;
+							}
+
+							.graphic-label {
+								font-weight: 600;
+								font-size: 1rem;
+								color: var(--landing-color-heading);
 							}
 						}
 					}
@@ -1138,23 +1682,40 @@ const creatorFeatureMessages = defineMessages({
 
 		.feature {
 			width: 34.375rem;
-			padding: 1.25rem;
+			padding: 1.5rem;
 			z-index: 1;
 			background: var(--landing-card-bg);
+			border: 1px solid var(--landing-border-color);
+			transition: all 0.3s ease;
+
+			&:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+				border-color: rgba(91, 163, 204, 0.3);
+
+				.icon {
+					transform: scale(1.05);
+					box-shadow:
+						0 8px 24px rgba(0, 0, 0, 0.2),
+						inset 0 2px 24px rgba(91, 163, 204, 0.3);
+				}
+			}
 
 			.icon {
 				z-index: 2;
-				margin: -3.25rem 0 0.75rem 0;
+				margin: -3.25rem 0 1rem 0;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				width: 4rem;
 				height: 4rem;
-				background: #020305;
+				background: linear-gradient(135deg, #15243a 0%, #1e3a5f 100%);
 				box-shadow:
-					2px 2px 12px rgba(0, 0, 0, 0.16),
-					inset 2px 2px 32px #393d5e;
+					0 4px 16px rgba(0, 0, 0, 0.2),
+					inset 0 2px 24px rgba(91, 163, 204, 0.15);
 				border-radius: 1rem;
+				border: 1px solid rgba(91, 163, 204, 0.2);
+				transition: all 0.3s ease;
 
 				svg {
 					width: 2rem;
@@ -1175,20 +1736,22 @@ const creatorFeatureMessages = defineMessages({
 
 			h3,
 			p {
-				font-weight: 500;
-				line-height: 125%;
+				line-height: 140%;
 				margin: 0;
 			}
 
 			h3 {
 				font-size: 1.25rem;
+				font-weight: 700;
 				color: var(--landing-color-heading);
-				margin-bottom: 0.375rem;
+				margin-bottom: 0.5rem;
 			}
 
 			p {
-				font-size: 1.25rem;
+				font-size: 1rem;
+				font-weight: 400;
 				color: var(--landing-color-subheading);
+				line-height: 150%;
 			}
 		}
 	}
@@ -1233,6 +1796,8 @@ const creatorFeatureMessages = defineMessages({
 		z-index: -1;
 		border-radius: 1rem;
 		background: var(--landing-border-gradient);
+		opacity: 0.8;
+		transition: opacity 0.3s ease;
 
 		-webkit-mask:
 			linear-gradient(#fff 0 0) content-box,
@@ -1243,6 +1808,10 @@ const creatorFeatureMessages = defineMessages({
 		-webkit-mask-composite: xor;
 		mask-composite: exclude;
 	}
+
+	&:hover:before {
+		opacity: 1;
+	}
 }
 
 .section-header {
@@ -1252,12 +1821,29 @@ const creatorFeatureMessages = defineMessages({
 	.section-label {
 		margin: 1.5rem auto;
 		width: fit-content;
-		padding: 1rem 1.5rem;
-		border-radius: 0.5rem;
-		font-weight: 700;
-		font-size: 1rem;
+		padding: 0.75rem 1.5rem;
+		border-radius: 2rem;
+		font-weight: 600;
+		font-size: 0.875rem;
 		line-height: 125%;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		border: 1px solid transparent;
+		transition: all 0.3s ease;
 
+		&.teal {
+			background: var(--landing-blue-label-bg);
+			color: var(--landing-blue-label);
+			border-color: rgba(61, 126, 166, 0.2);
+		}
+
+		&.gold {
+			background: var(--landing-gold-label-bg);
+			color: var(--landing-gold-label);
+			border-color: rgba(232, 185, 35, 0.2);
+		}
+
+		// Keep for backwards compatibility
 		&.green {
 			background: var(--landing-green-label-bg);
 			color: var(--landing-green-label);
@@ -1271,102 +1857,39 @@ const creatorFeatureMessages = defineMessages({
 
 	.section-tagline,
 	.section-description {
-		font-weight: 400;
 		font-size: 1.25rem;
 		line-break: loose;
-		line-height: 125%;
+		line-height: 140%;
 		max-width: 50rem;
 	}
 
 	.section-tagline {
 		margin: 0 auto;
 		color: var(--landing-color-heading);
+		font-weight: 700;
+		font-size: 2rem;
+		letter-spacing: -0.02em;
+
+		@media (max-width: 768px) {
+			font-size: 1.5rem;
+		}
 	}
 
 	.section-description {
-		margin: 0.375rem auto;
+		margin: 1rem auto 0;
 		color: var(--landing-color-subheading);
+		font-weight: 400;
+		font-size: 1.125rem;
+		line-height: 160%;
 	}
 }
 
-.main-header {
-	color: var(--landing-color-heading);
-	font-size: 2.25rem;
-	font-weight: 600;
-	line-height: 100%;
-	margin: 0 0 0.25rem;
-	width: 100%;
-}
 
-.main-header-strong {
-	font-weight: 600;
-	background-color: #00bd3c;
-	background-image: linear-gradient(180deg, #a7d0ff 0%, var(--color-brand) 60%);
-	background-size: 100%;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-	-moz-text-fill-color: transparent;
-	color: transparent;
-	white-space: nowrap;
-}
-
-.animate-strong {
-	height: 1.2em;
-	line-height: 120%;
-	position: relative;
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-
-	> span {
-		position: absolute;
-		top: 0;
-		animation: slide 14s infinite;
-
-		@media (prefers-reduced-motion) {
-			animation-play-state: paused !important;
-		}
-	}
-
-	@keyframes slide {
-		0%,
-		12.5% {
-			top: 0;
-		}
-		14.3%,
-		26.8% {
-			top: -1.2em;
-		}
-		28.6%,
-		41.1% {
-			top: -2.4em;
-		}
-		42.9%,
-		55.4% {
-			top: -3.6em;
-		}
-		57.2%,
-		69.7% {
-			top: -4.8em;
-		}
-		71.5%,
-		84% {
-			top: -6em;
-		}
-		85.8%,
-		98.3% {
-			top: -7.2em;
-		}
-		100% {
-			top: -8.4em;
-		}
-	}
-}
 
 @media screen and (min-width: 560px) {
 	.landing-hero {
 		h2 {
-			font-size: 1.5rem;
+			font-size: 1.125rem;
 		}
 	}
 
@@ -1375,11 +1898,11 @@ const creatorFeatureMessages = defineMessages({
 			.feature-blob {
 				.blob-text {
 					h3 {
-						font-size: 3rem;
+						font-size: 2.25rem;
 					}
 
 					p {
-						font-size: 1.5rem;
+						font-size: 1.25rem;
 					}
 				}
 
@@ -1392,15 +1915,15 @@ const creatorFeatureMessages = defineMessages({
 						.launcher-graphics {
 							.graphic {
 								margin: 0;
-								padding: 1.25rem 2.75rem;
+								padding: 1rem 2rem;
 							}
 						}
 					}
 
 					.notifs-demo {
 						.notifications .notification .avatar {
-							width: 5rem;
-							height: 5rem;
+							width: 4rem;
+							height: 4rem;
 						}
 					}
 				}
@@ -1417,9 +1940,11 @@ const creatorFeatureMessages = defineMessages({
 	}
 
 	.section-header {
-		.section-tagline,
+		.section-tagline {
+			font-size: 2.25rem;
+		}
 		.section-description {
-			font-size: 1.5rem;
+			font-size: 1.125rem;
 		}
 	}
 
@@ -1431,11 +1956,11 @@ const creatorFeatureMessages = defineMessages({
 @media screen and (min-width: 1024px) {
 	.landing-hero {
 		h2 {
-			font-size: 1.625rem;
+			font-size: 1.25rem;
 		}
 
 		margin-top: -5rem;
-		padding: 11.25rem 1rem 12rem;
+		padding: 9rem 1rem 10rem;
 	}
 
 	.users-section-outer {
@@ -1443,11 +1968,11 @@ const creatorFeatureMessages = defineMessages({
 			.feature-blob {
 				.blob-text {
 					h3 {
-						font-size: 4rem;
+						font-size: 2.5rem;
 					}
 
 					p {
-						font-size: 1.625rem;
+						font-size: 1.25rem;
 					}
 				}
 			}
@@ -1464,11 +1989,11 @@ const creatorFeatureMessages = defineMessages({
 
 				.icon {
 					margin-bottom: 1.25rem;
-					width: 5rem;
-					height: 5rem;
+					width: 4.5rem;
+					height: 4.5rem;
 
 					svg {
-						width: 2.25rem;
+						width: 2rem;
 					}
 				}
 
@@ -1480,11 +2005,11 @@ const creatorFeatureMessages = defineMessages({
 				}
 
 				h3 {
-					font-size: 1.75rem;
+					font-size: 1.5rem;
 				}
 
 				p {
-					font-size: 1.25rem;
+					font-size: 1.0625rem;
 				}
 			}
 		}
@@ -1499,14 +2024,263 @@ const creatorFeatureMessages = defineMessages({
 	}
 
 	.section-header {
-		.section-tagline,
+		.section-tagline {
+			font-size: 2.5rem;
+		}
 		.section-description {
-			font-size: 1.625rem;
+			font-size: 1.25rem;
 		}
 	}
 
 	.main-header {
 		font-size: 5.25rem;
+	}
+}
+
+
+
+// ============================================
+// FEATURE 3: Epic Launch Message Banner
+// ============================================
+.launch-banner {
+	position: relative;
+	z-index: 3;
+	margin-bottom: 1rem;
+	padding: 0.625rem 1.5rem;
+	cursor: default;
+	user-select: none;
+	background: linear-gradient(
+		135deg,
+		rgba(232, 185, 35, 0.08) 0%,
+		rgba(21, 36, 58, 0.6) 50%,
+		rgba(232, 185, 35, 0.08) 100%
+	);
+	border: 1px solid rgba(232, 185, 35, 0.35);
+	border-radius: 2rem;
+	backdrop-filter: blur(12px);
+	box-shadow: 
+		0 4px 24px rgba(0, 0, 0, 0.2),
+		inset 0 1px 0 rgba(232, 185, 35, 0.15);
+	transition: all 0.3s ease;
+
+	&:hover {
+		border-color: rgba(232, 185, 35, 0.6);
+		box-shadow: 
+			0 4px 24px rgba(0, 0, 0, 0.2),
+			inset 0 1px 0 rgba(232, 185, 35, 0.15),
+			0 0 20px rgba(232, 185, 35, 0.15);
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: 2rem;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba(232, 185, 35, 0.08) 50%,
+			transparent 100%
+		);
+		background-size: 200% 100%;
+		animation: shimmer 25s ease-in-out infinite;
+		pointer-events: none;
+	}
+
+	.launch-text {
+		font-size: 0.875rem;
+		font-weight: 600;
+		letter-spacing: 0.03em;
+		background: linear-gradient(
+			90deg,
+			#f5d45a 0%,
+			#e8b923 50%,
+			#f5d45a 100%
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	@media (max-width: 768px) {
+		padding: 0.5rem 1rem;
+		margin-bottom: 0.75rem;
+
+		.launch-text {
+			font-size: 0.75rem;
+		}
+	}
+}
+
+@keyframes shimmer {
+	0%, 100% {
+		background-position: -200% 0;
+	}
+	50% {
+		background-position: 200% 0;
+	}
+}
+
+// ============================================
+// Falling Leaves
+// ============================================
+.falling-leaves {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 1;
+}
+
+.leaf {
+	position: absolute;
+	width: var(--size);
+	height: var(--size);
+	left: var(--x);
+	top: -20px;
+	background: rgba(91, 163, 204, var(--opacity));
+	border-radius: 50% 0 50% 0;
+	transform: rotate(45deg);
+	animation: leaf-fall var(--duration) linear infinite;
+	animation-delay: var(--delay);
+
+	@media (prefers-reduced-motion) {
+		animation: none;
+		display: none;
+	}
+}
+
+@keyframes leaf-fall {
+	0% {
+		transform: rotate(45deg) translateY(0) translateX(0);
+		opacity: 0;
+	}
+	5% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 1;
+	}
+	100% {
+		transform: rotate(45deg) translateY(calc(100vh + 40px)) translateX(30px);
+		opacity: 0;
+	}
+}
+
+// ============================================
+// FEATURE 2: Animated Counter
+// ============================================
+.animated-counter {
+	display: inline-block;
+	font-variant-numeric: tabular-nums;
+	background: linear-gradient(135deg, #3d7ea6 0%, #5ba3cc 50%, #3d7ea6 100%);
+	background-size: 200% auto;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	animation: counter-shine 3s ease-in-out infinite;
+	font-weight: 800;
+}
+
+@keyframes counter-shine {
+	0%, 100% {
+		background-position: 0% center;
+	}
+	50% {
+		background-position: 100% center;
+	}
+}
+
+// ============================================
+// FEATURE 4: Social Proof Toast
+// ============================================
+.social-proof-toast {
+	position: fixed;
+	bottom: 24px;
+	left: 24px;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 14px 20px;
+	background: linear-gradient(135deg, #15243a 0%, #1e3a5f 100%);
+	border: 1px solid rgba(61, 126, 166, 0.3);
+	border-radius: 12px;
+	box-shadow: 
+		0 8px 32px rgba(0, 0, 0, 0.3),
+		0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+	backdrop-filter: blur(12px);
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.2s ease;
+
+	&:hover {
+		border-color: rgba(61, 126, 166, 0.5);
+		box-shadow: 
+			0 8px 32px rgba(0, 0, 0, 0.4),
+			0 0 0 1px rgba(91, 163, 204, 0.15) inset,
+			0 0 20px rgba(61, 126, 166, 0.15);
+		transform: translateY(-2px);
+	}
+
+	.toast-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		background: linear-gradient(135deg, rgba(232, 185, 35, 0.2) 0%, rgba(61, 126, 166, 0.2) 100%);
+		border-radius: 8px;
+		font-size: 16px;
+	}
+
+	.toast-message {
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: rgba(255, 255, 255, 0.95);
+		letter-spacing: 0.01em;
+	}
+
+	@media (max-width: 768px) {
+		bottom: 16px;
+		left: 16px;
+		right: 16px;
+		padding: 12px 16px;
+
+		.toast-message {
+			font-size: 0.85rem;
+		}
+	}
+}
+
+// Toast slide animation
+.toast-slide-enter-active {
+	animation: toast-in 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-slide-leave-active {
+	animation: toast-out 0.3s cubic-bezier(0.7, 0, 0.84, 0);
+}
+
+@keyframes toast-in {
+	0% {
+		opacity: 0;
+		transform: translateX(-100%) translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes toast-out {
+	0% {
+		opacity: 1;
+		transform: translateX(0) translateY(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(-30px) translateY(10px);
 	}
 }
 </style>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SettingsIcon } from '@modrinth/assets'
+import { SettingsIcon } from '@kweebex/assets'
 import {
 	CopyCode,
 	getDismissableMetadata,
@@ -8,8 +8,8 @@ import {
 	TagItem,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
-import type { ServerNotice as ServerNoticeType } from '@modrinth/utils'
+} from '@kweebex/ui'
+import type { ServerNotice as ServerNoticeType } from '@kweebex/utils'
 import dayjs from 'dayjs'
 
 const { formatMessage } = useVIntl()

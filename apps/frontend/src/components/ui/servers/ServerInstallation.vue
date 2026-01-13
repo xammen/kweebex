@@ -158,9 +158,9 @@
 </template>
 
 <script setup lang="ts">
-import { CompassIcon, InfoIcon, SettingsIcon, TransferIcon, UploadIcon } from '@modrinth/assets'
-import { ButtonStyled, NewProjectCard, useVIntl } from '@modrinth/ui'
-import type { Loaders } from '@modrinth/utils'
+import { CompassIcon, InfoIcon, SettingsIcon, TransferIcon, UploadIcon } from '@kweebex/assets'
+import { ButtonStyled, NewProjectCard, useVIntl } from '@kweebex/ui'
+import type { Loaders } from '@kweebex/utils'
 
 import type { ModrinthServer } from '~/composables/servers/modrinth-servers.ts'
 import type { BackupInProgressReason } from '~/pages/hosting/manage/[id].vue'

@@ -114,7 +114,7 @@
 </template>
 
 <script setup lang="ts">
-import { XIcon } from '@modrinth/assets'
+import { XIcon } from '@kweebex/assets'
 import { computed, ref } from 'vue'
 
 import { useScrollIndicator } from '../../composables/scroll-indicator'

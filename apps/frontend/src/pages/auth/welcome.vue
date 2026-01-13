@@ -48,7 +48,7 @@
 </template>
 
 <script setup>
-import { RightArrowIcon, WavingRinthbot } from '@modrinth/assets'
+import { RightArrowIcon, WavingRinthbot } from '@kweebex/assets'
 import {
 	Checkbox,
 	commonMessages,
@@ -56,7 +56,7 @@ import {
 	IntlFormatted,
 	normalizeChildren,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 const route = useRoute()
 

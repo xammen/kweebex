@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { CopyIcon, LibraryIcon, PlayIcon, SearchIcon } from '@modrinth/assets'
-import { ButtonStyled, Card } from '@modrinth/ui'
+import { CopyIcon, LibraryIcon, PlayIcon, SearchIcon } from '@kweebex/assets'
+import { ButtonStyled, Card } from '@kweebex/ui'
 import { computed, onMounted, ref } from 'vue'
 
 import docs from '~/templates/docs'

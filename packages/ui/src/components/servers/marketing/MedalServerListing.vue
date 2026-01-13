@@ -128,8 +128,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Archon } from '@modrinth/api-client'
-import { NuxtModrinthClient } from '@modrinth/api-client'
+import type { Archon } from '@kweebex/api-client'
+import { NuxtModrinthClient } from '@kweebex/api-client'
 import {
 	ChevronRightIcon,
 	LoaderCircleIcon,
@@ -137,7 +137,7 @@ import {
 	RocketIcon,
 	SparklesIcon,
 	TriangleAlertIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import { useQuery } from '@tanstack/vue-query'
 import dayjs from 'dayjs'
 import dayjsDuration from 'dayjs/plugin/duration'

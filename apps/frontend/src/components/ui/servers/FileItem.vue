@@ -71,7 +71,7 @@ import {
 	PaletteIcon,
 	RightArrowIcon,
 	TrashIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	ButtonStyled,
 	Checkbox,
@@ -79,7 +79,7 @@ import {
 	getFileExtensionIcon,
 	isEditableFile as isEditableFileExt,
 	isImageFile,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { computed, h, ref, shallowRef } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 import { useRoute, useRouter } from 'vue-router'

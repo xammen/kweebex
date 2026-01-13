@@ -1,4 +1,4 @@
-import type { Loaders } from '@modrinth/utils'
+import type { Loaders } from '@kweebex/utils'
 import type Stripe from 'stripe'
 
 export type ServerBillingInterval = 'monthly' | 'yearly' | 'quarterly'

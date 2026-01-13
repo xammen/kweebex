@@ -1,4 +1,4 @@
-import { formatBytes } from '@modrinth/utils'
+import { formatBytes } from '@kweebex/utils'
 
 export const fileIsValid = (file, validationOptions) => {
 	const { maxSize, alertOnInvalid } = validationOptions

@@ -59,8 +59,8 @@ import {
 	PlayIcon,
 	SearchIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { Button, injectNotificationManager } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { Button, injectNotificationManager } from '@kweebex/ui'
 import { open } from '@tauri-apps/plugin-dialog'
 import { ref } from 'vue'
 

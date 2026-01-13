@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Archon, Labrinth } from '@modrinth/api-client'
-import { InfoIcon, SpinnerIcon, XIcon } from '@modrinth/assets'
+import type { Archon, Labrinth } from '@kweebex/api-client'
+import { InfoIcon, SpinnerIcon, XIcon } from '@kweebex/assets'
 import { computed, onMounted, ref, watch } from 'vue'
 
 import { formatPrice } from '../../../../utils'

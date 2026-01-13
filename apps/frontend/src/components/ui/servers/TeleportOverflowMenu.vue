@@ -101,7 +101,7 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonStyled } from '@modrinth/ui'
+import { ButtonStyled } from '@kweebex/ui'
 import { onClickOutside, useElementHover } from '@vueuse/core'
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 

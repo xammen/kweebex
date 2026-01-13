@@ -254,7 +254,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Archon, Kyros } from '@modrinth/api-client'
+import type { Archon, Kyros } from '@kweebex/api-client'
 import {
 	CheckIcon,
 	FolderOpenIcon,
@@ -264,8 +264,8 @@ import {
 	TrashIcon,
 	UnknownIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { formatBytes } from '@modrinth/utils'
+} from '@kweebex/assets'
+import { formatBytes } from '@kweebex/utils'
 import { useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/vue-query'
 import { computed, inject, onMounted, onUnmounted, provide, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'

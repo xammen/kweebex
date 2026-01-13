@@ -117,8 +117,8 @@
 </template>
 
 <script setup lang="ts">
-import { CopyIcon, ExternalIcon, EyeIcon, EyeOffIcon } from '@modrinth/assets'
-import { ButtonStyled, CopyCode, injectNotificationManager } from '@modrinth/ui'
+import { CopyIcon, ExternalIcon, EyeIcon, EyeOffIcon } from '@kweebex/assets'
+import { ButtonStyled, CopyCode, injectNotificationManager } from '@kweebex/ui'
 
 import type { ModrinthServer } from '~/composables/servers/modrinth-servers.ts'
 

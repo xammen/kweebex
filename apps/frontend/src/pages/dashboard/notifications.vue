@@ -56,9 +56,9 @@
 	</div>
 </template>
 <script setup>
-import { CheckCheckIcon, HistoryIcon } from '@modrinth/assets'
-import { Button, Chips, Pagination } from '@modrinth/ui'
-import { formatProjectType } from '@modrinth/utils'
+import { CheckCheckIcon, HistoryIcon } from '@kweebex/assets'
+import { Button, Chips, Pagination } from '@kweebex/ui'
+import { formatProjectType } from '@kweebex/utils'
 
 import Breadcrumbs from '~/components/ui/Breadcrumbs.vue'
 import NotificationItem from '~/components/ui/NotificationItem.vue'

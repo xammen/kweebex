@@ -24,9 +24,9 @@
 </template>
 
 <script setup lang="ts">
-import { SettingsIcon } from '@modrinth/assets'
-import { ButtonStyled, EnvironmentMigration, injectProjectPageContext } from '@modrinth/ui'
-import { isStaff } from '@modrinth/utils'
+import { SettingsIcon } from '@kweebex/assets'
+import { ButtonStyled, EnvironmentMigration, injectProjectPageContext } from '@kweebex/ui'
+import { isStaff } from '@kweebex/utils'
 
 const { currentMember, projectV2 } = injectProjectPageContext()
 

@@ -90,7 +90,7 @@
 </template>
 
 <script setup>
-import { SaveIcon, TrashIcon, UndoIcon, UploadIcon, UserIcon, XIcon } from '@modrinth/assets'
+import { SaveIcon, TrashIcon, UndoIcon, UploadIcon, UserIcon, XIcon } from '@kweebex/assets'
 import {
 	Avatar,
 	Button,
@@ -100,7 +100,7 @@ import {
 	injectNotificationManager,
 	IntlFormatted,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()

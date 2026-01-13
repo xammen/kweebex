@@ -6,8 +6,8 @@ import {
 	InfoIcon,
 	MonitorIcon,
 	WrenchIcon,
-} from '@modrinth/assets'
-import { Avatar, defineMessage, TabbedModal, type TabbedModalTab, useVIntl } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { Avatar, defineMessage, TabbedModal, type TabbedModalTab, useVIntl } from '@kweebex/ui'
 import { convertFileSrc } from '@tauri-apps/api/core'
 import { ref } from 'vue'
 

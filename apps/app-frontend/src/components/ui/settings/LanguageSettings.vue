@@ -7,7 +7,7 @@ import {
 	languageSelectorMessages,
 	LOCALES,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { ref, watch } from 'vue'
 
 import { get, set } from '@/helpers/settings.ts'

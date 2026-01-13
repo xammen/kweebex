@@ -32,8 +32,8 @@
 	</div>
 </template>
 <script setup lang="ts">
-import { MailIcon } from '@modrinth/assets'
-import { ButtonStyled, injectNotificationManager } from '@modrinth/ui'
+import { MailIcon } from '@kweebex/assets'
+import { ButtonStyled, injectNotificationManager } from '@kweebex/ui'
 
 const { addNotification } = injectNotificationManager()
 

@@ -188,9 +188,9 @@ import {
 	ClipboardCopyIcon,
 	EllipsisVerticalIcon,
 	LinkIcon,
-} from '@modrinth/assets'
-import { type ExtendedReport, reportQuickReplies } from '@modrinth/moderation'
-import type { OverflowMenuOption } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { type ExtendedReport, reportQuickReplies } from '@kweebex/moderation'
+import type { OverflowMenuOption } from '@kweebex/ui'
 import {
 	Avatar,
 	ButtonStyled,
@@ -199,8 +199,8 @@ import {
 	injectNotificationManager,
 	OverflowMenu,
 	useRelativeTime,
-} from '@modrinth/ui'
-import { formatProjectType } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { formatProjectType } from '@kweebex/utils'
 import dayjs from 'dayjs'
 import { computed } from 'vue'
 

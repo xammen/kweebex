@@ -333,7 +333,7 @@ import {
 	TrashIcon,
 	UploadIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Admonition,
 	ButtonStyled,
@@ -342,7 +342,7 @@ import {
 	FileInput,
 	injectNotificationManager,
 	NewModal as Modal,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { useLocalStorage } from '@vueuse/core'
 
 import { isPermission } from '~/utils/permissions.ts'

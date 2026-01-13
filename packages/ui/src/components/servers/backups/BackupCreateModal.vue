@@ -65,8 +65,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Archon } from '@modrinth/api-client'
-import { IssuesIcon, PlusIcon, XIcon } from '@modrinth/assets'
+import type { Archon } from '@kweebex/api-client'
+import { IssuesIcon, PlusIcon, XIcon } from '@kweebex/assets'
 import { useMutation, useQueryClient } from '@tanstack/vue-query'
 import { computed, nextTick, ref } from 'vue'
 

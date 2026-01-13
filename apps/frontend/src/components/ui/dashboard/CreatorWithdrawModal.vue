@@ -115,7 +115,7 @@ import {
 	RightArrowIcon,
 	SpinnerIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	ButtonStyled,
 	commonMessages,
@@ -123,7 +123,7 @@ import {
 	injectNotificationManager,
 	NewModal,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { computed, nextTick, onMounted, ref, useTemplateRef, watch } from 'vue'
 
 import {

@@ -1,4 +1,4 @@
-import { AuthFeature, type NuxtClientConfig, NuxtModrinthClient } from '@modrinth/api-client'
+import { AuthFeature, type NuxtClientConfig, NuxtModrinthClient } from '@kweebex/api-client'
 import type { H3Event } from 'h3'
 
 async function getRateLimitKeyFromSecretsStore(): Promise<string | undefined> {

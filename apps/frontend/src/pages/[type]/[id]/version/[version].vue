@@ -662,7 +662,7 @@ import {
 	TrashIcon,
 	UploadIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	Badge,
@@ -673,8 +673,8 @@ import {
 	ENVIRONMENTS_COPY,
 	injectNotificationManager,
 	MarkdownEditor,
-} from '@modrinth/ui'
-import { formatBytes, formatCategory, renderHighlightedString } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { formatBytes, formatCategory, renderHighlightedString } from '@kweebex/utils'
 import { Multiselect } from 'vue-multiselect'
 
 import AdPlaceholder from '~/components/ui/AdPlaceholder.vue'

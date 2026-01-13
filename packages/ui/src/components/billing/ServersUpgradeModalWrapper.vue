@@ -28,13 +28,13 @@
 </template>
 
 <script setup lang="ts">
-import type { Archon, Labrinth } from '@modrinth/api-client'
+import type { Archon, Labrinth } from '@kweebex/api-client'
 import {
 	injectModrinthClient,
 	injectNotificationManager,
 	ModrinthServersPurchaseModal,
 	useDebugLogger,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { useMutation, useQuery } from '@tanstack/vue-query'
 import { computed, ref, watch } from 'vue'
 

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { PlayIcon, PlusIcon, XIcon } from '@modrinth/assets'
+import { PlayIcon, PlusIcon, XIcon } from '@kweebex/assets'
 import {
 	ButtonStyled,
 	commonMessages,
 	defineMessages,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { ref } from 'vue'
 
 import InstanceModalTitlePrefix from '@/components/ui/modal/InstanceModalTitlePrefix.vue'

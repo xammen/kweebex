@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="T">
-import { HistoryIcon, SaveIcon, SpinnerIcon } from '@modrinth/assets'
+import { HistoryIcon, SaveIcon, SpinnerIcon } from '@kweebex/assets'
 import { type Component, computed } from 'vue'
 
 import { defineMessage, type MessageDescriptor, useVIntl } from '../../composables/i18n'

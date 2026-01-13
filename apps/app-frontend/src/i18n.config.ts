@@ -1,4 +1,4 @@
-import { buildLocaleMessages, createMessageCompiler, type CrowdinMessages } from '@modrinth/ui'
+import { buildLocaleMessages, createMessageCompiler, type CrowdinMessages } from '@kweebex/ui'
 import { createI18n } from 'vue-i18n'
 
 const localeModules = import.meta.glob<{ default: CrowdinMessages }>('./locales/*/index.json', {

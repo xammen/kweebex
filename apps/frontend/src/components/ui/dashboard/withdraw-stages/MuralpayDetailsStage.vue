@@ -245,7 +245,7 @@ import {
 	IntlFormatted,
 	normalizeChildren,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { useDebounceFn } from '@vueuse/core'
 import { computed, ref, watch } from 'vue'
 

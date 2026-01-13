@@ -29,8 +29,8 @@
 </template>
 
 <script setup lang="ts">
-import { type KeybindListener, keybinds, normalizeKeybind } from '@modrinth/moderation'
-import NewModal from '@modrinth/ui/src/components/modal/NewModal.vue'
+import { type KeybindListener, keybinds, normalizeKeybind } from '@kweebex/moderation'
+import NewModal from '@kweebex/ui/src/components/modal/NewModal.vue'
 import { ref } from 'vue'
 
 const modal = ref<InstanceType<typeof NewModal>>()

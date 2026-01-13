@@ -202,7 +202,7 @@
 	</div>
 </template>
 <script setup>
-import { EditIcon, PlusIcon, SaveIcon, TrashIcon, XIcon } from '@modrinth/assets'
+import { EditIcon, PlusIcon, SaveIcon, TrashIcon, XIcon } from '@kweebex/assets'
 import {
 	Checkbox,
 	commonMessages,
@@ -214,7 +214,7 @@ import {
 	IntlFormatted,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 import Modal from '~/components/ui/Modal.vue'
 import {

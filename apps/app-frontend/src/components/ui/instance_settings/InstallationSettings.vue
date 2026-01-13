@@ -9,7 +9,7 @@ import {
 	UnlinkIcon,
 	UnplugIcon,
 	WrenchIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	ButtonStyled,
@@ -19,14 +19,14 @@ import {
 	defineMessages,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import {
 	formatCategory,
 	type GameVersionTag,
 	type PlatformTag,
 	type Project,
 	type Version,
-} from '@modrinth/utils'
+} from '@kweebex/utils'
 import dayjs from 'dayjs'
 import { computed, type ComputedRef, type Ref, ref, shallowRef, watch } from 'vue'
 

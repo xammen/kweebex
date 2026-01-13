@@ -73,7 +73,7 @@
 </template>
 
 <script setup lang="ts">
-import { DownloadIcon, ExternalIcon, SpinnerIcon, XIcon } from '@modrinth/assets'
+import { DownloadIcon, ExternalIcon, SpinnerIcon, XIcon } from '@kweebex/assets'
 import {
 	BackupWarning,
 	ButtonStyled,
@@ -81,8 +81,8 @@ import {
 	injectModrinthServerContext,
 	injectNotificationManager,
 	NewModal,
-} from '@modrinth/ui'
-import { ModrinthServersFetchError } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { ModrinthServersFetchError } from '@kweebex/utils'
 import { computed, nextTick, ref } from 'vue'
 
 import { handleServersError } from '~/composables/servers/modrinth-servers.ts'

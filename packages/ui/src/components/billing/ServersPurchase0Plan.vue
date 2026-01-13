@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { formatPrice } from '@modrinth/utils'
+import type { Labrinth } from '@kweebex/api-client'
+import { formatPrice } from '@kweebex/utils'
 import { computed, provide } from 'vue'
 
 import { defineMessages, useVIntl } from '../../composables/i18n'

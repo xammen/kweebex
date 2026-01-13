@@ -121,15 +121,15 @@ import {
 	ServerIcon,
 	UploadIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	AppearingProgressBar,
 	BackupWarning,
 	ButtonStyled,
 	injectNotificationManager,
 	NewModal,
-} from '@modrinth/ui'
-import { ModrinthServersFetchError } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { ModrinthServersFetchError } from '@kweebex/utils'
 import { onMounted, onUnmounted } from 'vue'
 
 import type { ModrinthServer } from '~/composables/servers/modrinth-servers'

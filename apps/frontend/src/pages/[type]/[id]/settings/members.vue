@@ -528,7 +528,7 @@ import {
 	UserPlusIcon,
 	UsersIcon,
 	UserXIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	Badge,
@@ -536,7 +536,7 @@ import {
 	Checkbox,
 	ConfirmModal,
 	injectNotificationManager,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { Multiselect } from 'vue-multiselect'
 
 import { removeSelfFromTeam } from '~/helpers/teams.js'

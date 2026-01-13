@@ -373,7 +373,7 @@ import {
 	UpdatedIcon,
 	UploadIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	ButtonStyled,
@@ -397,8 +397,8 @@ import {
 	useRelativeTime,
 	useSavable,
 	useVIntl,
-} from '@modrinth/ui'
-import { isAdmin } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { isAdmin } from '@kweebex/utils'
 import dayjs from 'dayjs'
 
 import AdPlaceholder from '~/components/ui/AdPlaceholder.vue'

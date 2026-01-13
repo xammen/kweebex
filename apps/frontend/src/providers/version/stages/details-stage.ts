@@ -1,5 +1,5 @@
-import { LeftArrowIcon, PlusIcon, SaveIcon, SpinnerIcon, XIcon } from '@modrinth/assets'
-import type { StageConfigInput } from '@modrinth/ui'
+import { LeftArrowIcon, PlusIcon, SaveIcon, SpinnerIcon, XIcon } from '@kweebex/assets'
+import type { StageConfigInput } from '@kweebex/ui'
 import { markRaw } from 'vue'
 
 import DetailsStage from '~/components/ui/create-project-version/stages/DetailsStage.vue'

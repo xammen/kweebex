@@ -88,7 +88,7 @@
 	</div>
 </template>
 <script setup lang="ts">
-import { PlusIcon, SearchIcon, XCircleIcon, XIcon } from '@modrinth/assets'
+import { PlusIcon, SearchIcon, XCircleIcon, XIcon } from '@kweebex/assets'
 import {
 	Accordion,
 	Admonition,
@@ -99,8 +99,8 @@ import {
 	ButtonStyled,
 	ConfirmModal,
 	injectNotificationManager,
-} from '@modrinth/ui'
-import type { AffiliateLink, User } from '@modrinth/utils'
+} from '@kweebex/ui'
+import type { AffiliateLink, User } from '@kweebex/utils'
 
 const { handleError } = injectNotificationManager()
 

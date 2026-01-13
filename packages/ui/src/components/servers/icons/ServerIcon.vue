@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { MinecraftServerIcon } from '@modrinth/assets'
+import { MinecraftServerIcon } from '@kweebex/assets'
 
 defineProps<{
 	image: string | undefined

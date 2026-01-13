@@ -103,8 +103,8 @@
 </template>
 
 <script setup lang="ts">
-import { ChevronRightIcon, DropdownIcon, HomeIcon, SaveIcon, ShareIcon } from '@modrinth/assets'
-import { Button, ButtonStyled } from '@modrinth/ui'
+import { ChevronRightIcon, DropdownIcon, HomeIcon, SaveIcon, ShareIcon } from '@kweebex/assets'
+import { Button, ButtonStyled } from '@kweebex/ui'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 

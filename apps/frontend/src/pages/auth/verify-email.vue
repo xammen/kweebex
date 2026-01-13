@@ -63,8 +63,8 @@
 	</div>
 </template>
 <script setup>
-import { RightArrowIcon, SettingsIcon } from '@modrinth/assets'
-import { ButtonStyled, defineMessages, injectNotificationManager, useVIntl } from '@modrinth/ui'
+import { RightArrowIcon, SettingsIcon } from '@kweebex/assets'
+import { ButtonStyled, defineMessages, injectNotificationManager, useVIntl } from '@kweebex/ui'
 
 const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()

@@ -90,8 +90,8 @@ import {
 	LeftArrowIcon,
 	RightArrowIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { Button, Card } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { Button, Card } from '@kweebex/ui'
 import { onMounted, onUnmounted, ref } from 'vue'
 
 import { hide_ads_window, show_ads_window } from '@/helpers/ads.js'

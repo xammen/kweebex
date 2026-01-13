@@ -1,4 +1,4 @@
-import type { JWTAuth, PowerAction, Project, ServerGeneral } from '@modrinth/utils'
+import type { JWTAuth, PowerAction, Project, ServerGeneral } from '@kweebex/utils'
 import { $fetch } from 'ofetch'
 
 import { useServersFetch } from '../servers-fetch.ts'

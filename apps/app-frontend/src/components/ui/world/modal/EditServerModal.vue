@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { SaveIcon, XIcon } from '@modrinth/assets'
+import { SaveIcon, XIcon } from '@kweebex/assets'
 import {
 	ButtonStyled,
 	commonMessages,
 	defineMessage,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { computed, ref } from 'vue'
 
 import ModalWrapper from '@/components/ui/modal/ModalWrapper.vue'

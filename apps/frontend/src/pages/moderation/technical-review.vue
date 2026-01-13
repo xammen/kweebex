@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { ListFilterIcon, SearchIcon, SortAscIcon, SortDescIcon, XIcon } from '@modrinth/assets'
+import type { Labrinth } from '@kweebex/api-client'
+import { ListFilterIcon, SearchIcon, SortAscIcon, SortDescIcon, XIcon } from '@kweebex/assets'
 import {
 	Button,
 	Combobox,
@@ -9,7 +9,7 @@ import {
 	injectModrinthClient,
 	Pagination,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { useInfiniteQuery, useQueryClient } from '@tanstack/vue-query'
 import Fuse from 'fuse.js'
 

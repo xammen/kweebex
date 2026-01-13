@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '@modrinth/ui/src/styles/tailwind-utilities.css';
+@import '@kweebex/ui/src/styles/tailwind-utilities.css';
 
 @font-face {
 	font-family: 'bundled-minecraft-font-mrapp';
@@ -159,4 +159,4 @@ img {
 	box-shadow: var(--shadow-card);
 }
 
-@import '@modrinth/assets/omorphia.scss';
+@import '@kweebex/assets/omorphia.scss';

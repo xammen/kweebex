@@ -373,8 +373,8 @@
 
 <script setup lang="ts">
 import { Intercom, shutdown } from '@intercom/messenger-js-sdk'
-import type { Archon } from '@modrinth/api-client'
-import { clearNodeAuthState, setNodeAuthState } from '@modrinth/api-client'
+import type { Archon } from '@kweebex/api-client'
+import { clearNodeAuthState, setNodeAuthState } from '@kweebex/api-client'
 import {
 	BoxesIcon,
 	CheckIcon,
@@ -389,8 +389,8 @@ import {
 	RightArrowIcon,
 	SettingsIcon,
 	TransferIcon,
-} from '@modrinth/assets'
-import type { MessageDescriptor } from '@modrinth/ui'
+} from '@kweebex/assets'
+import type { MessageDescriptor } from '@kweebex/ui'
 import {
 	ButtonStyled,
 	defineMessage,
@@ -401,8 +401,8 @@ import {
 	ServerIcon,
 	ServerInfoLabels,
 	ServerNotice,
-} from '@modrinth/ui'
-import type { PowerAction, Stats } from '@modrinth/utils'
+} from '@kweebex/ui'
+import type { PowerAction, Stats } from '@kweebex/utils'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import DOMPurify from 'dompurify'
 import { computed, onMounted, onUnmounted, type Reactive, reactive, ref } from 'vue'

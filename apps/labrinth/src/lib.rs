@@ -29,6 +29,7 @@ pub mod auth;
 pub mod background_task;
 pub mod clickhouse;
 pub mod database;
+pub mod features;
 pub mod file_hosting;
 pub mod models;
 pub mod queue;

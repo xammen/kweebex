@@ -260,7 +260,7 @@ import {
 	SettingsIcon,
 	UsersIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	ButtonStyled,
@@ -268,9 +268,9 @@ import {
 	ContentPageHeader,
 	OverflowMenu,
 	useVIntl,
-} from '@modrinth/ui'
-import type { Organization, ProjectStatus, ProjectType, ProjectV3 } from '@modrinth/utils'
-import { formatNumber } from '@modrinth/utils'
+} from '@kweebex/ui'
+import type { Organization, ProjectStatus, ProjectType, ProjectV3 } from '@kweebex/utils'
+import { formatNumber } from '@kweebex/utils'
 
 import UpToDate from '~/assets/images/illustrations/up_to_date.svg?component'
 import AdPlaceholder from '~/components/ui/AdPlaceholder.vue'

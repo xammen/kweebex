@@ -90,8 +90,8 @@
 </template>
 
 <script>
-import { CalendarIcon, DownloadIcon, HeartIcon, UpdatedIcon } from '@modrinth/assets'
-import { Avatar, ProjectStatusBadge, useRelativeTime } from '@modrinth/ui'
+import { CalendarIcon, DownloadIcon, HeartIcon, UpdatedIcon } from '@kweebex/assets'
+import { Avatar, ProjectStatusBadge, useRelativeTime } from '@kweebex/ui'
 
 import EnvironmentIndicator from '~/components/ui/EnvironmentIndicator.vue'
 import Categories from '~/components/ui/search/Categories.vue'

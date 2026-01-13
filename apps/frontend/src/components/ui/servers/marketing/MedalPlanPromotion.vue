@@ -30,8 +30,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ExternalIcon } from '@modrinth/assets'
-import { ButtonStyled, MedalBackgroundImage } from '@modrinth/ui'
+import { ExternalIcon } from '@kweebex/assets'
+import { ButtonStyled, MedalBackgroundImage } from '@kweebex/ui'
 
 import MedalIcon from '~/assets/images/illustrations/medal_icon.svg?component'
 </script>

@@ -274,7 +274,7 @@ import {
 	SettingsIcon,
 	ShareIcon,
 	TrashIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Admonition,
 	ButtonStyled,
@@ -284,7 +284,7 @@ import {
 	injectProjectPageContext,
 	OverflowMenu,
 	ProjectPageVersions,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { useLocalStorage } from '@vueuse/core'
 import { useTemplateRef } from 'vue'
 

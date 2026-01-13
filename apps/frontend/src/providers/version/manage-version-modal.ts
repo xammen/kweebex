@@ -1,5 +1,5 @@
-import type { Labrinth, UploadProgress } from '@modrinth/api-client'
-import { SaveIcon, SpinnerIcon } from '@modrinth/assets'
+import type { Labrinth, UploadProgress } from '@kweebex/api-client'
+import { SaveIcon, SpinnerIcon } from '@kweebex/assets'
 import {
 	createContext,
 	injectModrinthClient,
@@ -9,7 +9,7 @@ import {
 	resolveCtxFn,
 	type StageButtonConfig,
 	type StageConfigInput,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import JSZip from 'jszip'
 import type { ComputedRef, Ref, ShallowRef } from 'vue'
 import type { ComponentExposed } from 'vue-component-type-helpers'

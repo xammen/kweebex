@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { CheckIcon, MailIcon } from '@modrinth/assets'
-import { ButtonStyled } from '@modrinth/ui'
+import { CheckIcon, MailIcon } from '@kweebex/assets'
+import { ButtonStyled } from '@kweebex/ui'
 import { ref } from 'vue'
 
 import { useBaseFetch } from '~/composables/fetch.js'

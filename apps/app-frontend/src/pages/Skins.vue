@@ -7,7 +7,7 @@ import {
 	SpinnerIcon,
 	TrashIcon,
 	UpdatedIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Button,
 	ButtonStyled,
@@ -16,8 +16,8 @@ import {
 	SkinButton,
 	SkinLikeTextButton,
 	SkinPreviewRenderer,
-} from '@modrinth/ui'
-import { arrayBufferToBase64 } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { arrayBufferToBase64 } from '@kweebex/utils'
 import { computedAsync } from '@vueuse/core'
 import type { Ref } from 'vue'
 import { computed, inject, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue'

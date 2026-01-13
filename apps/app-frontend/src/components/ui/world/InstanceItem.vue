@@ -6,7 +6,7 @@ import {
 	PlayIcon,
 	SpinnerIcon,
 	StopCircleIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	ButtonStyled,
@@ -16,8 +16,8 @@ import {
 	SmartClickable,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
-import { capitalizeString } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { capitalizeString } from '@kweebex/utils'
 import { convertFileSrc } from '@tauri-apps/api/core'
 import type { Dayjs } from 'dayjs'
 import dayjs from 'dayjs'

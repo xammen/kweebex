@@ -9,7 +9,7 @@ import {
 	ReportIcon,
 	SettingsIcon,
 	ShieldIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	commonMessages,
 	defineMessage,
@@ -17,7 +17,7 @@ import {
 	ProgressBar,
 	TabbedModal,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { getVersion } from '@tauri-apps/api/app'
 import { platform as getOsPlatform, version as getOsVersion } from '@tauri-apps/plugin-os'
 import { computed, ref, watch } from 'vue'

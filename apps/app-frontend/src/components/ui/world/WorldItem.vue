@@ -16,8 +16,8 @@ import {
 	UpdatedIcon,
 	UserIcon,
 	XIcon,
-} from '@modrinth/assets'
-import type { MessageDescriptor } from '@modrinth/ui'
+} from '@kweebex/assets'
+import type { MessageDescriptor } from '@kweebex/ui'
 import {
 	Avatar,
 	ButtonStyled,
@@ -27,8 +27,8 @@ import {
 	SmartClickable,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatNumber, getPingLevel } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { formatNumber, getPingLevel } from '@kweebex/utils'
 import { convertFileSrc } from '@tauri-apps/api/core'
 import dayjs from 'dayjs'
 import { Tooltip } from 'floating-vue'

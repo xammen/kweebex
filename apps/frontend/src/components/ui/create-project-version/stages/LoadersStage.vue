@@ -41,9 +41,9 @@
 </template>
 
 <script lang="ts" setup>
-import { XIcon } from '@modrinth/assets'
-import { ButtonStyled, TagItem } from '@modrinth/ui'
-import { formatCategory } from '@modrinth/utils'
+import { XIcon } from '@kweebex/assets'
+import { ButtonStyled, TagItem } from '@kweebex/ui'
+import { formatCategory } from '@kweebex/utils'
 
 import { injectManageVersionContext } from '~/providers/version/manage-version-modal'
 

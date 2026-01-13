@@ -53,8 +53,8 @@
 </template>
 
 <script setup lang="ts">
-import { TriangleAlertIcon, ZoomInIcon, ZoomOutIcon } from '@modrinth/assets'
-import { ButtonStyled } from '@modrinth/ui'
+import { TriangleAlertIcon, ZoomInIcon, ZoomOutIcon } from '@kweebex/assets'
+import { ButtonStyled } from '@kweebex/ui'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
 const ZOOM_MIN = 0.1

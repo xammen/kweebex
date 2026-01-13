@@ -117,9 +117,9 @@
 </template>
 
 <script setup>
-import { CheckIcon, DownloadIcon, HeartIcon, PlusIcon, TagsIcon } from '@modrinth/assets'
-import { Avatar, ButtonStyled, injectNotificationManager } from '@modrinth/ui'
-import { formatCategory, formatNumber } from '@modrinth/utils'
+import { CheckIcon, DownloadIcon, HeartIcon, PlusIcon, TagsIcon } from '@kweebex/assets'
+import { Avatar, ButtonStyled, injectNotificationManager } from '@kweebex/ui'
+import { formatCategory, formatNumber } from '@kweebex/utils'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { computed, ref } from 'vue'

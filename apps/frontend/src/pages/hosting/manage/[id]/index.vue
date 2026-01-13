@@ -181,9 +181,9 @@
 </template>
 
 <script setup lang="ts">
-import { IssuesIcon, TerminalSquareIcon, XIcon } from '@modrinth/assets'
-import { ButtonStyled, injectModrinthClient } from '@modrinth/ui'
-import type { ServerState, Stats } from '@modrinth/utils'
+import { IssuesIcon, TerminalSquareIcon, XIcon } from '@kweebex/assets'
+import { ButtonStyled, injectModrinthClient } from '@kweebex/ui'
+import type { ServerState, Stats } from '@kweebex/utils'
 
 import PanelServerStatus from '~/components/ui/servers/PanelServerStatus.vue'
 import PanelTerminal from '~/components/ui/servers/PanelTerminal.vue'

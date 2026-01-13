@@ -1,4 +1,4 @@
-import { ServersManagePageIndex } from '@modrinth/ui'
+import { ServersManagePageIndex } from '@kweebex/ui'
 import { createRouter, createWebHistory } from 'vue-router'
 
 import * as Pages from '@/pages'

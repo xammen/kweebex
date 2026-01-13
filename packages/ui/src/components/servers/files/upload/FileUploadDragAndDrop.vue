@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { UploadIcon } from '@modrinth/assets'
+import { UploadIcon } from '@kweebex/assets'
 import { ref } from 'vue'
 
 const emit = defineEmits<{

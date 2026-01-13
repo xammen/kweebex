@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { GitGraphIcon, RssIcon } from '@modrinth/assets'
-import { articles as rawArticles } from '@modrinth/blog'
-import { Avatar, ButtonStyled } from '@modrinth/ui'
-import type { User } from '@modrinth/utils'
+import { GitGraphIcon, RssIcon } from '@kweebex/assets'
+import { articles as rawArticles } from '@kweebex/blog'
+import { Avatar, ButtonStyled } from '@kweebex/ui'
+import type { User } from '@kweebex/utils'
 import dayjs from 'dayjs'
 import { computed, onMounted } from 'vue'
 

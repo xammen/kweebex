@@ -47,7 +47,7 @@
 	</div>
 </template>
 <script setup lang="ts">
-import { CrownIcon, ExternalIcon, OrganizationIcon } from '@modrinth/assets'
+import { CrownIcon, ExternalIcon, OrganizationIcon } from '@kweebex/assets'
 import { computed } from 'vue'
 
 import { defineMessages, useVIntl } from '../../composables/i18n'

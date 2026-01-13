@@ -182,9 +182,9 @@
 </template>
 
 <script setup>
-import { CheckIcon, DownloadIcon, ExternalIcon, FileIcon, ReportIcon } from '@modrinth/assets'
-import { Avatar, Badge, Breadcrumbs, Button, Card, CopyCode } from '@modrinth/ui'
-import { formatBytes, renderString } from '@modrinth/utils'
+import { CheckIcon, DownloadIcon, ExternalIcon, FileIcon, ReportIcon } from '@kweebex/assets'
+import { Avatar, Badge, Breadcrumbs, Button, Card, CopyCode } from '@kweebex/ui'
+import { formatBytes, renderString } from '@kweebex/utils'
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 

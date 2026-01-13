@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@kweebex/api-client'
 import {
 	BugIcon,
 	CheckIcon,
@@ -12,8 +12,8 @@ import {
 	LinkIcon,
 	LoaderCircleIcon,
 	ShieldCheckIcon,
-} from '@modrinth/assets'
-import { type TechReviewContext, techReviewQuickReplies } from '@modrinth/moderation'
+} from '@kweebex/assets'
+import { type TechReviewContext, techReviewQuickReplies } from '@kweebex/moderation'
 import {
 	Avatar,
 	ButtonStyled,
@@ -24,14 +24,14 @@ import {
 	injectNotificationManager,
 	OverflowMenu,
 	type OverflowMenuOption,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import {
 	capitalizeString,
 	formatProjectType,
 	highlightCodeLines,
 	type ThreadMessage,
 	type User,
-} from '@modrinth/utils'
+} from '@kweebex/utils'
 import dayjs from 'dayjs'
 import { computed, ref, watch } from 'vue'
 

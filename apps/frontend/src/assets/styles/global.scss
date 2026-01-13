@@ -92,45 +92,55 @@ html {
 	--color-table-border: #dfe2e5;
 	--color-table-alternate-row: #f0f1f2;
 
-	--landing-maze-bg: url('https://cdn.modrinth.com/landing-new/landing-light.webp');
-	--landing-maze-gradient-bg: url('https://cdn.modrinth.com/landing-new/landing-lower-light.webp');
-	--landing-maze-outer-bg: linear-gradient(180deg, #f0f0f0 0%, #ffffff 100%);
+	// Kweebex Landing Page - Light Mode
+	--landing-maze-bg: linear-gradient(135deg, #f0f4f8 0%, #e8eef5 100%);
+	--landing-maze-gradient-bg: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);
+	--landing-maze-outer-bg: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);
 
-	--landing-color-heading: #000;
-	--landing-color-subheading: #3a3f45;
+	--landing-color-heading: #15243a;
+	--landing-color-subheading: #475569;
 
 	--landing-transition-gradient-start: rgba(255, 255, 255, 0);
-	--landing-transition-gradient-end: #ffffff;
+	--landing-transition-gradient-end: #f0f4f8;
 	--landing-hover-card-gradient: radial-gradient(
 		50% 50% at 50% 50%,
-		#fff 0%,
-		rgba(204, 204, 204, 0.77) 100%
+		rgba(255, 255, 255, 0.95) 0%,
+		rgba(232, 238, 245, 0.8) 100%
 	);
 	--landing-border-gradient: linear-gradient(
 		to bottom right,
-		rgba(129, 137, 175, 0.75) 0%,
-		rgba(66, 71, 97, 0.34) 100%
+		rgba(61, 126, 166, 0.5) 0%,
+		rgba(232, 185, 35, 0.3) 100%
 	);
-	--landing-border-color: rgba(129, 137, 175, 0.55);
-	--landing-creator-gradient: linear-gradient(180deg, #f8f8f8 0%, #f8f8f8 63.19%);
+	--landing-border-color: rgba(61, 126, 166, 0.25);
+	--landing-creator-gradient: linear-gradient(180deg, #f8fafc 0%, #f0f4f8 100%);
 
 	--landing-blob-gradient: radial-gradient(
 		50% 50% at 50% 50%,
-		rgba(255, 255, 255, 0.35) 0%,
-		rgba(255, 255, 255, 0.2695) 100%
+		rgba(255, 255, 255, 0.6) 0%,
+		rgba(248, 250, 252, 0.4) 100%
 	);
 	--landing-blob-shadow:
-		2px 2px 12px rgba(0, 0, 0, 0.16), inset 2px 2px 64px rgba(255, 255, 255, 0.45);
+		0 4px 20px rgba(21, 36, 58, 0.08), 
+		inset 0 2px 40px rgba(255, 255, 255, 0.6);
 
-	--landing-card-bg: rgba(255, 255, 255, 0.8);
-	--landing-card-shadow: 2px 2px 12px rgba(0, 0, 0, 0.16);
+	--landing-card-bg: rgba(255, 255, 255, 0.9);
+	--landing-card-shadow: 0 2px 12px rgba(21, 36, 58, 0.08);
 
-	--landing-blue-label: #0098ba;
-	--landing-blue-label-bg: rgba(0, 177, 216, 0.15);
-	--landing-green-label: #00a936;
-	--landing-green-label-bg: rgba(0, 216, 69, 0.15);
+	// Hytale-themed section labels
+	--landing-blue-label: #3d7ea6;
+	--landing-blue-label-bg: rgba(61, 126, 166, 0.12);
+	--landing-green-label: #3d7ea6;
+	--landing-green-label-bg: rgba(61, 126, 166, 0.12);
+	--landing-gold-label: #9a7a0c;
+	--landing-gold-label-bg: rgba(232, 185, 35, 0.12);
 
-	--landing-raw-bg: #fff;
+	--landing-raw-bg: #f8fafc;
+
+	// Hero section
+	--hero-gradient: linear-gradient(135deg, #1e3a5f 0%, #3d7ea6 50%, #15243a 100%);
+	--hero-glow: radial-gradient(ellipse at 50% 0%, rgba(232, 185, 35, 0.15) 0%, transparent 50%);
+	--hero-glow-secondary: radial-gradient(ellipse at 80% 20%, rgba(61, 126, 166, 0.1) 0%, transparent 40%);
 
 	--medal-promotion-bg: #fff;
 	--medal-promotion-bg-orange: #48aaff;
@@ -205,47 +215,50 @@ html {
 	--color-table-border: #4f5864;
 	--color-table-alternate-row: #202228;
 
-	--landing-maze-bg: url('https://cdn.modrinth.com/landing-new/landing.webp');
-	--landing-maze-gradient-bg:
-		linear-gradient(0deg, #31375f 0%, rgba(8, 14, 55, 0) 100%),
-		url('https://cdn.modrinth.com/landing-new/landing-lower.webp');
-	--landing-maze-outer-bg: linear-gradient(180deg, #06060d 0%, #000000 100%);
+	// Kweebex Landing Page - Dark Mode
+	--landing-maze-bg: linear-gradient(135deg, #0d1829 0%, #15243a 100%);
+	--landing-maze-gradient-bg: linear-gradient(180deg, #0d1829 0%, #15243a 50%, #1e3a5f 100%);
+	--landing-maze-outer-bg: linear-gradient(180deg, #0d1829 0%, #15243a 100%);
 
-	--landing-color-heading: #fff;
-	--landing-color-subheading: #afb6be;
+	--landing-color-heading: #f8fafc;
+	--landing-color-subheading: #94a3b8;
 
-	--landing-transition-gradient-start: rgba(14, 16, 32, 0);
-	--landing-transition-gradient-end: #060a1c;
+	--landing-transition-gradient-start: rgba(13, 24, 41, 0);
+	--landing-transition-gradient-end: #0d1829;
 	--landing-hover-card-gradient: radial-gradient(
 		50% 50% at 50% 50%,
-		#2c304f 0%,
-		rgba(32, 35, 50, 0.77) 100%
+		rgba(30, 58, 95, 0.8) 0%,
+		rgba(21, 36, 58, 0.6) 100%
 	);
 	--landing-border-gradient: linear-gradient(
 		to bottom right,
-		rgba(168, 177, 221, 0.75) 0%,
-		rgba(168, 177, 221, 0.18) 100%
+		rgba(91, 163, 204, 0.5) 0%,
+		rgba(232, 185, 35, 0.3) 100%
 	);
-	--landing-border-color: rgba(168, 177, 221, 0.55);
-	--landing-creator-gradient: linear-gradient(180deg, #000000 0%, #0e101d 100%);
+	--landing-border-color: rgba(91, 163, 204, 0.3);
+	--landing-creator-gradient: linear-gradient(180deg, #0d1829 0%, #15243a 100%);
 
 	--landing-blob-gradient: radial-gradient(
 		50% 50% at 50% 50%,
-		rgba(44, 48, 79, 0.35) 0%,
-		rgba(32, 35, 50, 0.2695) 100%
+		rgba(30, 58, 95, 0.5) 0%,
+		rgba(21, 36, 58, 0.35) 100%
 	);
 	--landing-blob-shadow:
-		2px 2px 12px rgba(0, 0, 0, 0.16), inset 2px 2px 64px rgba(57, 61, 94, 0.45);
+		0 4px 24px rgba(0, 0, 0, 0.3), 
+		inset 0 2px 40px rgba(91, 163, 204, 0.1);
 
-	--landing-card-bg: rgba(59, 63, 85, 0.15);
-	--landing-card-shadow: 2px 2px 12px rgba(0, 0, 0, 0.16);
+	--landing-card-bg: rgba(30, 58, 95, 0.3);
+	--landing-card-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 
-	--landing-blue-label: #10c0e7;
-	--landing-blue-label-bg: rgba(0, 177, 216, 0.15);
-	--landing-green-label: #00d845;
-	--landing-green-label-bg: rgba(0, 216, 69, 0.15);
+	// Hytale-themed section labels - Dark Mode
+	--landing-blue-label: #5ba3cc;
+	--landing-blue-label-bg: rgba(91, 163, 204, 0.15);
+	--landing-green-label: #5ba3cc;
+	--landing-green-label-bg: rgba(91, 163, 204, 0.15);
+	--landing-gold-label: #f5d45a;
+	--landing-gold-label-bg: rgba(232, 185, 35, 0.2);
 
-	--landing-raw-bg: #000;
+	--landing-raw-bg: #0d1829;
 
 	--medal-promotion-bg: #000;
 	--medal-promotion-bg-orange: rgba(208, 246, 255, 0.25);

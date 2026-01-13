@@ -17,8 +17,8 @@ import {
 	UserIcon,
 	VersionIcon,
 	WrenchIcon,
-} from '@modrinth/assets'
-import { isAdmin as isUserAdmin, type User } from '@modrinth/utils'
+} from '@kweebex/assets'
+import { isAdmin as isUserAdmin, type User } from '@kweebex/utils'
 
 import ServerSidebar from '~/components/ui/servers/ServerSidebar.vue'
 import type { ModrinthServer } from '~/composables/servers/modrinth-servers.ts'

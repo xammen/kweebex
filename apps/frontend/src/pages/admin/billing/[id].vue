@@ -321,7 +321,7 @@ import {
 	ServerIcon,
 	UserIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	ButtonStyled,
@@ -333,9 +333,9 @@ import {
 	Toggle,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatCategory, formatPrice } from '@modrinth/utils'
-import { DEFAULT_CREDIT_EMAIL_MESSAGE } from '@modrinth/utils/utils.ts'
+} from '@kweebex/ui'
+import { formatCategory, formatPrice } from '@kweebex/utils'
+import { DEFAULT_CREDIT_EMAIL_MESSAGE } from '@kweebex/utils/utils.ts'
 import dayjs from 'dayjs'
 
 import ModrinthServersIcon from '~/components/ui/servers/ModrinthServersIcon.vue'

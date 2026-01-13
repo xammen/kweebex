@@ -156,7 +156,7 @@ import {
 	SearchIcon,
 	UpdatedIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import { computed, ref } from 'vue'
 
 import { defineMessages, useVIntl } from '../../composables/i18n'

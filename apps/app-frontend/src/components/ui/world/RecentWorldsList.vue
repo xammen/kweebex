@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { LoaderCircleIcon } from '@modrinth/assets'
-import type { GameVersion } from '@modrinth/ui'
-import { GAME_MODES, HeadingLink, injectNotificationManager } from '@modrinth/ui'
+import { LoaderCircleIcon } from '@kweebex/assets'
+import type { GameVersion } from '@kweebex/ui'
+import { GAME_MODES, HeadingLink, injectNotificationManager } from '@kweebex/ui'
 import { platform } from '@tauri-apps/plugin-os'
 import type { Dayjs } from 'dayjs'
 import dayjs from 'dayjs'

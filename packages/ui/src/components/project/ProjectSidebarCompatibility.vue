@@ -85,9 +85,9 @@
 	</div>
 </template>
 <script setup lang="ts">
-import { ClientIcon, MonitorSmartphoneIcon, ServerIcon, UserIcon } from '@modrinth/assets'
-import type { EnvironmentV3, GameVersionTag, PlatformTag, ProjectV3Partial } from '@modrinth/utils'
-import { formatCategory, getVersionsToDisplay } from '@modrinth/utils'
+import { ClientIcon, MonitorSmartphoneIcon, ServerIcon, UserIcon } from '@kweebex/assets'
+import type { EnvironmentV3, GameVersionTag, PlatformTag, ProjectV3Partial } from '@kweebex/utils'
+import { formatCategory, getVersionsToDisplay } from '@kweebex/utils'
 import { type Component, computed } from 'vue'
 import { useRouter } from 'vue-router'
 

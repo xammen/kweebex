@@ -116,7 +116,7 @@
 </template>
 
 <script setup lang="ts" generic="T">
-import { ChevronLeftIcon, SearchIcon } from '@modrinth/assets'
+import { ChevronLeftIcon, SearchIcon } from '@kweebex/assets'
 import { onClickOutside } from '@vueuse/core'
 import {
 	type Component,

@@ -111,7 +111,7 @@
 </template>
 
 <script setup lang="ts">
-import { ClipboardCopyIcon, EllipsisVerticalIcon, LinkIcon, ScaleIcon } from '@modrinth/assets'
+import { ClipboardCopyIcon, EllipsisVerticalIcon, LinkIcon, ScaleIcon } from '@kweebex/assets'
 import {
 	Avatar,
 	Badge,
@@ -121,8 +121,8 @@ import {
 	OverflowMenu,
 	type OverflowMenuOption,
 	useRelativeTime,
-} from '@modrinth/ui'
-import { formatProjectType } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { formatProjectType } from '@kweebex/utils'
 import dayjs from 'dayjs'
 import { computed } from 'vue'
 

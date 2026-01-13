@@ -291,9 +291,9 @@ import {
 	UploadIcon,
 	XIcon,
 	YouTubeIcon,
-} from '@modrinth/assets'
-import { markdownCommands, modrinthMarkdownEditorKeymap } from '@modrinth/utils/codemirror'
-import { renderHighlightedString } from '@modrinth/utils/highlightjs'
+} from '@kweebex/assets'
+import { markdownCommands, modrinthMarkdownEditorKeymap } from '@kweebex/utils/codemirror'
+import { renderHighlightedString } from '@kweebex/utils/highlightjs'
 import { type Component, computed, onBeforeUnmount, onMounted, ref, toRef, watch } from 'vue'
 
 import NewModal from '../modal/NewModal.vue'

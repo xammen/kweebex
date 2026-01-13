@@ -62,9 +62,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { Labrinth } from '@modrinth/api-client'
-import { SearchIcon } from '@modrinth/assets'
-import { ButtonStyled, Chips } from '@modrinth/ui'
+import type { Labrinth } from '@kweebex/api-client'
+import { SearchIcon } from '@kweebex/assets'
+import { ButtonStyled, Chips } from '@kweebex/ui'
 import { useMagicKeys } from '@vueuse/core'
 import { computed, nextTick, onMounted, ref } from 'vue'
 

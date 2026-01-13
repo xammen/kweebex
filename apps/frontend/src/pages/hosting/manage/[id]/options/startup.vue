@@ -112,8 +112,8 @@
 </template>
 
 <script setup lang="ts">
-import { IssuesIcon, UpdatedIcon } from '@modrinth/assets'
-import { ButtonStyled, Combobox, injectNotificationManager } from '@modrinth/ui'
+import { IssuesIcon, UpdatedIcon } from '@kweebex/assets'
+import { ButtonStyled, Combobox, injectNotificationManager } from '@kweebex/ui'
 
 import SaveBanner from '~/components/ui/servers/SaveBanner.vue'
 import type { ModrinthServer } from '~/composables/servers/modrinth-servers.ts'

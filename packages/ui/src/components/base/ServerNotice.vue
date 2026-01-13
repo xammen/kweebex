@@ -32,8 +32,8 @@
 </template>
 
 <script setup lang="ts">
-import { XIcon } from '@modrinth/assets'
-import { renderString } from '@modrinth/utils'
+import { XIcon } from '@kweebex/assets'
+import { renderString } from '@kweebex/utils'
 import { computed } from 'vue'
 
 import { defineMessages, type MessageDescriptor, useVIntl } from '../../composables/i18n'

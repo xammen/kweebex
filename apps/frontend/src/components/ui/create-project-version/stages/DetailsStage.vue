@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Chips, MarkdownEditor } from '@modrinth/ui'
+import { Chips, MarkdownEditor } from '@kweebex/ui'
 
 import { useImageUpload } from '~/composables/image-upload.ts'
 import { injectManageVersionContext } from '~/providers/version/manage-version-modal'

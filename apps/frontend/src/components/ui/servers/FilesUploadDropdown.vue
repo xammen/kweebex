@@ -101,8 +101,8 @@
 </template>
 
 <script setup lang="ts">
-import { CheckCircleIcon, FolderOpenIcon, XCircleIcon } from '@modrinth/assets'
-import { ButtonStyled, injectModrinthClient, injectNotificationManager } from '@modrinth/ui'
+import { CheckCircleIcon, FolderOpenIcon, XCircleIcon } from '@kweebex/assets'
+import { ButtonStyled, injectModrinthClient, injectNotificationManager } from '@kweebex/ui'
 import { computed, nextTick, ref, watch } from 'vue'
 
 import PanelSpinner from './PanelSpinner.vue'

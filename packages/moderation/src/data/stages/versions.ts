@@ -1,4 +1,4 @@
-import { VersionIcon } from '@modrinth/assets'
+import { VersionIcon } from '@kweebex/assets'
 
 import type { ButtonAction, DropdownAction, DropdownActionOption } from '../../types/actions'
 import type { Stage } from '../../types/stage'

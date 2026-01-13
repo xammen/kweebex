@@ -67,7 +67,7 @@
 </template>
 
 <script setup lang="ts">
-import { ChevronRightIcon } from '@modrinth/assets'
+import { ChevronRightIcon } from '@kweebex/assets'
 import { type Component, computed, useSlots } from 'vue'
 
 type NavStackBaseItem = {

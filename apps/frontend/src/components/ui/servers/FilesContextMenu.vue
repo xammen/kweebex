@@ -55,7 +55,7 @@
 </template>
 
 <script setup lang="ts">
-import { DownloadIcon, EditIcon, RightArrowIcon, TrashIcon } from '@modrinth/assets'
+import { DownloadIcon, EditIcon, RightArrowIcon, TrashIcon } from '@kweebex/assets'
 import { ref } from 'vue'
 
 interface FileItem {

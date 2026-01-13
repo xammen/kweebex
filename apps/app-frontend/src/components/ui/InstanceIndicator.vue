@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { GameIcon, LeftArrowIcon } from '@modrinth/assets'
-import { Avatar, ButtonStyled } from '@modrinth/ui'
-import { formatCategory } from '@modrinth/utils'
+import { GameIcon, LeftArrowIcon } from '@kweebex/assets'
+import { Avatar, ButtonStyled } from '@kweebex/ui'
+import { formatCategory } from '@kweebex/utils'
 import { convertFileSrc } from '@tauri-apps/api/core'
 
 type Instance = {

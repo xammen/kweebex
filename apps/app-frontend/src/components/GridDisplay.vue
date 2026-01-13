@@ -9,9 +9,9 @@ import {
 	StopCircleIcon,
 	TrashIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { Button, DropdownSelect, injectNotificationManager } from '@modrinth/ui'
-import { formatCategoryHeader } from '@modrinth/utils'
+} from '@kweebex/assets'
+import { Button, DropdownSelect, injectNotificationManager } from '@kweebex/ui'
+import { formatCategoryHeader } from '@kweebex/utils'
 import { useStorage } from '@vueuse/core'
 import dayjs from 'dayjs'
 import { computed, ref } from 'vue'

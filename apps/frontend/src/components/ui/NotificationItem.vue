@@ -330,7 +330,7 @@ import {
 	UserPlusIcon,
 	VersionIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	Categories,
@@ -339,8 +339,8 @@ import {
 	injectNotificationManager,
 	ProjectStatusBadge,
 	useRelativeTime,
-} from '@modrinth/ui'
-import { getUserLink, renderString } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { getUserLink, renderString } from '@kweebex/utils'
 
 import { markAsRead } from '~/helpers/platform-notifications'
 import { getProjectLink, getVersionLink } from '~/helpers/projects'

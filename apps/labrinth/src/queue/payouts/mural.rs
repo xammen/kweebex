@@ -2,7 +2,7 @@ use ariadne::ids::UserId;
 use chrono::Utc;
 use eyre::{Result, eyre};
 use futures::{StreamExt, TryFutureExt, stream::FuturesUnordered};
-use modrinth_util::decimal::Decimal2dp;
+use kweebex_util::decimal::Decimal2dp;
 use muralpay::{MuralError, TokenFeeRequest};
 use rust_decimal::{Decimal, prelude::ToPrimitive};
 use serde::{Deserialize, Serialize};

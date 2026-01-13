@@ -69,8 +69,8 @@
 </template>
 
 <script setup lang="ts">
-import { CpuIcon, DatabaseIcon, FolderOpenIcon, IssuesIcon } from '@modrinth/assets'
-import type { Stats } from '@modrinth/utils'
+import { CpuIcon, DatabaseIcon, FolderOpenIcon, IssuesIcon } from '@kweebex/assets'
+import type { Stats } from '@kweebex/utils'
 import { useStorage } from '@vueuse/core'
 import { computed, ref, shallowRef } from 'vue'
 

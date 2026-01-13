@@ -971,7 +971,7 @@ import {
 	VersionIcon,
 	WrenchIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Admonition,
 	Avatar,
@@ -997,9 +997,9 @@ import {
 	TagItem,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
-import VersionSummary from '@modrinth/ui/src/components/version/VersionSummary.vue'
-import { formatCategory, formatPrice, formatProjectType, renderString } from '@modrinth/utils'
+} from '@kweebex/ui'
+import VersionSummary from '@kweebex/ui/src/components/version/VersionSummary.vue'
+import { formatCategory, formatPrice, formatProjectType, renderString } from '@kweebex/utils'
 import { useLocalStorage } from '@vueuse/core'
 import dayjs from 'dayjs'
 import { Tooltip } from 'floating-vue'

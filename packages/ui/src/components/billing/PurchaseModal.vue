@@ -540,8 +540,8 @@ import {
 	SpinnerIcon,
 	UnknownIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { calculateSavings, createStripeElements, formatPrice, getCurrency } from '@modrinth/utils'
+} from '@kweebex/assets'
+import { calculateSavings, createStripeElements, formatPrice, getCurrency } from '@kweebex/utils'
 import dayjs from 'dayjs'
 import { computed, nextTick, reactive, ref, watch } from 'vue'
 import { Multiselect } from 'vue-multiselect'

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { VersionChannel } from '@modrinth/utils'
+import type { VersionChannel } from '@kweebex/utils'
 
 import { defineMessages, useVIntl } from '../../composables/i18n'
 

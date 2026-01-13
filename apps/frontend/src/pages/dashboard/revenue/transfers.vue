@@ -89,9 +89,9 @@ import {
 	DownloadIcon,
 	GenericListIcon,
 	SpinnerIcon,
-} from '@modrinth/assets'
-import { ButtonStyled, Combobox, defineMessages, useVIntl } from '@modrinth/ui'
-import { formatMoney } from '@modrinth/utils'
+} from '@kweebex/assets'
+import { ButtonStyled, Combobox, defineMessages, useVIntl } from '@kweebex/ui'
+import { formatMoney } from '@kweebex/utils'
 import dayjs from 'dayjs'
 
 import RevenueTransaction from '~/components/ui/dashboard/RevenueTransaction.vue'

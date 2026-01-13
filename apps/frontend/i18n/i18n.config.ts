@@ -1,4 +1,4 @@
-import { createMessageCompiler } from '@modrinth/ui'
+import { createMessageCompiler } from '@kweebex/ui'
 
 export default defineI18nConfig(() => ({
 	legacy: false,

@@ -7,7 +7,7 @@ import {
 	SearchIcon,
 	SendIcon,
 	TrashIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	Badge,
@@ -16,7 +16,7 @@ import {
 	defineMessages,
 	IntlFormatted,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 import ATLauncher from '~/assets/images/external/atlauncher.svg?component'
 import CurseForge from '~/assets/images/external/curseforge.svg?component'

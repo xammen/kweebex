@@ -352,9 +352,9 @@ import {
 	SearchIcon,
 	TrashIcon,
 	WrenchIcon,
-} from '@modrinth/assets'
-import { Avatar, ButtonStyled, injectModrinthClient, injectNotificationManager } from '@modrinth/ui'
-import type { Mod } from '@modrinth/utils'
+} from '@kweebex/assets'
+import { Avatar, ButtonStyled, injectModrinthClient, injectNotificationManager } from '@kweebex/ui'
+import type { Mod } from '@kweebex/utils'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
 import ContentVersionEditModal from '~/components/ui/servers/ContentVersionEditModal.vue'

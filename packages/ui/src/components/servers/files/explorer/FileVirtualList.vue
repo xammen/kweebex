@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Kyros } from '@modrinth/api-client'
+import type { Kyros } from '@kweebex/api-client'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 import FileItem from './FileItem.vue'

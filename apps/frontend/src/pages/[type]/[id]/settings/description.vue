@@ -42,10 +42,10 @@
 </template>
 
 <script lang="ts" setup>
-import { SaveIcon, TriangleAlertIcon } from '@modrinth/assets'
-import { countText, MIN_DESCRIPTION_CHARS } from '@modrinth/moderation'
-import { MarkdownEditor } from '@modrinth/ui'
-import { type Project, type TeamMember, TeamMemberPermission } from '@modrinth/utils'
+import { SaveIcon, TriangleAlertIcon } from '@kweebex/assets'
+import { countText, MIN_DESCRIPTION_CHARS } from '@kweebex/moderation'
+import { MarkdownEditor } from '@kweebex/ui'
+import { type Project, type TeamMember, TeamMemberPermission } from '@kweebex/utils'
 import { computed, ref } from 'vue'
 
 import { useImageUpload } from '~/composables/image-upload.ts'

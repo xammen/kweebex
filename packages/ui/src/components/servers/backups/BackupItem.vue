@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Archon } from '@modrinth/api-client'
+import type { Archon } from '@kweebex/api-client'
 import {
 	ClockIcon,
 	DownloadIcon,
@@ -9,7 +9,7 @@ import {
 	TrashIcon,
 	UserRoundIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import dayjs from 'dayjs'
 import { computed } from 'vue'
 

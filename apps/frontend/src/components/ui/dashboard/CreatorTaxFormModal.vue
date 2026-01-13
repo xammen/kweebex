@@ -157,7 +157,7 @@ import {
 	RightArrowIcon,
 	SpinnerIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Admonition,
 	ButtonStyled,
@@ -168,7 +168,7 @@ import {
 	NewModal,
 	normalizeChildren,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 import { type FormRequestResponse, useAvalara1099 } from '@/composables/avalara1099'
 

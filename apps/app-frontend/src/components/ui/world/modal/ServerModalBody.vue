@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Combobox, defineMessages, type MessageDescriptor, useVIntl } from '@modrinth/ui'
+import { Combobox, defineMessages, type MessageDescriptor, useVIntl } from '@kweebex/ui'
 
 import type { ServerPackStatus } from '@/helpers/worlds.ts'
 

@@ -1,6 +1,6 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { PackageOpenIcon } from '@modrinth/assets'
-import type { ModerationModpackPermissionApprovalType } from '@modrinth/utils'
+import type { Labrinth } from '@kweebex/api-client'
+import { PackageOpenIcon } from '@kweebex/assets'
+import type { ModerationModpackPermissionApprovalType } from '@kweebex/utils'
 
 import type { Stage } from '../types/stage'
 

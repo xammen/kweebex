@@ -179,7 +179,7 @@ import {
 	UpdatedIcon,
 	UserPlusIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	ButtonStyled,
@@ -187,7 +187,7 @@ import {
 	injectNotificationManager,
 	LoadingIndicator,
 	OverflowMenu,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { convertFileSrc } from '@tauri-apps/api/core'
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'

@@ -324,7 +324,7 @@ import {
 	SortDescIcon,
 	TrashIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	ButtonStyled,
@@ -335,8 +335,8 @@ import {
 	NewModal,
 	ProjectStatusBadge,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatProjectType } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { formatProjectType } from '@kweebex/utils'
 import { Multiselect } from 'vue-multiselect'
 
 import ModalCreation from '~/components/ui/create/ProjectCreateModal.vue'

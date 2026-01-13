@@ -42,8 +42,8 @@
 </template>
 
 <script setup>
-import { ChevronLeftIcon, ChevronRightIcon } from '@modrinth/assets'
-import { Button } from '@modrinth/ui'
+import { ChevronLeftIcon, ChevronRightIcon } from '@kweebex/assets'
+import { Button } from '@kweebex/ui'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 

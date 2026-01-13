@@ -1,6 +1,6 @@
 <script setup>
-import { SaveIcon, TrashIcon, UploadIcon } from '@modrinth/assets'
-import { Avatar, Button, ConfirmModal, FileInput, injectNotificationManager } from '@modrinth/ui'
+import { SaveIcon, TrashIcon, UploadIcon } from '@kweebex/assets'
+import { Avatar, Button, ConfirmModal, FileInput, injectNotificationManager } from '@kweebex/ui'
 
 import { injectOrganizationContext } from '~/providers/organization-context.ts'
 

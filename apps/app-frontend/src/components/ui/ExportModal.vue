@@ -1,6 +1,6 @@
 <script setup>
-import { PlusIcon, XIcon } from '@modrinth/assets'
-import { Button, Checkbox, injectNotificationManager } from '@modrinth/ui'
+import { PlusIcon, XIcon } from '@kweebex/assets'
+import { Button, Checkbox, injectNotificationManager } from '@kweebex/ui'
 import { open } from '@tauri-apps/plugin-dialog'
 import { ref } from 'vue'
 

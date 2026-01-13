@@ -68,14 +68,14 @@
 </template>
 
 <script lang="ts" setup>
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@kweebex/api-client'
 import {
 	ButtonStyled,
 	Combobox,
 	injectModrinthClient,
 	injectNotificationManager,
-} from '@modrinth/ui'
-import type { ComboboxOption } from '@modrinth/ui/src/components/base/Combobox.vue'
+} from '@kweebex/ui'
+import type { ComboboxOption } from '@kweebex/ui/src/components/base/Combobox.vue'
 
 import DependencySelect from '~/components/ui/create-project-version/components/DependencySelect.vue'
 import { injectManageVersionContext } from '~/providers/version/manage-version-modal'

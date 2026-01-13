@@ -220,9 +220,9 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { CalendarIcon, DownloadIcon, PlusIcon, StarIcon } from '@modrinth/assets'
-import { ButtonStyled } from '@modrinth/ui'
+import type { Labrinth } from '@kweebex/api-client'
+import { CalendarIcon, DownloadIcon, PlusIcon, StarIcon } from '@kweebex/assets'
+import { ButtonStyled } from '@kweebex/ui'
 import {
 	formatBytes,
 	formatCategory,
@@ -230,7 +230,7 @@ import {
 	formatVersionsForDisplay,
 	type GameVersionTag,
 	type Version,
-} from '@modrinth/utils'
+} from '@kweebex/utils'
 import { computed, type Ref, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 

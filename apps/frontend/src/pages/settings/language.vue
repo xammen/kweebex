@@ -7,7 +7,7 @@ import {
 	languageSelectorMessages,
 	LOCALES,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 const { formatMessage } = useVIntl()
 const { locale, setLocale } = useI18n()

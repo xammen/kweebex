@@ -131,7 +131,7 @@
 </template>
 
 <script setup lang="ts">
-import { CheckIcon, PlusIcon, XIcon } from '@modrinth/assets'
+import { CheckIcon, PlusIcon, XIcon } from '@kweebex/assets'
 import {
 	ButtonStyled,
 	Combobox,
@@ -139,8 +139,8 @@ import {
 	NewModal,
 	TagItem,
 	Toggle,
-} from '@modrinth/ui'
-import { DEFAULT_CREDIT_EMAIL_MESSAGE } from '@modrinth/utils/utils.ts'
+} from '@kweebex/ui'
+import { DEFAULT_CREDIT_EMAIL_MESSAGE } from '@kweebex/utils/utils.ts'
 import { computed, ref } from 'vue'
 
 import { useBaseFetch } from '#imports'

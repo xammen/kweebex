@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Checkbox, defineMessages, injectNotificationManager, useVIntl } from '@modrinth/ui'
+import { Checkbox, defineMessages, injectNotificationManager, useVIntl } from '@kweebex/ui'
 import { computed, ref, watch } from 'vue'
 
 import { edit } from '@/helpers/profile'

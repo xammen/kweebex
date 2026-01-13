@@ -172,9 +172,9 @@
 </template>
 
 <script setup>
-import { SaveIcon, TriangleAlertIcon } from '@modrinth/assets'
-import { commonLinkDomains, isCommonUrl, isDiscordUrl, isLinkShortener } from '@modrinth/moderation'
-import { DropdownSelect } from '@modrinth/ui'
+import { SaveIcon, TriangleAlertIcon } from '@kweebex/assets'
+import { commonLinkDomains, isCommonUrl, isDiscordUrl, isLinkShortener } from '@kweebex/moderation'
+import { DropdownSelect } from '@kweebex/ui'
 
 const tags = useGeneratedState()
 

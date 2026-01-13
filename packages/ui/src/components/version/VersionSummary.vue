@@ -30,8 +30,8 @@
 </template>
 
 <script setup lang="ts">
-import { DownloadIcon, ExternalIcon } from '@modrinth/assets'
-import type { Version, VersionFile } from '@modrinth/utils'
+import { DownloadIcon, ExternalIcon } from '@kweebex/assets'
+import type { Version, VersionFile } from '@kweebex/utils'
 import { computed } from 'vue'
 
 import { ButtonStyled, VersionChannelIndicator } from '../index'

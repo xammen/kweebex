@@ -204,7 +204,7 @@
 </template>
 
 <script setup lang="ts">
-import { CodeIcon, RadioButtonCheckedIcon, RadioButtonIcon } from '@modrinth/assets'
+import { CodeIcon, RadioButtonCheckedIcon, RadioButtonIcon } from '@kweebex/assets'
 import {
 	Button,
 	defineMessages,
@@ -213,8 +213,8 @@ import {
 	normalizeChildren,
 	ThemeSelector,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatProjectType } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { formatProjectType } from '@kweebex/utils'
 
 import MessageBanner from '~/components/ui/MessageBanner.vue'
 import type { DisplayLocation } from '~/plugins/cosmetics'

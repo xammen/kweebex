@@ -92,8 +92,8 @@ import {
 	DropzoneFileInput,
 	injectProjectPageContext,
 	useVIntl,
-} from '@modrinth/ui'
-import { acceptFileFromProjectType } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { acceptFileFromProjectType } from '@kweebex/utils'
 
 import { injectManageVersionContext } from '~/providers/version/manage-version-modal'
 

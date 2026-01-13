@@ -41,9 +41,9 @@
 </template>
 
 <script setup lang="ts">
-import { MessageIcon } from '@modrinth/assets'
-import { Admonition, ButtonStyled, defineMessages, useVIntl } from '@modrinth/ui'
-import { capitalizeString } from '@modrinth/utils'
+import { MessageIcon } from '@kweebex/assets'
+import { Admonition, ButtonStyled, defineMessages, useVIntl } from '@kweebex/ui'
+import { capitalizeString } from '@kweebex/utils'
 import { computed, watch } from 'vue'
 
 const { formatMessage } = useVIntl()

@@ -144,7 +144,7 @@ import {
 	RightArrowIcon,
 	SteamColorIcon,
 	UserIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Checkbox,
 	commonMessages,
@@ -152,7 +152,7 @@ import {
 	injectNotificationManager,
 	IntlFormatted,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 import HCaptcha from '@/components/ui/HCaptcha.vue'
 import { getAuthUrl } from '@/composables/auth.js'

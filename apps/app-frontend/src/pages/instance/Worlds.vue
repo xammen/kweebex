@@ -121,7 +121,7 @@
 	</div>
 </template>
 <script setup lang="ts">
-import { PlusIcon, SearchIcon, SpinnerIcon, UpdatedIcon, XIcon } from '@modrinth/assets'
+import { PlusIcon, SearchIcon, SpinnerIcon, UpdatedIcon, XIcon } from '@kweebex/assets'
 import {
 	Button,
 	ButtonStyled,
@@ -132,8 +132,8 @@ import {
 	type GameVersion,
 	injectNotificationManager,
 	RadialHeader,
-} from '@modrinth/ui'
-import type { Version } from '@modrinth/utils'
+} from '@kweebex/ui'
+import type { Version } from '@kweebex/utils'
 import { platform } from '@tauri-apps/plugin-os'
 import { computed, onUnmounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'

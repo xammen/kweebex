@@ -1,6 +1,6 @@
 <script setup>
-import { BoxIcon, FolderSearchIcon, TrashIcon } from '@modrinth/assets'
-import { Button, injectNotificationManager, Slider } from '@modrinth/ui'
+import { BoxIcon, FolderSearchIcon, TrashIcon } from '@kweebex/assets'
+import { Button, injectNotificationManager, Slider } from '@kweebex/ui'
 import { open } from '@tauri-apps/plugin-dialog'
 import { ref, watch } from 'vue'
 

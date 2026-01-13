@@ -67,8 +67,8 @@
 	</div>
 </template>
 <script setup>
-import { KeyIcon, MailIcon, SendIcon } from '@modrinth/assets'
-import { commonMessages, defineMessages, injectNotificationManager, useVIntl } from '@modrinth/ui'
+import { KeyIcon, MailIcon, SendIcon } from '@kweebex/assets'
+import { commonMessages, defineMessages, injectNotificationManager, useVIntl } from '@kweebex/ui'
 
 import HCaptcha from '@/components/ui/HCaptcha.vue'
 

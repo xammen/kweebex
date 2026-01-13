@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { CheckIcon } from '@modrinth/assets'
+import { CheckIcon } from '@kweebex/assets'
 
 export default {
 	components: {

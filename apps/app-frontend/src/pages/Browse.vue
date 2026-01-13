@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ClipboardCopyIcon, ExternalIcon, GlobeIcon, SearchIcon, XIcon } from '@modrinth/assets'
-import type { Category, GameVersion, Platform, ProjectType, SortType, Tags } from '@modrinth/ui'
+import { ClipboardCopyIcon, ExternalIcon, GlobeIcon, SearchIcon, XIcon } from '@kweebex/assets'
+import type { Category, GameVersion, Platform, ProjectType, SortType, Tags } from '@kweebex/ui'
 import {
 	Button,
 	Checkbox,
@@ -13,7 +13,7 @@ import {
 	SearchSidebarFilter,
 	useSearch,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { openUrl } from '@tauri-apps/plugin-opener'
 import type { Ref } from 'vue'
 import { computed, nextTick, ref, shallowRef, watch } from 'vue'

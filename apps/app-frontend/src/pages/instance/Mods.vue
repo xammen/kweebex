@@ -269,7 +269,7 @@ import {
 	TrashIcon,
 	UpdatedIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Button,
 	ButtonStyled,
@@ -281,10 +281,10 @@ import {
 	RadialHeader,
 	Toggle,
 	useVIntl,
-} from '@modrinth/ui'
-import type { ContentItem } from '@modrinth/ui/src/components/content/ContentListItem.vue'
-import type { Organization, Project, TeamMember, Version } from '@modrinth/utils'
-import { formatProjectType } from '@modrinth/utils'
+} from '@kweebex/ui'
+import type { ContentItem } from '@kweebex/ui/src/components/content/ContentListItem.vue'
+import type { Organization, Project, TeamMember, Version } from '@kweebex/utils'
+import { formatProjectType } from '@kweebex/utils'
 import { getCurrentWebview } from '@tauri-apps/api/webview'
 import { useStorage } from '@vueuse/core'
 import dayjs from 'dayjs'

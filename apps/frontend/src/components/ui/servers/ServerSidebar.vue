@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { RightArrowIcon } from '@modrinth/assets'
+import { RightArrowIcon } from '@kweebex/assets'
 import type { RouteLocationNormalized } from 'vue-router'
 
 import type { ModrinthServer } from '~/composables/servers/modrinth-servers.ts'

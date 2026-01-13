@@ -261,7 +261,7 @@
 	</div>
 </template>
 <script setup lang="ts">
-import { EditIcon, PlusIcon, SaveIcon, SettingsIcon, TrashIcon, XIcon } from '@modrinth/assets'
+import { EditIcon, PlusIcon, SaveIcon, SettingsIcon, TrashIcon, XIcon } from '@kweebex/assets'
 import {
 	ButtonStyled,
 	Combobox,
@@ -275,9 +275,9 @@ import {
 	Toggle,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
-import { NOTICE_LEVELS } from '@modrinth/ui/src/utils/notices.ts'
-import type { ServerNotice as ServerNoticeType } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { NOTICE_LEVELS } from '@kweebex/ui/src/utils/notices.ts'
+import type { ServerNotice as ServerNoticeType } from '@kweebex/utils'
 import dayjs from 'dayjs'
 import { computed } from 'vue'
 

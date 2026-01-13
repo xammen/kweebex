@@ -297,9 +297,9 @@
 </template>
 
 <script setup lang="ts">
-import { CopyIcon, EyeIcon, RightArrowIcon, SearchIcon, XIcon } from '@modrinth/assets'
-import { NewModal } from '@modrinth/ui'
-import ButtonStyled from '@modrinth/ui/src/components/base/ButtonStyled.vue'
+import { CopyIcon, EyeIcon, RightArrowIcon, SearchIcon, XIcon } from '@kweebex/assets'
+import { NewModal } from '@kweebex/ui'
+import ButtonStyled from '@kweebex/ui/src/components/base/ButtonStyled.vue'
 import { useDebounceFn } from '@vueuse/core'
 import DOMPurify from 'dompurify'
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'

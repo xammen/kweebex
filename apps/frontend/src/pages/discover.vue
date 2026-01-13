@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { commonProjectTypeCategoryMessages, useVIntl } from '@modrinth/ui'
+import { commonProjectTypeCategoryMessages, useVIntl } from '@kweebex/ui'
+import { FEATURES } from '../../../../config'
 
 import NavTabs from '~/components/ui/NavTabs.vue'
 
@@ -16,31 +17,37 @@ const selectableProjectTypes = [
 		label: formatMessage(commonProjectTypeCategoryMessages.mod),
 		href: `/discover/mods`,
 		type: 'mods',
-	},
-	{
-		label: formatMessage(commonProjectTypeCategoryMessages.resourcepack),
-		href: `/discover/resourcepacks`,
-		type: 'resourcepacks',
-	},
-	{
-		label: formatMessage(commonProjectTypeCategoryMessages.datapack),
-		href: `/discover/datapacks`,
-		type: 'datapacks',
-	},
-	{
-		label: formatMessage(commonProjectTypeCategoryMessages.shader),
-		href: `/discover/shaders`,
-		type: 'shaders',
+		shown: FEATURES.mods,
 	},
 	{
 		label: formatMessage(commonProjectTypeCategoryMessages.modpack),
 		href: `/discover/modpacks`,
 		type: 'modpacks',
+		shown: FEATURES.modpacks,
+	},
+	{
+		label: formatMessage(commonProjectTypeCategoryMessages.resourcepack),
+		href: `/discover/resourcepacks`,
+		type: 'resourcepacks',
+		shown: FEATURES.resourcepacks,
+	},
+	{
+		label: formatMessage(commonProjectTypeCategoryMessages.datapack),
+		href: `/discover/datapacks`,
+		type: 'datapacks',
+		shown: FEATURES.datapacks,
+	},
+	{
+		label: formatMessage(commonProjectTypeCategoryMessages.shader),
+		href: `/discover/shaders`,
+		type: 'shaders',
+		shown: FEATURES.shaders,
 	},
 	{
 		label: formatMessage(commonProjectTypeCategoryMessages.plugin),
 		href: `/discover/plugins`,
 		type: 'plugins',
+		shown: FEATURES.plugins,
 	},
 	{
 		label: formatMessage(commonProjectTypeCategoryMessages.server),
@@ -48,7 +55,7 @@ const selectableProjectTypes = [
 		type: 'servers',
 		shown: flags.value.serverDiscovery,
 	},
-]
+].filter(item => item.shown !== false)
 </script>
 <template>
 	<div class="new-page sidebar" :class="{ 'alt-layout': !cosmetics.rightSearchLayout }">

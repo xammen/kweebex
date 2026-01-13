@@ -25,8 +25,8 @@
 </template>
 
 <script setup lang="ts">
-import { FileIcon, HomeIcon, RefreshCwIcon } from '@modrinth/assets'
-import { ButtonStyled } from '@modrinth/ui'
+import { FileIcon, HomeIcon, RefreshCwIcon } from '@kweebex/assets'
+import { ButtonStyled } from '@kweebex/ui'
 
 defineProps<{
 	title: string

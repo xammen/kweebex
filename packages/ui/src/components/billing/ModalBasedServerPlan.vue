@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { InfoIcon } from '@modrinth/assets'
-import { formatPrice } from '@modrinth/utils'
+import type { Labrinth } from '@kweebex/api-client'
+import { InfoIcon } from '@kweebex/assets'
+import { formatPrice } from '@kweebex/utils'
 import { Menu } from 'floating-vue'
 import { computed, inject, type Ref } from 'vue'
 

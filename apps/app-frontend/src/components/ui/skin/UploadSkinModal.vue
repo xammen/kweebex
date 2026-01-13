@@ -27,8 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import { UploadIcon } from '@modrinth/assets'
-import { injectNotificationManager } from '@modrinth/ui'
+import { UploadIcon } from '@kweebex/assets'
+import { injectNotificationManager } from '@kweebex/ui'
 import { getCurrentWebview } from '@tauri-apps/api/webview'
 import { onBeforeUnmount, ref, watch } from 'vue'
 

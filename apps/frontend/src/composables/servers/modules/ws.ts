@@ -1,4 +1,4 @@
-import type { JWTAuth } from '@modrinth/utils'
+import type { JWTAuth } from '@kweebex/utils'
 
 import { useServersFetch } from '../servers-fetch.ts'
 import { ServerModule } from './base.ts'

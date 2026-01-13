@@ -101,7 +101,7 @@ import {
 	PatreonIcon,
 	PayPalIcon,
 	WikiIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 
 import { defineMessages, useVIntl } from '../../composables/i18n'
 

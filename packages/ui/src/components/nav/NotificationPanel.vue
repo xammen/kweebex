@@ -90,7 +90,7 @@ import {
 	IssuesIcon,
 	XCircleIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 import { injectNotificationManager, type WebNotification } from '../../providers'

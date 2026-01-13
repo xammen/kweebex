@@ -1,4 +1,4 @@
-import { TriangleAlertIcon } from '@modrinth/assets'
+import { TriangleAlertIcon } from '@kweebex/assets'
 
 import type { ButtonAction, DropdownAction, DropdownActionOption } from '../../types/actions'
 import type { Stage } from '../../types/stage'

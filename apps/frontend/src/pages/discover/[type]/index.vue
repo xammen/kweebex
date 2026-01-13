@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@kweebex/api-client'
 import {
 	CheckIcon,
 	DownloadIcon,
@@ -11,8 +11,8 @@ import {
 	ListIcon,
 	SearchIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { defineMessages, useVIntl } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { defineMessages, useVIntl } from '@kweebex/ui'
 import {
 	Avatar,
 	Button,
@@ -26,8 +26,8 @@ import {
 	SearchSidebarFilter,
 	type SortType,
 	useSearch,
-} from '@modrinth/ui'
-import { capitalizeString, cycleValue, type Mod as InstallableMod } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { capitalizeString, cycleValue, type Mod as InstallableMod } from '@kweebex/utils'
 import { useThrottleFn } from '@vueuse/core'
 import { computed, type Reactive, watch } from 'vue'
 

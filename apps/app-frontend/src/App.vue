@@ -1,5 +1,5 @@
 <script setup>
-import { AuthFeature, PanelVersionFeature, TauriModrinthClient } from '@modrinth/api-client'
+import { AuthFeature, PanelVersionFeature, TauriModrinthClient } from '@kweebex/api-client'
 import {
 	ArrowBigUpDashIcon,
 	ChangeSkinIcon,
@@ -24,7 +24,7 @@ import {
 	UserIcon,
 	WorldIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Admonition,
 	Avatar,
@@ -41,8 +41,8 @@ import {
 	providePageContext,
 	useDebugLogger,
 	useVIntl,
-} from '@modrinth/ui'
-import { renderString } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { renderString } from '@kweebex/utils'
 import { useQuery } from '@tanstack/vue-query'
 import { getVersion } from '@tauri-apps/api/app'
 import { invoke } from '@tauri-apps/api/core'

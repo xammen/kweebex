@@ -1,4 +1,4 @@
-import type { ExtendedReport, OwnershipTarget } from '@modrinth/moderation'
+import type { ExtendedReport, OwnershipTarget } from '@kweebex/moderation'
 import type {
 	Organization,
 	Project,
@@ -7,7 +7,7 @@ import type {
 	Thread,
 	User,
 	Version,
-} from '@modrinth/utils'
+} from '@kweebex/utils'
 
 export const useModerationCache = () => ({
 	threads: useState<Map<string, Thread>>('moderation-report-cache-threads', () => new Map()),
@@ -180,7 +180,7 @@ export async function enrichReportBatch(reports: Report[]): Promise<ExtendedRepo
 	})
 }
 
-// Doesn't need to be in @modrinth/moderation because it is specific to the frontend.
+// Doesn't need to be in @kweebex/moderation because it is specific to the frontend.
 export interface ModerationProject {
 	project: any
 	owner: TeamMember | null

@@ -79,8 +79,8 @@
 </template>
 
 <script setup lang="ts">
-import { FilterIcon, XCircleIcon, XIcon } from '@modrinth/assets'
-import { formatCategory, type GameVersionTag, type Version } from '@modrinth/utils'
+import { FilterIcon, XCircleIcon, XIcon } from '@kweebex/assets'
+import { formatCategory, type GameVersionTag, type Version } from '@kweebex/utils'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 

@@ -72,7 +72,7 @@
 	</ButtonStyled>
 </template>
 <script setup lang="ts">
-import { CheckIcon, DropdownIcon, SearchIcon } from '@modrinth/assets'
+import { CheckIcon, DropdownIcon, SearchIcon } from '@kweebex/assets'
 import { computed, ref } from 'vue'
 
 import { Button, ButtonStyled, PopoutMenu } from '../index'

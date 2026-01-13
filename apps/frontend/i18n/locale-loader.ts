@@ -1,4 +1,4 @@
-import { type CrowdinMessages, transformCrowdinMessages } from '@modrinth/ui'
+import { type CrowdinMessages, transformCrowdinMessages } from '@kweebex/ui'
 
 // eager:false - only loads the locale requested
 const localeModules = import.meta.glob<{ default: CrowdinMessages }>(

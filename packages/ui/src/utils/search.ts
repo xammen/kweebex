@@ -1,6 +1,6 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { ClientIcon, ServerIcon } from '@modrinth/assets'
-import { formatCategory, formatCategoryHeader, sortByNameOrNumber } from '@modrinth/utils'
+import type { Labrinth } from '@kweebex/api-client'
+import { ClientIcon, ServerIcon } from '@kweebex/assets'
+import { formatCategory, formatCategoryHeader, sortByNameOrNumber } from '@kweebex/utils'
 import { type Component, computed, readonly, type Ref, ref } from 'vue'
 import { type LocationQueryRaw, type LocationQueryValue, useRoute } from 'vue-router'
 

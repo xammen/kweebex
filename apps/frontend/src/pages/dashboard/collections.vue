@@ -105,8 +105,8 @@ import {
 	PlusIcon,
 	SearchIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { Avatar, Button, commonMessages, defineMessages, useVIntl } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { Avatar, Button, commonMessages, defineMessages, useVIntl } from '@kweebex/ui'
 
 import CollectionCreateModal from '~/components/ui/create/CollectionCreateModal.vue'
 

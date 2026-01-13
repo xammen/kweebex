@@ -188,8 +188,8 @@
 </template>
 
 <script lang="ts" setup>
-import type { Labrinth } from '@modrinth/api-client'
-import { EditIcon, UnknownIcon } from '@modrinth/assets'
+import type { Labrinth } from '@kweebex/api-client'
+import { EditIcon, UnknownIcon } from '@kweebex/assets'
 import {
 	ButtonStyled,
 	defineMessages,
@@ -197,8 +197,8 @@ import {
 	injectProjectPageContext,
 	TagItem,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatCategory } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { formatCategory } from '@kweebex/utils'
 
 import { useGeneratedState } from '~/composables/generated'
 import { injectManageVersionContext } from '~/providers/version/manage-version-modal'

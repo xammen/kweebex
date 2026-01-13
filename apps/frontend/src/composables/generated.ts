@@ -1,5 +1,5 @@
-import type { ISO3166, Labrinth } from '@modrinth/api-client'
-import type { DisplayProjectType } from '@modrinth/utils'
+import type { ISO3166, Labrinth } from '@kweebex/api-client'
+import type { DisplayProjectType } from '@kweebex/utils'
 
 import generatedState from '~/generated/state.json'
 import type { DisplayMode } from '~/plugins/cosmetics'

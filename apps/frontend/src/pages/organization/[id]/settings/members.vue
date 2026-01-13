@@ -226,8 +226,8 @@ import {
 	TransferIcon,
 	UserPlusIcon,
 	UserXIcon as UserRemoveIcon,
-} from '@modrinth/assets'
-import { Avatar, Badge, Button, Checkbox, injectNotificationManager } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { Avatar, Badge, Button, Checkbox, injectNotificationManager } from '@kweebex/ui'
 import { ref } from 'vue'
 
 import { removeTeamMember } from '~/helpers/teams.js'

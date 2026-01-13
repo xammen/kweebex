@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { injectNotificationManager } from '@modrinth/ui'
+import { injectNotificationManager } from '@kweebex/ui'
 import { useStorage } from '@vueuse/core'
 
 import SaveBanner from '~/components/ui/servers/SaveBanner.vue'

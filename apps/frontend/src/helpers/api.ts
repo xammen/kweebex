@@ -10,7 +10,7 @@ import {
 	NuxtModrinthClient,
 	PanelVersionFeature,
 	VerboseLoggingFeature,
-} from '@modrinth/api-client'
+} from '@kweebex/api-client'
 import type { Ref } from 'vue'
 
 async function getRateLimitKeyFromSecretsStore(): Promise<string | undefined> {

@@ -55,8 +55,8 @@ import {
 	commonMessages,
 	formFieldPlaceholders,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatMoney } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { formatMoney } from '@kweebex/utils'
 import { computed, nextTick, ref, watch } from 'vue'
 
 const props = withDefaults(

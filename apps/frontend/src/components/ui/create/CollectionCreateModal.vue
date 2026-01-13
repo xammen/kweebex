@@ -57,14 +57,14 @@
 	</NewModal>
 </template>
 <script setup>
-import { PlusIcon, XIcon } from '@modrinth/assets'
+import { PlusIcon, XIcon } from '@kweebex/assets'
 import {
 	ButtonStyled,
 	defineMessages,
 	injectNotificationManager,
 	NewModal,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 import CreateLimitAlert from './CreateLimitAlert.vue'
 

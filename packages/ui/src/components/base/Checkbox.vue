@@ -32,7 +32,7 @@
 	</button>
 </template>
 <script setup lang="ts">
-import { CheckIcon, MinusIcon } from '@modrinth/assets'
+import { CheckIcon, MinusIcon } from '@kweebex/assets'
 
 const emit = defineEmits<{
 	'update:modelValue': [boolean]

@@ -259,9 +259,9 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowUpRightIcon, InProgressIcon, UnknownIcon } from '@modrinth/assets'
-import { defineMessages, useVIntl } from '@modrinth/ui'
-import { formatMoney } from '@modrinth/utils'
+import { ArrowUpRightIcon, InProgressIcon, UnknownIcon } from '@kweebex/assets'
+import { defineMessages, useVIntl } from '@kweebex/ui'
+import { formatMoney } from '@kweebex/utils'
 import dayjs from 'dayjs'
 import { Tooltip } from 'floating-vue'
 
@@ -274,7 +274,7 @@ const { formatMessage } = useVIntl()
 
 await useAuth()
 
-// TODO: Deduplicate these types & interfaces in @modrinth/api-client PR.
+// TODO: Deduplicate these types & interfaces in @kweebex/api-client PR.
 type FormCompletionStatus = 'unknown' | 'unrequested' | 'unsigned' | 'tin-mismatch' | 'complete'
 
 type UserBalanceResponse = {

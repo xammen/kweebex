@@ -1,7 +1,7 @@
 <script setup>
-import { DownloadIcon, HeartIcon, TagIcon } from '@modrinth/assets'
-import { Avatar, TagItem } from '@modrinth/ui'
-import { formatCategory, formatNumber } from '@modrinth/utils'
+import { DownloadIcon, HeartIcon, TagIcon } from '@kweebex/assets'
+import { Avatar, TagItem } from '@kweebex/ui'
+import { formatCategory, formatNumber } from '@kweebex/utils'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { computed } from 'vue'

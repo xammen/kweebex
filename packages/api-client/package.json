@@ -1,5 +1,5 @@
 {
-	"name": "@modrinth/api-client",
+	"name": "@kweebex/api-client",
 	"version": "0.1.0",
 	"description": "An API client for Modrinth's API for use in nuxt, tauri and plain node/browser environments.",
 	"main": "./src/index.ts",
@@ -12,7 +12,7 @@
 		"ofetch": "^1.4.1"
 	},
 	"devDependencies": {
-		"@modrinth/tooling-config": "workspace:*"
+		"@kweebex/tooling-config": "workspace:*"
 	},
 	"peerDependencies": {
 		"@tauri-apps/plugin-http": "^2.0.0"

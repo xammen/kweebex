@@ -1,11 +1,3 @@
-/**
- * Hytale Game Configuration
- * 
- * Game-specific constants that differ from Minecraft/Modrinth.
- * This file will be updated as Hytale releases and we learn more
- * about its modding system.
- */
-
 export const GAME = {
   name: "Hytale",
   developer: "Hypixel Studios",
@@ -15,10 +7,11 @@ export const GAME = {
   
   contentTypes: [
     { id: "mod", label: "Mod", icon: "puzzle" },
-    { id: "resourcepack", label: "Resource Pack", icon: "palette" },
-    { id: "map", label: "Map", icon: "map" },
-    { id: "prefab", label: "Prefab", icon: "cube" },
-    { id: "model", label: "Model", icon: "box" },
+    { id: "modpack", label: "Modpack", icon: "package" },
+    { id: "resourcepack", label: "Resource Pack", icon: "palette", disabled: true },
+    { id: "map", label: "Map", icon: "map", disabled: true },
+    { id: "shader", label: "Shader", icon: "sun", disabled: true },
+    { id: "datapack", label: "Datapack", icon: "database", disabled: true },
   ],
 
   versions: [
@@ -27,7 +20,7 @@ export const GAME = {
   ],
 
   modLoaders: [
-    { id: "native", label: "Native (Hytale API)", default: true },
+    { id: "hytale", label: "Hytale Native", default: true },
   ],
 
   installPaths: {
@@ -38,6 +31,7 @@ export const GAME = {
 
   fileExtensions: {
     mod: [".hymod", ".zip"],
+    modpack: [".mrpack", ".zip"],
     resourcepack: [".hyrp", ".zip"],
     map: [".hymap", ".zip"],
   },

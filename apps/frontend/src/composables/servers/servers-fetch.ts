@@ -1,6 +1,6 @@
-import { PANEL_VERSION } from '@modrinth/api-client'
-import type { V1ErrorInfo } from '@modrinth/utils'
-import { ModrinthServerError, ModrinthServersFetchError } from '@modrinth/utils'
+import { PANEL_VERSION } from '@kweebex/api-client'
+import type { V1ErrorInfo } from '@kweebex/utils'
+import { ModrinthServerError, ModrinthServersFetchError } from '@kweebex/utils'
 import { $fetch, FetchError } from 'ofetch'
 
 export interface ServersFetchOptions {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ServersManagePageIndex } from '@modrinth/ui'
+import { ServersManagePageIndex } from '@kweebex/ui'
 
 import { useGeneratedState } from '~/composables/generated'
 

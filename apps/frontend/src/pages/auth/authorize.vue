@@ -80,7 +80,7 @@
 </template>
 
 <script setup>
-import { CheckIcon, XIcon } from '@modrinth/assets'
+import { CheckIcon, XIcon } from '@kweebex/assets'
 import {
 	Avatar,
 	Button,
@@ -90,7 +90,7 @@ import {
 	IntlFormatted,
 	normalizeChildren,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 import { useAuth } from '@/composables/auth.js'
 import { useScopes } from '@/composables/auth/scopes.ts'

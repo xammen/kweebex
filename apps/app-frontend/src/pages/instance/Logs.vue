@@ -91,8 +91,8 @@
 <script setup>
 import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 
-import { CheckIcon, ClipboardCopyIcon, ShareIcon, TrashIcon } from '@modrinth/assets'
-import { Button, Card, Checkbox, DropdownSelect, injectNotificationManager } from '@modrinth/ui'
+import { CheckIcon, ClipboardCopyIcon, ShareIcon, TrashIcon } from '@kweebex/assets'
+import { Button, Card, Checkbox, DropdownSelect, injectNotificationManager } from '@kweebex/ui'
 import dayjs from 'dayjs'
 import isToday from 'dayjs/plugin/isToday'
 import isYesterday from 'dayjs/plugin/isYesterday'

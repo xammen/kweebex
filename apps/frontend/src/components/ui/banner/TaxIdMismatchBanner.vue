@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { MessageIcon } from '@modrinth/assets'
-import { ButtonStyled, defineMessages, PagewideBanner, useVIntl } from '@modrinth/ui'
+import { MessageIcon } from '@kweebex/assets'
+import { ButtonStyled, defineMessages, PagewideBanner, useVIntl } from '@kweebex/ui'
 
 const { formatMessage } = useVIntl()
 

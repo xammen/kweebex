@@ -99,8 +99,8 @@
 	</div>
 </template>
 <script setup>
-import { CheckIcon, IssuesIcon, XIcon } from '@modrinth/assets'
-import { Badge, injectNotificationManager } from '@modrinth/ui'
+import { CheckIcon, IssuesIcon, XIcon } from '@kweebex/assets'
+import { Badge, injectNotificationManager } from '@kweebex/ui'
 
 import ConversationThread from '~/components/ui/thread/ConversationThread.vue'
 import {

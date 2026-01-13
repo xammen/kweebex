@@ -294,14 +294,14 @@ import {
 	TrashIcon,
 	UploadIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	ConfirmModal,
 	DropArea,
 	FileInput,
 	injectNotificationManager,
 	NewModal as Modal,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 import { isPermission } from '~/utils/permissions.ts'
 

@@ -103,9 +103,9 @@
 </template>
 
 <script setup>
-import { ReportIcon, UnknownIcon, VersionIcon } from '@modrinth/assets'
-import { Avatar, Badge, CopyCode, useRelativeTime } from '@modrinth/ui'
-import { formatProjectType, renderHighlightedString } from '@modrinth/utils'
+import { ReportIcon, UnknownIcon, VersionIcon } from '@kweebex/assets'
+import { Avatar, Badge, CopyCode, useRelativeTime } from '@kweebex/ui'
+import { formatProjectType, renderHighlightedString } from '@kweebex/utils'
 
 import ThreadSummary from '~/components/ui/thread/ThreadSummary.vue'
 import { getProjectTypeForUrl } from '~/helpers/projects.js'

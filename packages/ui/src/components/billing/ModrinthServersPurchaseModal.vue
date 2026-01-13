@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Archon, Labrinth } from '@modrinth/api-client'
+import type { Archon, Labrinth } from '@kweebex/api-client'
 import {
 	CheckCircleIcon,
 	ChevronRightIcon,
@@ -7,7 +7,7 @@ import {
 	RightArrowIcon,
 	SpinnerIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import type Stripe from 'stripe'
 import { computed, nextTick, ref, useTemplateRef, watch } from 'vue'
 

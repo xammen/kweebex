@@ -38,8 +38,8 @@
 	</div>
 </template>
 <script setup>
-import { Badge, Breadcrumbs, useVIntl } from '@modrinth/ui'
-import { formatPrice } from '@modrinth/utils'
+import { Badge, Breadcrumbs, useVIntl } from '@kweebex/ui'
+import { formatPrice } from '@kweebex/utils'
 
 import { products } from '~/generated/state.json'
 

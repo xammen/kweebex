@@ -279,7 +279,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@kweebex/api-client'
 import {
 	BoxIcon,
 	ClipboardCopyIcon,
@@ -294,7 +294,7 @@ import {
 	ReportIcon,
 	ShareIcon,
 	TrashIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	ButtonStyled,
 	ConfirmModal,
@@ -303,7 +303,7 @@ import {
 	injectProjectPageContext,
 	OverflowMenu,
 	ProjectPageVersions,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { useTemplateRef } from 'vue'
 
 import CreateProjectVersionModal from '~/components/ui/create-project-version/CreateProjectVersionModal.vue'

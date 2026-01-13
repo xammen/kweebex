@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { ProjectPageDescription } from '@modrinth/ui'
+import { ProjectPageDescription } from '@kweebex/ui'
 
 const route = useRoute()
 

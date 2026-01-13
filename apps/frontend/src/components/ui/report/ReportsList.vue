@@ -24,7 +24,7 @@
 	<p v-if="reports.length === 0">You don't have any active reports.</p>
 </template>
 <script setup>
-import { Chips } from '@modrinth/ui'
+import { Chips } from '@kweebex/ui'
 
 import ReportInfo from '~/components/ui/report/ReportInfo.vue'
 import { addReportMessage } from '~/helpers/threads.js'

@@ -83,7 +83,7 @@
 </template>
 
 <script setup lang="ts">
-import { AutoLink, ButtonStyled } from '@modrinth/ui'
+import { AutoLink, ButtonStyled } from '@kweebex/ui'
 import { onClickOutside, useElementHover } from '@vueuse/core'
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 

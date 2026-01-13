@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { DropdownIcon } from '@modrinth/assets'
+import { DropdownIcon } from '@kweebex/assets'
 import { computed, ref, useSlots, watch } from 'vue'
 
 const props = withDefaults(

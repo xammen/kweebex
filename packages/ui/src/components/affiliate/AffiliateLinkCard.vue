@@ -31,8 +31,8 @@
 </template>
 
 <script setup lang="ts">
-import { AffiliateIcon, XCircleIcon } from '@modrinth/assets'
-import type { AffiliateLink } from '@modrinth/utils'
+import { AffiliateIcon, XCircleIcon } from '@kweebex/assets'
+import type { AffiliateLink } from '@kweebex/utils'
 
 import { defineMessages, useVIntl } from '../../composables/i18n'
 import { AutoBrandIcon, ButtonStyled, CopyCode } from '../index'

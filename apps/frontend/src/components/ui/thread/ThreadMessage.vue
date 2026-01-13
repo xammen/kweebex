@@ -130,9 +130,9 @@ import {
 	MoreHorizontalIcon,
 	ScaleIcon,
 	TrashIcon,
-} from '@modrinth/assets'
-import { AutoLink, Avatar, Badge, OverflowMenu, useRelativeTime } from '@modrinth/ui'
-import { renderString } from '@modrinth/utils'
+} from '@kweebex/assets'
+import { AutoLink, Avatar, Badge, OverflowMenu, useRelativeTime } from '@kweebex/ui'
+import { renderString } from '@kweebex/utils'
 
 import { isStaff } from '~/helpers/users.js'
 

@@ -27,8 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import { CheckIcon, XIcon } from '@modrinth/assets'
-import { ConfirmModal } from '@modrinth/ui'
+import { CheckIcon, XIcon } from '@kweebex/assets'
+import { ConfirmModal } from '@kweebex/ui'
 import { computed, ref } from 'vue'
 
 const path = ref('')

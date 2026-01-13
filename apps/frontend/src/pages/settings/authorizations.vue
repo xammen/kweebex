@@ -89,7 +89,7 @@
 	</div>
 </template>
 <script setup>
-import { CheckIcon, TrashIcon } from '@modrinth/assets'
+import { CheckIcon, TrashIcon } from '@kweebex/assets'
 import {
 	Avatar,
 	Button,
@@ -97,7 +97,7 @@ import {
 	ConfirmModal,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 import { useScopes } from '~/composables/auth/scopes.ts'
 

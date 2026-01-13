@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { injectModrinthServerContext, ServersManageBackupsPage } from '@modrinth/ui'
+import { injectModrinthServerContext, ServersManageBackupsPage } from '@kweebex/ui'
 
 const { server, isServerRunning } = injectModrinthServerContext()
 const flags = useFeatureFlags()

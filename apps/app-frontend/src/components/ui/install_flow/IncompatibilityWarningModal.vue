@@ -56,9 +56,9 @@
 </template>
 
 <script setup>
-import { DownloadIcon, XIcon } from '@modrinth/assets'
-import { Button, injectNotificationManager } from '@modrinth/ui'
-import { formatCategory } from '@modrinth/utils'
+import { DownloadIcon, XIcon } from '@kweebex/assets'
+import { Button, injectNotificationManager } from '@kweebex/ui'
+import { formatCategory } from '@kweebex/utils'
 import { ref } from 'vue'
 import Multiselect from 'vue-multiselect'
 

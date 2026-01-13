@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PlusIcon, XIcon } from '@modrinth/assets'
+import { PlusIcon, XIcon } from '@kweebex/assets'
 import { nextTick, ref, useTemplateRef } from 'vue'
 
 import { defineMessages, useVIntl } from '../../composables/i18n'

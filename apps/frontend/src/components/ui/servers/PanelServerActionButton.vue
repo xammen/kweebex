@@ -119,9 +119,9 @@ import {
 	StopCircleIcon,
 	UpdatedIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { ButtonStyled, Checkbox, NewModal, ServerInfoLabels, useVIntl } from '@modrinth/ui'
-import type { PowerAction as ServerPowerAction, ServerState } from '@modrinth/utils'
+} from '@kweebex/assets'
+import { ButtonStyled, Checkbox, NewModal, ServerInfoLabels, useVIntl } from '@kweebex/ui'
+import type { PowerAction as ServerPowerAction, ServerState } from '@kweebex/utils'
 import { useStorage } from '@vueuse/core'
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'

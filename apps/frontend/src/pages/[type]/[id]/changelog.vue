@@ -73,10 +73,10 @@
 	</div>
 </template>
 <script setup>
-import { DownloadIcon } from '@modrinth/assets'
-import { Pagination } from '@modrinth/ui'
-import VersionFilterControl from '@modrinth/ui/src/components/version/VersionFilterControl.vue'
-import { renderHighlightedString } from '@modrinth/utils'
+import { DownloadIcon } from '@kweebex/assets'
+import { Pagination } from '@kweebex/ui'
+import VersionFilterControl from '@kweebex/ui/src/components/version/VersionFilterControl.vue'
+import { renderHighlightedString } from '@kweebex/utils'
 
 const props = defineProps({
 	project: {

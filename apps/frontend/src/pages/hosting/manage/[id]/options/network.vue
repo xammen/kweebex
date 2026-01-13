@@ -272,14 +272,14 @@ import {
 	TrashIcon,
 	UploadIcon,
 	VersionIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	ButtonStyled,
 	ConfirmModal,
 	CopyCode,
 	injectNotificationManager,
 	NewModal,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { computed, nextTick, ref } from 'vue'
 
 import SaveBanner from '~/components/ui/servers/SaveBanner.vue'

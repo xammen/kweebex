@@ -86,11 +86,11 @@ import {
 	ScaleIcon,
 	SendIcon,
 	TriangleAlertIcon,
-} from '@modrinth/assets'
-import type { Nag, NagContext, NagStatus } from '@modrinth/moderation'
-import { nags } from '@modrinth/moderation'
-import { ButtonStyled, defineMessages, type MessageDescriptor, useVIntl } from '@modrinth/ui'
-import type { Project, User, Version } from '@modrinth/utils'
+} from '@kweebex/assets'
+import type { Nag, NagContext, NagStatus } from '@kweebex/moderation'
+import { nags } from '@kweebex/moderation'
+import { ButtonStyled, defineMessages, type MessageDescriptor, useVIntl } from '@kweebex/ui'
+import type { Project, User, Version } from '@kweebex/utils'
 import type { Component } from 'vue'
 import { computed } from 'vue'
 

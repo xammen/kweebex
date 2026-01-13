@@ -1,4 +1,4 @@
-import '@modrinth/assets/omorphia.scss'
+import '@kweebex/assets/omorphia.scss'
 import 'floating-vue/dist/style.css'
 import '../src/styles/tailwind.css'
 

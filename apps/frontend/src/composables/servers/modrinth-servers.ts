@@ -1,6 +1,6 @@
-import type { AbstractWebNotificationManager } from '@modrinth/ui'
-import type { JWTAuth, ModuleError, ModuleName } from '@modrinth/utils'
-import { ModrinthServerError } from '@modrinth/utils'
+import type { AbstractWebNotificationManager } from '@kweebex/ui'
+import type { JWTAuth, ModuleError, ModuleName } from '@kweebex/utils'
+import { ModrinthServerError } from '@kweebex/utils'
 
 import { ContentModule, GeneralModule, NetworkModule, StartupModule } from './modules/index.ts'
 import { useServersFetch } from './servers-fetch.ts'

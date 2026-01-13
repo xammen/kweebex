@@ -1,6 +1,6 @@
 <script setup>
-import { PlusIcon } from '@modrinth/assets'
-import { Button, injectNotificationManager } from '@modrinth/ui'
+import { PlusIcon } from '@kweebex/assets'
+import { Button, injectNotificationManager } from '@kweebex/ui'
 import { onUnmounted, ref, shallowRef } from 'vue'
 import { useRoute } from 'vue-router'
 

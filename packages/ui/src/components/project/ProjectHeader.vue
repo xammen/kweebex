@@ -53,8 +53,8 @@
 	</ContentPageHeader>
 </template>
 <script setup lang="ts">
-import { DownloadIcon, HeartIcon, TagsIcon } from '@modrinth/assets'
-import { formatCategory, formatNumber, type Project } from '@modrinth/utils'
+import { DownloadIcon, HeartIcon, TagsIcon } from '@kweebex/assets'
+import { formatCategory, formatNumber, type Project } from '@kweebex/utils'
 import { useRouter } from 'vue-router'
 
 import Avatar from '../base/Avatar.vue'

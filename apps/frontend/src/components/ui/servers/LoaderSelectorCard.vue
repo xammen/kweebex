@@ -37,8 +37,8 @@
 </template>
 
 <script setup lang="ts">
-import { CheckIcon, DownloadIcon } from '@modrinth/assets'
-import { ButtonStyled, LoaderIcon } from '@modrinth/ui'
+import { CheckIcon, DownloadIcon } from '@kweebex/assets'
+import { ButtonStyled, LoaderIcon } from '@kweebex/ui'
 
 interface LoaderInfo {
 	name: 'Vanilla' | 'Fabric' | 'Forge' | 'Quilt' | 'Paper' | 'NeoForge' | 'Purpur'

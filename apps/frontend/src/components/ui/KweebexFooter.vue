@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BlueskyIcon, DiscordIcon, GithubIcon, MastodonIcon, TwitterIcon } from '@modrinth/assets'
+import { BlueskyIcon, DiscordIcon, GithubIcon, MastodonIcon, TwitterIcon } from '@kweebex/assets'
 import {
 	ButtonStyled,
 	defineMessage,
@@ -8,7 +8,7 @@ import {
 	IntlFormatted,
 	type MessageDescriptor,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 import TextLogo from '~/components/brand/TextLogo.vue'
 
@@ -17,18 +17,18 @@ const { formatMessage } = useVIntl()
 const { addNotification } = injectNotificationManager()
 
 const messages = defineMessages({
-	modrinthInformation: {
-		id: 'layout.footer.modrinth-information',
-		defaultMessage: 'Modrinth information',
+	kweebexInformation: {
+		id: 'layout.footer.kweebex-information',
+		defaultMessage: 'Kweebex information',
 	},
 	openSource: {
 		id: 'layout.footer.open-source',
-		defaultMessage: 'Modrinth is <github-link>open source</github-link>.',
+		defaultMessage: 'Kweebex is <github-link>open source</github-link>.',
 	},
 	legalDisclaimer: {
 		id: 'layout.footer.legal-disclaimer',
 		defaultMessage:
-			'NOT AN OFFICIAL MINECRAFT SERVICE. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.',
+			'NOT AN OFFICIAL HYTALE SERVICE. NOT APPROVED BY OR ASSOCIATED WITH HYPIXEL STUDIOS.',
 	},
 })
 
@@ -40,28 +40,28 @@ const socialLinks: {
 }[] = [
 	{
 		label: defineMessage({ id: 'layout.footer.social.discord', defaultMessage: 'Discord' }),
-		href: 'https://discord.modrinth.com',
+		href: 'https://discord.gg/kweebex', // TODO: Update with real Discord invite
 		icon: DiscordIcon,
 	},
 	{
 		label: defineMessage({ id: 'layout.footer.social.bluesky', defaultMessage: 'Bluesky' }),
-		href: 'https://bsky.app/profile/modrinth.com',
+		href: 'https://bsky.app/profile/kweebex.com', // TODO: Update when created
 		icon: BlueskyIcon,
 	},
 	{
 		label: defineMessage({ id: 'layout.footer.social.mastodon', defaultMessage: 'Mastodon' }),
-		href: 'https://floss.social/@modrinth',
+		href: 'https://floss.social/@kweebex', // TODO: Update when created
 		icon: MastodonIcon,
 		rel: 'me',
 	},
 	{
 		label: defineMessage({ id: 'layout.footer.social.x', defaultMessage: 'X' }),
-		href: 'https://x.com/modrinth',
+		href: 'https://x.com/kweebex', // TODO: Update when created
 		icon: TwitterIcon,
 	},
 	{
 		label: defineMessage({ id: 'layout.footer.social.github', defaultMessage: 'GitHub' }),
-		href: 'https://github.com/modrinth',
+		href: 'https://github.com/xammen/kweebex',
 		icon: GithubIcon,
 	},
 ]
@@ -85,14 +85,6 @@ const footerLinks: {
 				label: defineMessage({ id: 'layout.footer.about.changelog', defaultMessage: 'Changelog' }),
 			},
 			{
-				href: 'https://status.modrinth.com',
-				label: defineMessage({ id: 'layout.footer.about.status', defaultMessage: 'Status' }),
-			},
-			{
-				href: 'https://careers.modrinth.com',
-				label: defineMessage({ id: 'layout.footer.about.careers', defaultMessage: 'Careers' }),
-			},
-			{
 				href: '/legal/cmp-info',
 				label: defineMessage({
 					id: 'layout.footer.about.rewards-program',
@@ -106,18 +98,11 @@ const footerLinks: {
 		links: [
 			{
 				href: '/plus',
-				label: defineMessage({ id: 'layout.footer.products.plus', defaultMessage: 'Modrinth+' }),
+				label: defineMessage({ id: 'layout.footer.products.plus', defaultMessage: 'Kweebex+' }),
 			},
 			{
 				href: '/app',
-				label: defineMessage({ id: 'layout.footer.products.app', defaultMessage: 'Modrinth App' }),
-			},
-			{
-				href: '/hosting',
-				label: defineMessage({
-					id: 'layout.footer.products.servers',
-					defaultMessage: 'Modrinth Hosting',
-				}),
+				label: defineMessage({ id: 'layout.footer.products.app', defaultMessage: 'Kweebex App' }),
 			},
 		],
 	},
@@ -125,28 +110,14 @@ const footerLinks: {
 		label: defineMessage({ id: 'layout.footer.resources', defaultMessage: 'Resources' }),
 		links: [
 			{
-				href: 'https://support.modrinth.com',
-				label: defineMessage({
-					id: 'layout.footer.resources.help-center',
-					defaultMessage: 'Help Center',
-				}),
-			},
-			{
-				href: 'https://translate.modrinth.com',
-				label: defineMessage({
-					id: 'layout.footer.resources.translate',
-					defaultMessage: 'Translate',
-				}),
-			},
-			{
-				href: 'https://github.com/modrinth/code/issues',
+				href: 'https://github.com/xammen/kweebex/issues',
 				label: defineMessage({
 					id: 'layout.footer.resources.report-issues',
 					defaultMessage: 'Report issues',
 				}),
 			},
 			{
-				href: 'https://docs.modrinth.com/api/',
+				href: '/docs/api',
 				label: defineMessage({
 					id: 'layout.footer.resources.api-docs',
 					defaultMessage: 'API documentation',
@@ -232,7 +203,7 @@ function developerModeIncrement() {
 				<div
 					class="flex flex-col items-center gap-3 md:items-start"
 					role="region"
-					:aria-label="formatMessage(messages.modrinthInformation)"
+					:aria-label="formatMessage(messages.kweebexInformation)"
 				>
 					<TextLogo
 						aria-hidden="true"
@@ -261,7 +232,7 @@ function developerModeIncrement() {
 							<IntlFormatted :message-id="messages.openSource">
 								<template #github-link="{ children }">
 									<a
-										href="https://github.com/modrinth/code"
+										href="https://github.com/xammen/kweebex"
 										class="text-brand hover:underline"
 										target="_blank"
 										rel="noopener"
@@ -271,7 +242,7 @@ function developerModeIncrement() {
 								</template>
 							</IntlFormatted>
 						</p>
-						<p class="m-0">© {{ state.buildYear ?? '2025' }} Rinth, Inc.</p>
+						<p class="m-0">&copy; {{ state.buildYear ?? '2025' }} Kweebex</p>
 					</div>
 				</div>
 				<div class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:contents">

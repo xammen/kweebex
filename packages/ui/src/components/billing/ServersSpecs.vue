@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CpuIcon, DatabaseIcon, MemoryStickIcon, SparklesIcon, UnknownIcon } from '@modrinth/assets'
+import { CpuIcon, DatabaseIcon, MemoryStickIcon, SparklesIcon, UnknownIcon } from '@kweebex/assets'
 import { computed } from 'vue'
 
 import AutoLink from '../base/AutoLink.vue'

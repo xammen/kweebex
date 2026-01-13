@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { FileTextIcon } from '@modrinth/assets'
-import { ButtonStyled, defineMessages, PagewideBanner, useVIntl } from '@modrinth/ui'
+import { FileTextIcon } from '@kweebex/assets'
+import { ButtonStyled, defineMessages, PagewideBanner, useVIntl } from '@kweebex/ui'
 
 import CreatorTaxFormModal from '~/components/ui/dashboard/CreatorTaxFormModal.vue'
 

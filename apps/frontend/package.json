@@ -1,5 +1,5 @@
 {
-	"name": "@modrinth/frontend",
+	"name": "@kweebex/frontend",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -17,7 +17,7 @@
 	},
 	"devDependencies": {
 		"@formatjs/cli": "^6.2.12",
-		"@modrinth/tooling-config": "workspace:*",
+		"@kweebex/tooling-config": "workspace:*",
 		"@nuxtjs/i18n": "^9.0.0",
 		"@types/dompurify": "^3.0.5",
 		"@types/iso-3166-2": "^1.0.4",
@@ -41,12 +41,12 @@
 		"@formatjs/intl-localematcher": "^0.5.4",
 		"@intercom/messenger-js-sdk": "^0.0.14",
 		"@ltd/j-toml": "^1.38.0",
-		"@modrinth/api-client": "workspace:*",
-		"@modrinth/assets": "workspace:*",
-		"@modrinth/blog": "workspace:*",
-		"@modrinth/moderation": "workspace:*",
-		"@modrinth/ui": "workspace:*",
-		"@modrinth/utils": "workspace:*",
+		"@kweebex/api-client": "workspace:*",
+		"@kweebex/assets": "workspace:*",
+		"@kweebex/blog": "workspace:*",
+		"@kweebex/moderation": "workspace:*",
+		"@kweebex/ui": "workspace:*",
+		"@kweebex/utils": "workspace:*",
 		"@pinia/nuxt": "^0.11.3",
 		"@tanstack/vue-query": "^5.90.7",
 		"@types/three": "^0.172.0",
@@ -81,5 +81,5 @@
 		"xss": "^1.0.14"
 	},
 	"web-types": "../../web-types.json",
-	"prettier": "@modrinth/tooling-config/frontend.prettier.config.cjs"
+	"prettier": "@kweebex/tooling-config/frontend.prettier.config.cjs"
 }

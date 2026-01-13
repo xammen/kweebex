@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { XIcon } from '@modrinth/assets'
+import { XIcon } from '@kweebex/assets'
 
 export default {
 	components: {

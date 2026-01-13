@@ -39,9 +39,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { Labrinth } from '@modrinth/api-client'
-import { Chips, TagItem } from '@modrinth/ui'
-import { formatCategory } from '@modrinth/utils'
+import type { Labrinth } from '@kweebex/api-client'
+import { Chips, TagItem } from '@kweebex/ui'
+import { formatCategory } from '@kweebex/utils'
 
 const selectedLoaders = defineModel<string[]>({ default: [] })
 

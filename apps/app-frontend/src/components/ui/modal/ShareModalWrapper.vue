@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ShareModal } from '@modrinth/ui'
+import { ShareModal } from '@kweebex/ui'
 import { ref } from 'vue'
 
 import { hide_ads_window, show_ads_window } from '@/helpers/ads.js'

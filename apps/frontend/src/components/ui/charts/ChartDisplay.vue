@@ -309,9 +309,9 @@
 </template>
 
 <script setup lang="ts">
-import { DownloadIcon, PaletteIcon, UpdatedIcon } from '@modrinth/assets'
-import { Button, Card, DropdownSelect } from '@modrinth/ui'
-import { formatCategoryHeader, formatMoney, formatNumber } from '@modrinth/utils'
+import { DownloadIcon, PaletteIcon, UpdatedIcon } from '@kweebex/assets'
+import { Button, Card, DropdownSelect } from '@kweebex/ui'
+import { formatCategoryHeader, formatMoney, formatNumber } from '@kweebex/utils'
 import dayjs from 'dayjs'
 import { computed } from 'vue'
 

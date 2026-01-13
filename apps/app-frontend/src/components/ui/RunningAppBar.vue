@@ -101,8 +101,8 @@ import {
 	StopCircleIcon,
 	TerminalSquareIcon,
 	UnplugIcon,
-} from '@modrinth/assets'
-import { Button, ButtonStyled, Card, injectNotificationManager } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { Button, ButtonStyled, Card, injectNotificationManager } from '@kweebex/ui'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 

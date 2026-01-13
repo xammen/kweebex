@@ -102,8 +102,8 @@
 </template>
 
 <script lang="ts">
-import { ChevronRightIcon } from '@modrinth/assets'
-import { ButtonStyled, NewModal } from '@modrinth/ui'
+import { ChevronRightIcon } from '@kweebex/assets'
+import { ButtonStyled, NewModal } from '@kweebex/ui'
 import type { Component } from 'vue'
 import { computed, nextTick, ref, useTemplateRef, watch } from 'vue'
 

@@ -172,10 +172,10 @@
 </template>
 
 <script setup lang="ts">
-import { type Archon, type Labrinth, NuxtModrinthClient } from '@modrinth/api-client'
-import { HammerIcon, LoaderCircleIcon, PlusIcon, SearchIcon } from '@modrinth/assets'
-import { AutoLink, ButtonStyled, CopyCode, injectModrinthClient } from '@modrinth/ui'
-import type { ModrinthServersFetchError } from '@modrinth/utils'
+import { type Archon, type Labrinth, NuxtModrinthClient } from '@kweebex/api-client'
+import { HammerIcon, LoaderCircleIcon, PlusIcon, SearchIcon } from '@kweebex/assets'
+import { AutoLink, ButtonStyled, CopyCode, injectModrinthClient } from '@kweebex/ui'
+import type { ModrinthServersFetchError } from '@kweebex/utils'
 import { useQuery } from '@tanstack/vue-query'
 import dayjs from 'dayjs'
 import Fuse from 'fuse.js'

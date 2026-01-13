@@ -64,8 +64,8 @@ import {
 	MailIcon,
 	MastodonIcon,
 	TwitterIcon,
-} from '@modrinth/assets'
-import { ButtonStyled } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { ButtonStyled } from '@kweebex/ui'
 
 const props = defineProps<{
 	title?: string

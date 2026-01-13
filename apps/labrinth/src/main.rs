@@ -60,7 +60,7 @@ async fn main() -> std::io::Result<()> {
 
     color_eyre::install().expect("failed to install `color-eyre`");
     dotenvy::dotenv().ok();
-    modrinth_util::log::init().expect("failed to initialize logging");
+    kweebex_util::log::init().expect("failed to initialize logging");
 
     if check_env_vars() {
         error!("Some environment variables are missing!");

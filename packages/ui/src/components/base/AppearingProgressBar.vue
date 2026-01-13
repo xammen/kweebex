@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { formatBytes } from '@modrinth/utils'
+import { formatBytes } from '@kweebex/utils'
 import { computed, onUnmounted, ref, watch } from 'vue'
 
 interface Props {

@@ -82,7 +82,7 @@
 </template>
 
 <script setup lang="ts">
-import { Checkbox } from '@modrinth/ui'
+import { Checkbox } from '@kweebex/ui'
 
 import ChevronDownIcon from './icons/ChevronDownIcon.vue'
 import ChevronUpIcon from './icons/ChevronUpIcon.vue'

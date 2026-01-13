@@ -56,7 +56,7 @@
 	</div>
 </template>
 <script setup>
-import { XIcon } from '@modrinth/assets'
+import { XIcon } from '@kweebex/assets'
 import {
 	commonMessages,
 	commonSettingsMessages,
@@ -64,7 +64,7 @@ import {
 	injectNotificationManager,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 definePageMeta({
 	middleware: 'auth',

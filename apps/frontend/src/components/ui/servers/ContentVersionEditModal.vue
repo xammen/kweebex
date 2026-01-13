@@ -244,7 +244,7 @@ import {
 	GameIcon,
 	LockOpenIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Admonition,
 	Avatar,
@@ -253,9 +253,9 @@ import {
 	Combobox,
 	CopyCode,
 	NewModal,
-} from '@modrinth/ui'
-import TagItem from '@modrinth/ui/src/components/base/TagItem.vue'
-import { formatCategory, formatVersionsForDisplay, type Mod, type Version } from '@modrinth/utils'
+} from '@kweebex/ui'
+import TagItem from '@kweebex/ui/src/components/base/TagItem.vue'
+import { formatCategory, formatVersionsForDisplay, type Mod, type Version } from '@kweebex/utils'
 import { computed, ref } from 'vue'
 
 import Accordion from '~/components/ui/Accordion.vue'

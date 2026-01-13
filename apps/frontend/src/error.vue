@@ -51,7 +51,7 @@
 </template>
 
 <script setup>
-import { SadRinthbot } from '@modrinth/assets'
+import { SadRinthbot } from '@kweebex/assets'
 import {
 	defineMessage,
 	IntlFormatted,
@@ -61,7 +61,7 @@ import {
 	provideNotificationManager,
 	providePageContext,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 import Logo404 from '~/assets/images/404.svg'
 

@@ -23,15 +23,15 @@
 </template>
 
 <script setup lang="ts">
-import { CheckIcon, XIcon } from '@modrinth/assets'
+import { CheckIcon, XIcon } from '@kweebex/assets'
 import {
 	ButtonStyled,
 	defineMessages,
 	injectNotificationManager,
 	type MessageDescriptor,
 	useVIntl,
-} from '@modrinth/ui'
-import type { Project, User, Version } from '@modrinth/utils'
+} from '@kweebex/ui'
+import type { Project, User, Version } from '@kweebex/utils'
 import { computed } from 'vue'
 
 import { acceptTeamInvite, removeTeamMember } from '~/helpers/teams.js'

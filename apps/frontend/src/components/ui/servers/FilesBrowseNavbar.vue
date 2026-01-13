@@ -127,8 +127,8 @@ import {
 	PlusIcon,
 	SearchIcon,
 	UploadIcon,
-} from '@modrinth/assets'
-import { ButtonStyled, OverflowMenu } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { ButtonStyled, OverflowMenu } from '@kweebex/ui'
 
 defineProps<{
 	breadcrumbSegments: string[]

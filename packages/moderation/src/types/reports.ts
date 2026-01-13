@@ -1,5 +1,5 @@
-import type { Labrinth } from '@modrinth/api-client'
-import type { Report, Thread, User, Version } from '@modrinth/utils'
+import type { Labrinth } from '@kweebex/api-client'
+import type { Report, Thread, User, Version } from '@kweebex/utils'
 
 export interface OwnershipTarget {
 	name: string

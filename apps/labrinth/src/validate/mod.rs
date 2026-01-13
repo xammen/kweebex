@@ -2,6 +2,7 @@ use crate::database::models::DatabaseError;
 use crate::database::models::legacy_loader_fields::MinecraftGameVersion;
 use crate::database::models::loader_fields::VersionField;
 use crate::database::redis::RedisPool;
+use crate::features::FEATURES;
 use crate::models::pack::PackFormat;
 use crate::models::projects::{FileType, Loader};
 use crate::validate::datapack::DataPackValidator;
@@ -125,26 +126,63 @@ pub trait Validator: Sync {
 
 static ALWAYS_ALLOWED_EXT: &[&str] = &["zip", "txt"];
 
-static VALIDATORS: &[&dyn Validator] = &[
-    &ModpackValidator,
-    &FabricValidator,
-    &ForgeValidator,
-    &LegacyForgeValidator,
-    &QuiltValidator,
-    &LiteLoaderValidator,
-    &PackValidator,
-    &TexturePackValidator,
-    &PluginYmlValidator,
-    &BungeeCordValidator,
-    &VelocityValidator,
-    &SpongeValidator,
-    &CanvasShaderValidator,
-    &ShaderValidator,
-    &CoreShaderValidator,
-    &DataPackValidator,
-    &RiftValidator,
-    &NeoForgeValidator,
-];
+fn get_enabled_validators() -> Vec<&'static dyn Validator> {
+    let mut validators: Vec<&'static dyn Validator> = Vec::new();
+    let f = &*FEATURES;
+
+    if f.modpacks {
+        validators.push(&ModpackValidator);
+    }
+
+    if f.loader_fabric {
+        validators.push(&FabricValidator);
+    }
+    if f.loader_forge {
+        validators.push(&ForgeValidator);
+    }
+    if f.loader_legacy_forge {
+        validators.push(&LegacyForgeValidator);
+    }
+    if f.loader_quilt {
+        validators.push(&QuiltValidator);
+    }
+    if f.loader_liteloader {
+        validators.push(&LiteLoaderValidator);
+    }
+    if f.loader_neoforge {
+        validators.push(&NeoForgeValidator);
+    }
+    if f.loader_rift {
+        validators.push(&RiftValidator);
+    }
+
+    if f.resourcepacks {
+        validators.push(&PackValidator);
+        validators.push(&TexturePackValidator);
+    }
+
+    if f.plugins {
+        validators.push(&PluginYmlValidator);
+        validators.push(&BungeeCordValidator);
+        validators.push(&VelocityValidator);
+        validators.push(&SpongeValidator);
+    }
+
+    if f.shaders {
+        validators.push(&CanvasShaderValidator);
+        validators.push(&ShaderValidator);
+        validators.push(&CoreShaderValidator);
+    }
+
+    if f.datapacks {
+        validators.push(&DataPackValidator);
+    }
+
+    validators
+}
+
+static ENABLED_VALIDATORS: LazyLock<Vec<&'static dyn Validator>> =
+    LazyLock::new(get_enabled_validators);
 
 /// A regex that matches a potentially protected ZIP archive containing
 /// a vanilla Minecraft pack, with a requisite `pack.mcmeta` file.
@@ -239,7 +277,7 @@ async fn validate_minecraft_file(
 
         let mut visited = false;
         let mut saved_result = None;
-        for validator in VALIDATORS {
+        for validator in ENABLED_VALIDATORS.iter() {
             if loaders
                 .iter()
                 .any(|x| validator.get_supported_loaders().contains(&&*x.0))

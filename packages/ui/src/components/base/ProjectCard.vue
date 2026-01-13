@@ -68,8 +68,8 @@
 </template>
 
 <script setup>
-import { CalendarIcon, DownloadIcon, EditIcon, HeartIcon } from '@modrinth/assets'
-import { formatNumber } from '@modrinth/utils'
+import { CalendarIcon, DownloadIcon, EditIcon, HeartIcon } from '@kweebex/assets'
+import { formatNumber } from '@kweebex/utils'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime.js'
 import { computed } from 'vue'

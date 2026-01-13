@@ -10,7 +10,7 @@ import {
 	UnsavedChangesPopup,
 	useSavable,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 const { formatMessage } = useVIntl()
 

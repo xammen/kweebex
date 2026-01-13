@@ -76,8 +76,8 @@
 </template>
 
 <script setup lang="ts">
-import { ListFilterIcon, SearchIcon, SortAscIcon, SortDescIcon, XIcon } from '@modrinth/assets'
-import type { ExtendedReport } from '@modrinth/moderation'
+import { ListFilterIcon, SearchIcon, SortAscIcon, SortDescIcon, XIcon } from '@kweebex/assets'
+import type { ExtendedReport } from '@kweebex/moderation'
 import {
 	Button,
 	Combobox,
@@ -85,8 +85,8 @@ import {
 	defineMessages,
 	Pagination,
 	useVIntl,
-} from '@modrinth/ui'
-import type { Report } from '@modrinth/utils'
+} from '@kweebex/ui'
+import type { Report } from '@kweebex/utils'
 import Fuse from 'fuse.js'
 
 import ReportCard from '~/components/ui/moderation/ModerationReportCard.vue'

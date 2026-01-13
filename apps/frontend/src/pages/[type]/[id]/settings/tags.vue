@@ -133,15 +133,15 @@
 </template>
 
 <script setup lang="ts">
-import { SaveIcon, StarIcon, TriangleAlertIcon } from '@modrinth/assets'
-import { Checkbox } from '@modrinth/ui'
+import { SaveIcon, StarIcon, TriangleAlertIcon } from '@kweebex/assets'
+import { Checkbox } from '@kweebex/ui'
 import {
 	formatCategory,
 	formatCategoryHeader,
 	formatProjectType,
 	type Project,
 	sortedCategories,
-} from '@modrinth/utils'
+} from '@kweebex/utils'
 import { computed, ref } from 'vue'
 
 interface Category {

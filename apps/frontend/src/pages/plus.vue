@@ -85,9 +85,9 @@
 	</div>
 </template>
 <script setup>
-import { HeartIcon, ModrinthPlusIcon, SettingsIcon, SparklesIcon, StarIcon } from '@modrinth/assets'
-import { injectNotificationManager, PurchaseModal, useVIntl } from '@modrinth/ui'
-import { calculateSavings, formatPrice, getCurrency } from '@modrinth/utils'
+import { HeartIcon, ModrinthPlusIcon, SettingsIcon, SparklesIcon, StarIcon } from '@kweebex/assets'
+import { injectNotificationManager, PurchaseModal, useVIntl } from '@kweebex/ui'
+import { calculateSavings, formatPrice, getCurrency } from '@kweebex/utils'
 
 import { useBaseFetch } from '@/composables/fetch.js'
 import { isPermission } from '@/utils/permissions.ts'

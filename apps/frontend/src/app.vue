@@ -12,7 +12,7 @@ import {
 	provideModrinthClient,
 	provideNotificationManager,
 	providePageContext,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 
 import ModrinthLoadingIndicator from '~/components/ui/modrinth-loading-indicator.ts'
 import { createModrinthClient } from '~/helpers/api.ts'

@@ -115,9 +115,9 @@
 </template>
 
 <script setup lang="ts">
-import { EditIcon, TransferIcon } from '@modrinth/assets'
-import { injectModrinthClient, injectNotificationManager, ServerIcon } from '@modrinth/ui'
-import ButtonStyled from '@modrinth/ui/src/components/base/ButtonStyled.vue'
+import { EditIcon, TransferIcon } from '@kweebex/assets'
+import { injectModrinthClient, injectNotificationManager, ServerIcon } from '@kweebex/ui'
+import ButtonStyled from '@kweebex/ui/src/components/base/ButtonStyled.vue'
 
 import SaveBanner from '~/components/ui/servers/SaveBanner.vue'
 import type { ModrinthServer } from '~/composables/servers/modrinth-servers.ts'

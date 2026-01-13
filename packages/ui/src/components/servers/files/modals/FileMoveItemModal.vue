@@ -37,8 +37,8 @@
 </template>
 
 <script setup lang="ts">
-import { ArrowBigUpDashIcon, XIcon } from '@modrinth/assets'
-import { ButtonStyled, NewModal } from '@modrinth/ui'
+import { ArrowBigUpDashIcon, XIcon } from '@kweebex/assets'
+import { ButtonStyled, NewModal } from '@kweebex/ui'
 import { computed, nextTick, ref } from 'vue'
 
 const destinationInput = ref<HTMLInputElement | null>(null)

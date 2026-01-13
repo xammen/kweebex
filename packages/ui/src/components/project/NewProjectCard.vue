@@ -64,8 +64,8 @@
 </template>
 
 <script setup>
-import { DownloadIcon, HeartIcon, HistoryIcon, TagsIcon } from '@modrinth/assets'
-import { formatCategory, formatNumber } from '@modrinth/utils'
+import { DownloadIcon, HeartIcon, HistoryIcon, TagsIcon } from '@kweebex/assets'
+import { formatCategory, formatNumber } from '@kweebex/utils'
 
 import { useRelativeTime } from '../../composables'
 import Avatar from '../base/Avatar.vue'

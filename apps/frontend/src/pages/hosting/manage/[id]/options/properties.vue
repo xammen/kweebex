@@ -133,8 +133,8 @@
 </template>
 
 <script setup lang="ts">
-import { EyeIcon, SearchIcon } from '@modrinth/assets'
-import { Combobox, injectModrinthClient, injectNotificationManager } from '@modrinth/ui'
+import { EyeIcon, SearchIcon } from '@kweebex/assets'
+import { Combobox, injectModrinthClient, injectNotificationManager } from '@kweebex/ui'
 import Fuse from 'fuse.js'
 import { computed, inject, ref, watch } from 'vue'
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ChangelogEntry } from '@modrinth/ui'
-import Timeline from '@modrinth/ui/src/components/base/Timeline.vue'
-import { getChangelog, type Product } from '@modrinth/utils'
+import { ChangelogEntry } from '@kweebex/ui'
+import Timeline from '@kweebex/ui/src/components/base/Timeline.vue'
+import { getChangelog, type Product } from '@kweebex/utils'
 
 import NavTabs from '~/components/ui/NavTabs.vue'
 

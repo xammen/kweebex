@@ -73,15 +73,15 @@ import {
 	PayPalColorIcon,
 	VenmoColorIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	BulletDivider,
 	ButtonStyled,
 	getCurrencyIcon,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
-import { capitalizeString, formatMoney } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { capitalizeString, formatMoney } from '@kweebex/utils'
 import dayjs from 'dayjs'
 import { Tooltip } from 'floating-vue'
 

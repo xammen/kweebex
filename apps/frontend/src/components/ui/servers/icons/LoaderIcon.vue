@@ -4,7 +4,7 @@
 </template>
 
 <script setup lang="ts">
-import { LoaderIcon } from '@modrinth/assets'
+import { LoaderIcon } from '@kweebex/assets'
 import { computed } from 'vue'
 
 import { useGeneratedState } from '~/composables/generated'

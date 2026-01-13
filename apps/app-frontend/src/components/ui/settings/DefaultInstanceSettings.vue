@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { injectNotificationManager, Slider, Toggle } from '@modrinth/ui'
+import { injectNotificationManager, Slider, Toggle } from '@kweebex/ui'
 import { ref, watch } from 'vue'
 
 import useMemorySlider from '@/composables/useMemorySlider'

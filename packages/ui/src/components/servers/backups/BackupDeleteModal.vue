@@ -35,8 +35,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Archon } from '@modrinth/api-client'
-import { TrashIcon, XIcon } from '@modrinth/assets'
+import type { Archon } from '@kweebex/api-client'
+import { TrashIcon, XIcon } from '@kweebex/assets'
 import { ref } from 'vue'
 
 import Admonition from '../../base/Admonition.vue'

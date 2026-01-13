@@ -82,8 +82,8 @@
 </template>
 
 <script setup lang="ts">
-import { ChevronDownIcon, ChevronUpIcon } from '@modrinth/assets'
-import { Checkbox } from '@modrinth/ui'
+import { ChevronDownIcon, ChevronUpIcon } from '@kweebex/assets'
+import { Checkbox } from '@kweebex/ui'
 
 defineProps<{
 	sortField: string

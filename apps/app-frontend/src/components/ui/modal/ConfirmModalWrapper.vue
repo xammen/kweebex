@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ConfirmModal } from '@modrinth/ui'
+import { ConfirmModal } from '@kweebex/ui'
 import { ref } from 'vue'
 
 import { hide_ads_window, show_ads_window } from '@/helpers/ads.js'

@@ -12,8 +12,8 @@
 </template>
 
 <script lang="ts" setup>
-import type { ComboboxOption } from '@modrinth/ui'
-import { Combobox, injectModrinthClient, injectNotificationManager } from '@modrinth/ui'
+import type { ComboboxOption } from '@kweebex/ui'
+import { Combobox, injectModrinthClient, injectNotificationManager } from '@kweebex/ui'
 import { useDebounceFn } from '@vueuse/core'
 import { defineAsyncComponent, h } from 'vue'
 

@@ -280,8 +280,8 @@ import {
 	SpinnerIcon,
 	VersionIcon,
 	XCircleIcon,
-} from '@modrinth/assets'
-import { defineMessage } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { defineMessage } from '@kweebex/ui'
 import {
 	AutoLink,
 	Avatar,
@@ -294,8 +294,8 @@ import {
 	RadialHeader,
 	RadioButtons,
 	useVIntl,
-} from '@modrinth/ui'
-import type { Project, Report, User, Version } from '@modrinth/utils'
+} from '@kweebex/ui'
+import type { Project, Report, User, Version } from '@kweebex/utils'
 
 import { useImageUpload } from '~/composables/image-upload.ts'
 

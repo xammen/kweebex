@@ -167,8 +167,8 @@ import {
 	SearchIcon,
 	ShareIcon,
 	UploadIcon,
-} from '@modrinth/assets'
-import { Button, ButtonStyled, OverflowMenu } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { Button, ButtonStyled, OverflowMenu } from '@kweebex/ui'
 import { computed } from 'vue'
 
 import TeleportOverflowMenu from './explorer/TeleportOverflowMenu.vue'

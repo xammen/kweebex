@@ -42,9 +42,9 @@ import {
 	ListIcon,
 	OrganizationIcon,
 	ReportIcon,
-} from '@modrinth/assets'
-import { commonMessages, useVIntl } from '@modrinth/ui'
-import { type User, UserBadge } from '@modrinth/utils'
+} from '@kweebex/assets'
+import { commonMessages, useVIntl } from '@kweebex/ui'
+import { type User, UserBadge } from '@kweebex/utils'
 
 import NavStack from '~/components/ui/NavStack.vue'
 

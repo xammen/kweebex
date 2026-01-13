@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { MessageDescriptor } from '@modrinth/ui'
-import { ButtonStyled, defineMessage, ServersSpecs, useVIntl } from '@modrinth/ui'
-import { formatPrice } from '@modrinth/utils'
+import type { MessageDescriptor } from '@kweebex/ui'
+import { ButtonStyled, defineMessage, ServersSpecs, useVIntl } from '@kweebex/ui'
+import { formatPrice } from '@kweebex/utils'
 
 const { formatMessage, locale } = useVIntl()
 

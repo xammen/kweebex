@@ -64,7 +64,7 @@
 	</div>
 </template>
 <script setup lang="ts">
-import { BookTextIcon, CalendarIcon, ExternalIcon, ScaleIcon, VersionIcon } from '@modrinth/assets'
+import { BookTextIcon, CalendarIcon, ExternalIcon, ScaleIcon, VersionIcon } from '@kweebex/assets'
 import dayjs from 'dayjs'
 import { computed } from 'vue'
 

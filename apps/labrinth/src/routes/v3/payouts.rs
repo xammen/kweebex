@@ -22,7 +22,7 @@ use chrono::{DateTime, Duration, Utc};
 use eyre::eyre;
 use hex::ToHex;
 use hmac::{Hmac, Mac};
-use modrinth_util::decimal::Decimal2dp;
+use kweebex_util::decimal::Decimal2dp;
 use reqwest::Method;
 use rust_decimal::{Decimal, RoundingStrategy};
 use serde::{Deserialize, Serialize};

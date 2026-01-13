@@ -196,8 +196,8 @@ import {
 	UpdatedIcon,
 	UploadIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { Avatar, Button, Checkbox, Chips, injectNotificationManager } from '@modrinth/ui'
+} from '@kweebex/assets'
+import { Avatar, Button, Checkbox, Chips, injectNotificationManager } from '@kweebex/ui'
 import { convertFileSrc } from '@tauri-apps/api/core'
 import { getCurrentWebview } from '@tauri-apps/api/webview'
 import { open } from '@tauri-apps/plugin-dialog'

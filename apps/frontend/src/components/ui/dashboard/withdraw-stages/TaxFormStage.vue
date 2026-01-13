@@ -73,7 +73,7 @@
 </template>
 
 <script setup lang="ts">
-import { FileTextIcon } from '@modrinth/assets'
+import { FileTextIcon } from '@kweebex/assets'
 import {
 	Admonition,
 	ButtonStyled,
@@ -81,8 +81,8 @@ import {
 	IntlFormatted,
 	normalizeChildren,
 	useVIntl,
-} from '@modrinth/ui'
-import { formatMoney } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { formatMoney } from '@kweebex/utils'
 import { computed } from 'vue'
 
 import { TAX_THRESHOLD_ACTUAL } from '@/providers/creator-withdraw.ts'

@@ -475,7 +475,7 @@ import {
 	SaveIcon,
 	SpinnerIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Avatar,
 	ButtonStyled,
@@ -490,8 +490,8 @@ import {
 	TagItem,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
-import { isAdmin, isStaff, UserBadge } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { isAdmin, isStaff, UserBadge } from '@kweebex/utils'
 
 import TenMClubBadge from '~/assets/images/badges/10m-club.svg?component'
 import AlphaTesterBadge from '~/assets/images/badges/alpha-tester.svg?component'

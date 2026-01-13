@@ -106,7 +106,7 @@ import {
 	SortAscIcon,
 	SortDescIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	Button,
 	ButtonStyled,
@@ -116,7 +116,7 @@ import {
 	injectNotificationManager,
 	Pagination,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import Fuse from 'fuse.js'
 import ConfettiExplosion from 'vue-confetti-explosion'
 

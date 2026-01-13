@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { SpinnerIcon } from '@modrinth/assets'
+import { SpinnerIcon } from '@kweebex/assets'
 import {
 	getEditorLanguage,
 	getFileExtension,
@@ -50,7 +50,7 @@ import {
 	injectModrinthServerContext,
 	injectNotificationManager,
 	isImageFile,
-} from '@modrinth/ui'
+} from '@kweebex/ui'
 import { useQueryClient } from '@tanstack/vue-query'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 

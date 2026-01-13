@@ -1,5 +1,5 @@
 <script setup>
-import { Button, injectNotificationManager } from '@modrinth/ui'
+import { Button, injectNotificationManager } from '@kweebex/ui'
 import { ref } from 'vue'
 
 import ModalWrapper from '@/components/ui/modal/ModalWrapper.vue'

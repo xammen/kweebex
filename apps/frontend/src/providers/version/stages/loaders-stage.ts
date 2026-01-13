@@ -1,5 +1,5 @@
-import { LeftArrowIcon, RightArrowIcon } from '@modrinth/assets'
-import type { StageConfigInput } from '@modrinth/ui'
+import { LeftArrowIcon, RightArrowIcon } from '@kweebex/assets'
+import type { StageConfigInput } from '@kweebex/ui'
 import { markRaw } from 'vue'
 
 import LoadersStage from '~/components/ui/create-project-version/stages/LoadersStage.vue'

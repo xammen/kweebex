@@ -154,8 +154,8 @@
 </template>
 
 <script setup lang="ts">
-import { SaveIcon } from '@modrinth/assets'
-import { Checkbox, DropdownSelect } from '@modrinth/ui'
+import { SaveIcon } from '@kweebex/assets'
+import { Checkbox, DropdownSelect } from '@kweebex/ui'
 import {
 	type BuiltinLicense,
 	builtinLicenses,
@@ -163,7 +163,7 @@ import {
 	type Project,
 	type TeamMember,
 	TeamMemberPermission,
-} from '@modrinth/utils'
+} from '@kweebex/utils'
 import { computed, type Ref, ref } from 'vue'
 
 const props = defineProps<{

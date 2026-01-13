@@ -645,16 +645,16 @@ import {
 	TerminalSquareIcon,
 	TransferIcon,
 	VersionIcon,
-} from '@modrinth/assets'
+} from '@kweebex/assets'
 import {
 	ButtonStyled,
 	commonMessages,
 	injectNotificationManager,
 	ModrinthServersPurchaseModal,
 	useVIntl,
-} from '@modrinth/ui'
-import { monthsInInterval } from '@modrinth/ui/src/utils/billing.ts'
-import { formatPrice } from '@modrinth/utils'
+} from '@kweebex/ui'
+import { monthsInInterval } from '@kweebex/ui/src/utils/billing.ts'
+import { formatPrice } from '@kweebex/utils'
 import { computed } from 'vue'
 
 import { useBaseFetch } from '@/composables/fetch.js'

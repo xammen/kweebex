@@ -1,4 +1,4 @@
-import { ImageIcon } from '@modrinth/assets'
+import { ImageIcon } from '@kweebex/assets'
 
 import type { ButtonAction } from '../../types/actions'
 import type { Stage } from '../../types/stage'

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ChevronRightIcon, GitGraphIcon, RssIcon } from '@modrinth/assets'
-import { articles as rawArticles } from '@modrinth/blog'
-import { ButtonStyled, NewsArticleCard } from '@modrinth/ui'
+import { ChevronRightIcon, GitGraphIcon, RssIcon } from '@kweebex/assets'
+import { articles as rawArticles } from '@kweebex/blog'
+import { ButtonStyled, NewsArticleCard } from '@kweebex/ui'
 import dayjs from 'dayjs'
 import { computed, ref } from 'vue'
 
