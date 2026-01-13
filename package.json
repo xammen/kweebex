@@ -1,0 +1,53 @@
+{
+	"name": "@kweebex/monorepo",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"web:dev": "turbo run dev --filter=@kweebex/frontend",
+		"web:build": "turbo run build --filter=@kweebex/frontend",
+		"app:dev": "turbo run dev --filter=@kweebex/app",
+		"app:build": "turbo run build --filter=@kweebex/app",
+		"docs:dev": "turbo run dev --filter=@kweebex/docs",
+		"pages:build": "NITRO_PRESET=cloudflare-pages pnpm --filter frontend run build",
+		"build": "turbo run build --continue",
+		"lint": "turbo run lint lint:ancillary --continue",
+		"lint:ancillary": "prettier --check .github *.*",
+		"test": "turbo run test --continue",
+		"fix": "turbo run fix fix:ancillary --continue",
+		"fix:ancillary": "prettier --write .github *.*",
+		"ci": "turbo run lint test --continue",
+		"prepr": "turbo run prepr --continue",
+		"prepr:frontend": "turbo run prepr --filter=@kweebex/frontend --filter=@kweebex/app-frontend",
+		"prepr:frontend:lib": "turbo run prepr --filter=@kweebex/ui --filter=@kweebex/moderation --filter=@kweebex/assets --filter=@kweebex/blog --filter=@kweebex/api-client --filter=@kweebex/utils --filter=@kweebex/tooling-config",
+		"prepr:frontend:web": "turbo run prepr --filter=@kweebex/frontend",
+		"prepr:frontend:app": "turbo run prepr --filter=@kweebex/app-frontend",
+		"storybook": "pnpm --filter @kweebex/ui storybook",
+		"icons:add": "pnpm --filter @kweebex/assets icons:add",
+		"scripts": "node scripts/run.mjs"
+	},
+	"devDependencies": {
+		"@kweebex/tooling-config": "workspace:*",
+		"@types/node": "^20.1.0",
+		"@vue/compiler-dom": "^3.5.26",
+		"@vue/compiler-sfc": "^3.5.26",
+		"chalk": "^5.6.2",
+		"if-ci": "^3.0.0",
+		"prettier": "^3.3.2",
+		"turbo": "^2.5.4",
+		"vue": "^3.5.13"
+	},
+	"packageManager": "pnpm@9.15.0",
+	"pnpm": {
+		"patchedDependencies": {
+			"readable-stream@2.3.8": "patches/readable-stream@2.3.8.patch",
+			"@nuxtjs/i18n@9.5.6": "patches/@nuxtjs__i18n@9.5.6.patch"
+		},
+		"peerDependencyRules": {
+			"allowedVersions": {
+				"vite": "7",
+				"esbuild": "0"
+			}
+		}
+	},
+	"prettier": "@kweebex/tooling-config/prettier.config.cjs"
+}
