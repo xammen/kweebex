@@ -1,6 +1,26 @@
 version: '3.8'
 
 services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      args:
+        - BROWSER_BASE_URL=${API_URL:-https://api.kweebex.com}/v2/
+        - CF_PAGES_URL=${SITE_URL:-https://kweebex.com}
+    ports:
+      - "3000:3000"
+    environment:
+      - BROWSER_BASE_URL=${API_URL:-https://api.kweebex.com}/v2/
+      - NODE_ENV=production
+    depends_on:
+      - labrinth
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
   labrinth:
     build:
       context: .
@@ -15,8 +35,8 @@ services:
       - BIND_ADDR=0.0.0.0:8000
       - SITE_URL=${SITE_URL:-https://kweebex.com}
       - SITE_NAME=Kweebex
-      - CDN_URL=${CDN_URL:-http://localhost:8000}
-      - SELF_ADDR=${SELF_ADDR:-http://localhost:8000}
+      - CDN_URL=${API_URL:-http://localhost:8000}
+      - SELF_ADDR=${API_URL:-http://localhost:8000}
       - LABRINTH_ADMIN_KEY=${LABRINTH_ADMIN_KEY:-change-me-admin-key}
       - RATE_LIMIT_IGNORE_KEY=${RATE_LIMIT_IGNORE_KEY:-change-me-rate-key}
       - STORAGE_BACKEND=local
